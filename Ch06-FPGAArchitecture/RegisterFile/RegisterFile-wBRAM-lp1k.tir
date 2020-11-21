@@ -1,0 +1,25 @@
+
+icetime topological timing analysis report
+==========================================
+
+Report for critical path:
+-------------------------
+
+        ram_3_7 (SB_RAM40_4K) [clk] -> RDATA[15]: 3.263 ns
+     3.263 ns net_5146 (rdDataA[15]$SB_IO_OUT)
+        odrv_3_8_5146_5279 (Odrv4) I -> O: 0.548 ns
+        t81 (Span4Mux_h4) I -> O: 0.465 ns
+        t80 (Span4Mux_h3) I -> O: 0.341 ns
+        t79 (IoSpan4Mux) I -> O: 0.475 ns
+        t78 (LocalMux) I -> O: 0.486 ns
+        inmux_13_7_27422_27400 (IoInMux) I -> O: 0.382 ns
+     5.961 ns net_27400 (rdDataA[15]$SB_IO_OUT)
+        pre_io_13_7_0 (PRE_IO) DOUT0 [setup]: 0.103 ns
+     6.064 ns io_pad_13_7_0_din
+
+Resolvable net names on path:
+     3.263 ns ..  5.961 ns rdDataA[15]$SB_IO_OUT
+
+Total number of logic levels: 1
+Total path delay: 6.06 ns (164.90 MHz)
+
