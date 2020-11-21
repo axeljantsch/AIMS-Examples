@@ -1,0 +1,4 @@
+00 ks_z
+01 eu1_z
+10 eu2_z
+11 invalid

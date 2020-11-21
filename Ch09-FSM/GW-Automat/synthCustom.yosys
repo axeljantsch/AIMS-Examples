@@ -1,0 +1,69 @@
+#
+# Yosys script for synthesiying for iCE40 FPGAs.
+# It is based on the built-in command synth_ice40 but does not recode
+# the FSMs. This allows to define the state encoding before.
+# synth_ice40 overrides any encoing done before and always uses one-hot.
+    begin:
+        read_verilog -lib +/ice40/cells_sim.v
+        hierarchy -check -auto-top
+
+    flatten:   
+        proc
+        flatten
+        tribuf -logic
+        deminout
+
+    coarse:
+        proc
+        flatten   
+        opt_expr
+        opt_clean
+        check
+        opt
+        wreduce
+        alumacc
+        share
+        opt
+        fsm -norecode
+        opt -fast
+        memory -nomap
+        opt_clean
+
+    bram: 
+        memory_bram -rules +/ice40/brams.txt
+        techmap -map +/ice40/brams_map.v
+
+    fine:
+        opt -fast -mux_undef -undriven -fine
+        memory_map
+        opt -undriven -fine
+        techmap -map +/techmap.v -map +/ice40/arith_map.v
+        abc -dff   
+        ice40_opt
+
+    map_ffs:
+        dffsr2dff
+        dff2dffe -direct-match $_DFF_*
+        techmap -map +/ice40/cells_map.v
+        opt_expr -mux_undef
+        simplemap
+        ice40_ffinit
+        ice40_ffssr
+        ice40_opt -full
+
+    map_luts:
+        abc         
+        ice40_opt   
+        techmap -map +/ice40/latches_map.v
+        abc -lut 4
+        clean
+
+    map_cells:
+        techmap -map +/ice40/cells_map.v
+        clean
+
+    check:
+        hierarchy -check
+        stat
+        check -noinit
+

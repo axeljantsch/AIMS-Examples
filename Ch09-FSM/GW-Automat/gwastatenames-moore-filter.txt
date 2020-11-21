@@ -1,0 +1,9 @@
+0 KS_Z
+1 EU1_Z
+2 Ret10c
+3 Ret2E_a
+4 EU2_Z
+5 Ret20c
+6 Ret1E
+7 Ret2E_b
+
