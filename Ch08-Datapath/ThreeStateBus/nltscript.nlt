@@ -1,0 +1,18 @@
+read_vcd BusUser.vcd
+cd BusUser.vcd
+add D0
+cd D0
+select BusUser_tb.clk
+select -a BusUser_tb.en1
+select -a uut1.private
+select -a uut1.outdata
+select -a BusUser_tb.dbus
+select -a uut2.outdata
+select -a uut2.private
+select -a BusUser_tb.en2
+
+autoscale 12cm
+set hierlevel 1
+write_pdf BusUser-trace.pdf
+show
+exit
