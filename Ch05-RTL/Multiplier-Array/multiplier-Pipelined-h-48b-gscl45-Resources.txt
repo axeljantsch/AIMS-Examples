@@ -1,0 +1,10 @@
+wires: = 13954
+public wire bits: = 673
+processes: = 0
+memory bits: = 0
+memories: = 0
+GATE = 25835
+public wires: = 10
+wire bits: = 14854
+cells: = 14325
+DFF = 240

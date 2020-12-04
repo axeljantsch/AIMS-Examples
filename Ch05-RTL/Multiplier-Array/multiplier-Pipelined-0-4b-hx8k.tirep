@@ -1,0 +1,51 @@
+
+icetime topological timing analysis report
+==========================================
+
+Report for critical path:
+-------------------------
+
+        lc40_30_15_5 (LogicCell40) [clk] -> lcout: 0.640 ns
+     0.640 ns net_118720 (areg[0])
+        t105 (LocalMux) I -> O: 0.330 ns
+        inmux_29_14_118654_118696 (InMux) I -> O: 0.260 ns
+        lc40_29_14_5 (LogicCell40) in0 -> lcout: 0.449 ns
+     1.678 ns net_114520 ($abc$319$n29)
+        t80 (LocalMux) I -> O: 0.330 ns
+        inmux_29_14_118638_118684 (InMux) I -> O: 0.260 ns
+        lc40_29_14_3 (LogicCell40) in0 -> lcout: 0.449 ns
+     2.716 ns net_114518 ($abc$319$n28)
+        t77 (LocalMux) I -> O: 0.330 ns
+        inmux_28_14_114583_114615 (InMux) I -> O: 0.260 ns
+        t14 (CascadeMux) I -> O: 0.000 ns
+        lc40_28_14_4 (LogicCell40) in2 -> lcout: 0.379 ns
+     3.684 ns net_110442 ($abc$319$n24)
+        t55 (LocalMux) I -> O: 0.330 ns
+        inmux_27_13_110384_110390 (InMux) I -> O: 0.260 ns
+        lc40_27_13_0 (LogicCell40) in1 -> carryout: 0.260 ns
+     4.533 ns net_110388 ($auto$maccmap.cc:240:synth$117.C[4])
+        lc40_27_13_1 (LogicCell40) carryin -> carryout: 0.126 ns
+     4.659 ns net_110394 ($auto$maccmap.cc:240:synth$117.C[5])
+        lc40_27_13_2 (LogicCell40) carryin -> carryout: 0.126 ns
+     4.785 ns net_110400 ($auto$maccmap.cc:240:synth$117.C[6])
+        lc40_27_13_3 (LogicCell40) carryin -> carryout: 0.126 ns
+     4.911 ns net_110406 ($auto$maccmap.cc:240:synth$117.C[7])
+        inmux_27_13_110406_110416 (InMux) I -> O: 0.260 ns
+     5.171 ns net_110416 ($auto$maccmap.cc:240:synth$117.C[7])
+        lc40_27_13_4 (LogicCell40) in3 [setup]: 0.217 ns
+     5.388 ns net_106242 (partials[3][7])
+
+Resolvable net names on path:
+     0.640 ns ..  1.229 ns areg[0]
+     1.678 ns ..  2.267 ns $abc$319$n29
+     2.716 ns ..  3.305 ns $abc$319$n28
+     3.684 ns ..  4.273 ns $abc$319$n24
+     4.533 ns ..  4.533 ns $auto$maccmap.cc:240:synth$117.C[4]
+     4.659 ns ..  4.659 ns $auto$maccmap.cc:240:synth$117.C[5]
+     4.785 ns ..  4.785 ns $auto$maccmap.cc:240:synth$117.C[6]
+     4.911 ns ..  5.171 ns $auto$maccmap.cc:240:synth$117.C[7]
+                  lcout -> partials[3][7]
+
+Total number of logic levels: 8
+Total path delay: 5.39 ns (185.59 MHz)
+

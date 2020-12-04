@@ -1,0 +1,82 @@
+
+icetime topological timing analysis report
+==========================================
+
+Report for critical path:
+-------------------------
+
+        lc40_16_17_2 (LogicCell40) [clk] -> lcout: 0.640 ns
+     0.640 ns net_62560 (breg[3])
+        t363 (LocalMux) I -> O: 0.330 ns
+        inmux_17_17_70754_70797 (InMux) I -> O: 0.260 ns
+        lc40_17_17_2 (LogicCell40) in0 -> lcout: 0.449 ns
+     1.678 ns net_66636 ($abc$832$n54)
+        t446 (LocalMux) I -> O: 0.330 ns
+        inmux_17_17_70770_70785 (InMux) I -> O: 0.260 ns
+        lc40_17_17_0 (LogicCell40) in0 -> lcout: 0.449 ns
+     2.716 ns net_66634 ($abc$832$n57)
+        t444 (LocalMux) I -> O: 0.330 ns
+        inmux_17_16_70629_70681 (InMux) I -> O: 0.260 ns
+        lc40_17_16_3 (LogicCell40) in1 -> lcout: 0.400 ns
+     3.705 ns net_66514 ($abc$832$n56)
+        t428 (LocalMux) I -> O: 0.330 ns
+        inmux_18_16_74716_74757 (InMux) I -> O: 0.260 ns
+        lc40_18_16_3 (LogicCell40) in1 -> lcout: 0.400 ns
+     4.694 ns net_70591 ($abc$832$n48)
+        t499 (LocalMux) I -> O: 0.330 ns
+        inmux_17_16_70656_70664 (InMux) I -> O: 0.260 ns
+        t117 (CascadeMux) I -> O: 0.000 ns
+        lc40_17_16_0 (LogicCell40) in2 -> lcout: 0.379 ns
+     5.662 ns net_66511 ($abc$832$n80)
+        odrv_17_16_66511_62580 (Odrv4) I -> O: 0.372 ns
+        t438 (Span4Mux_h3) I -> O: 0.231 ns
+        t437 (LocalMux) I -> O: 0.330 ns
+        inmux_12_16_50246_50279 (InMux) I -> O: 0.260 ns
+        lc40_12_16_0 (LogicCell40) in1 -> carryout: 0.260 ns
+     7.113 ns net_50277 ($auto$maccmap.cc:240:synth$217.C[6])
+        lc40_12_16_1 (LogicCell40) carryin -> carryout: 0.126 ns
+     7.240 ns net_50283 ($auto$maccmap.cc:240:synth$217.C[7])
+        lc40_12_16_2 (LogicCell40) carryin -> carryout: 0.126 ns
+     7.366 ns net_50289 ($auto$maccmap.cc:240:synth$217.C[8])
+        lc40_12_16_3 (LogicCell40) carryin -> carryout: 0.126 ns
+     7.492 ns net_50295 ($auto$maccmap.cc:240:synth$217.C[9])
+        lc40_12_16_4 (LogicCell40) carryin -> carryout: 0.126 ns
+     7.618 ns net_50301 ($auto$maccmap.cc:240:synth$217.C[10])
+        lc40_12_16_5 (LogicCell40) carryin -> carryout: 0.126 ns
+     7.745 ns net_50307 ($auto$maccmap.cc:240:synth$217.C[11])
+        lc40_12_16_6 (LogicCell40) carryin -> carryout: 0.126 ns
+     7.871 ns net_50313 ($auto$maccmap.cc:240:synth$217.C[12])
+        lc40_12_16_7 (LogicCell40) carryin -> carryout: 0.126 ns
+     7.997 ns net_50319 ($auto$maccmap.cc:240:synth$217.C[13])
+        t2 (ICE_CARRY_IN_MUX) carryinitin -> carryinitout: 0.196 ns
+        lc40_12_17_0 (LogicCell40) carryin -> carryout: 0.126 ns
+     8.320 ns net_50400 ($auto$maccmap.cc:240:synth$217.C[14])
+        lc40_12_17_1 (LogicCell40) carryin -> carryout: 0.126 ns
+     8.446 ns net_50406 ($auto$maccmap.cc:240:synth$217.C[15])
+        inmux_12_17_50406_50416 (InMux) I -> O: 0.260 ns
+     8.705 ns net_50416 ($auto$maccmap.cc:240:synth$217.C[15])
+        lc40_12_17_2 (LogicCell40) in3 [setup]: 0.217 ns
+     8.923 ns net_46252 (partials[7][15])
+
+Resolvable net names on path:
+     0.640 ns ..  1.229 ns breg[3]
+     1.678 ns ..  2.267 ns $abc$832$n54
+     2.716 ns ..  3.305 ns $abc$832$n57
+     3.705 ns ..  4.294 ns $abc$832$n56
+     4.694 ns ..  5.283 ns $abc$832$n48
+     5.662 ns ..  6.854 ns $abc$832$n80
+     7.113 ns ..  7.113 ns $auto$maccmap.cc:240:synth$217.C[6]
+     7.240 ns ..  7.240 ns $auto$maccmap.cc:240:synth$217.C[7]
+     7.366 ns ..  7.366 ns $auto$maccmap.cc:240:synth$217.C[8]
+     7.492 ns ..  7.492 ns $auto$maccmap.cc:240:synth$217.C[9]
+     7.618 ns ..  7.618 ns $auto$maccmap.cc:240:synth$217.C[10]
+     7.745 ns ..  7.745 ns $auto$maccmap.cc:240:synth$217.C[11]
+     7.871 ns ..  7.871 ns $auto$maccmap.cc:240:synth$217.C[12]
+     7.997 ns ..  8.194 ns $auto$maccmap.cc:240:synth$217.C[13]
+     8.320 ns ..  8.320 ns $auto$maccmap.cc:240:synth$217.C[14]
+     8.446 ns ..  8.705 ns $auto$maccmap.cc:240:synth$217.C[15]
+                  lcout -> partials[7][15]
+
+Total number of logic levels: 16
+Total path delay: 8.92 ns (112.07 MHz)
+

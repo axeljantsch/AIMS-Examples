@@ -1,0 +1,17 @@
+#!/bin/tcsh -f
+#-------------------------------------------
+# qflow variables for project ~/developments/Verilog-Projects/AIMS-Book-Examples/Ch05-RTL/Multiplier-Array/Pipelined-n/qflowProject
+#-------------------------------------------
+
+set qflowversion=1.4.84
+set projectpath=~/developments/Verilog-Projects/AIMS-Book-Examples/Ch05-RTL/Multiplier-Array/Pipelined-n/qflowProject
+set techdir=/usr/local/share/qflow/tech/osu018
+set sourcedir=~/developments/Verilog-Projects/AIMS-Book-Examples/Ch05-RTL/Multiplier-Array/Pipelined-n/qflowProject/source
+set synthdir=~/developments/Verilog-Projects/AIMS-Book-Examples/Ch05-RTL/Multiplier-Array/Pipelined-n/qflowProject
+set layoutdir=~/developments/Verilog-Projects/AIMS-Book-Examples/Ch05-RTL/Multiplier-Array/Pipelined-n/qflowProject
+set techname=osu018
+set scriptdir=/usr/local/share/qflow/scripts
+set bindir=/usr/local/share/qflow/bin
+set logdir=~/developments/Verilog-Projects/AIMS-Book-Examples/Ch05-RTL/Multiplier-Array/Pipelined-n/qflowProject/log
+#-------------------------------------------
+

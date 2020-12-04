@@ -1,0 +1,158 @@
+Vesta static timing analysis, register-to-register maximum timing
+
+Top 16 maximum delay paths:
+Path _213_/CLK to _206_/D delay 1642.17 ps
+      0.1 ps      clk:         -> _213_/CLK
+    260.6 ps  breg[1]: _213_/Q -> _122_/C
+    434.7 ps     _41_: _122_/Y -> _123_/A
+    563.6 ps     _42_: _123_/Y -> _124_/B
+    733.7 ps     _43_: _124_/Y -> _129_/C
+    867.6 ps     _48_: _129_/Y -> _145_/C
+   1010.2 ps     _63_: _145_/Y -> _160_/C
+   1180.3 ps     _78_: _160_/Y -> _181_/B
+   1310.4 ps      _6_: _181_/Y -> _182_/C
+   1394.9 ps      _7_: _182_/Y -> _186_/B
+   1450.7 ps   _0_[6]: _186_/Y -> _206_/D
+
+   clock skew at destination = 0
+   setup at destination = 191.464
+
+Path _213_/CLK to _207_/D delay 1641.46 ps
+      0.1 ps      clk:         -> _213_/CLK
+    260.6 ps  breg[1]: _213_/Q -> _122_/C
+    434.7 ps     _41_: _122_/Y -> _123_/A
+    563.6 ps     _42_: _123_/Y -> _124_/B
+    733.7 ps     _43_: _124_/Y -> _129_/C
+    867.6 ps     _48_: _129_/Y -> _145_/C
+   1010.2 ps     _63_: _145_/Y -> _160_/C
+   1180.3 ps     _78_: _160_/Y -> _181_/B
+   1310.4 ps      _6_: _181_/Y -> _188_/C
+   1394.3 ps     _12_: _188_/Y -> _189_/B
+   1450.0 ps   _0_[7]: _189_/Y -> _207_/D
+
+   clock skew at destination = 0
+   setup at destination = 191.472
+
+Path _213_/CLK to _204_/D delay 1601.35 ps
+      0.1 ps      clk:         -> _213_/CLK
+    260.6 ps  breg[1]: _213_/Q -> _122_/C
+    434.7 ps     _41_: _122_/Y -> _123_/A
+    563.6 ps     _42_: _123_/Y -> _124_/B
+    733.7 ps     _43_: _124_/Y -> _129_/C
+    867.6 ps     _48_: _129_/Y -> _145_/C
+   1010.2 ps     _63_: _145_/Y -> _160_/C
+   1180.3 ps     _78_: _160_/Y -> _164_/A
+   1267.6 ps     _82_: _164_/Y -> _165_/A
+   1352.9 ps     _83_: _165_/Y -> _166_/B
+   1410.0 ps   _0_[4]: _166_/Y -> _204_/D
+
+   clock skew at destination = 0
+   setup at destination = 191.389
+
+Path _213_/CLK to _205_/D delay 1598.21 ps
+      0.1 ps      clk:         -> _213_/CLK
+    260.6 ps  breg[1]: _213_/Q -> _122_/C
+    434.7 ps     _41_: _122_/Y -> _123_/A
+    563.6 ps     _42_: _123_/Y -> _124_/B
+    733.7 ps     _43_: _124_/Y -> _129_/C
+    867.6 ps     _48_: _129_/Y -> _145_/C
+   1010.2 ps     _63_: _145_/Y -> _160_/C
+   1180.3 ps     _78_: _160_/Y -> _167_/C
+   1306.6 ps     _84_: _167_/Y -> _175_/A
+   1406.3 ps   _0_[5]: _175_/Y -> _205_/D
+
+   clock skew at destination = 0
+   setup at destination = 191.879
+
+Path _213_/CLK to _203_/D delay 1522.4 ps
+      0.1 ps      clk:         -> _213_/CLK
+    260.6 ps  breg[1]: _213_/Q -> _122_/C
+    434.7 ps     _41_: _122_/Y -> _123_/A
+    563.6 ps     _42_: _123_/Y -> _124_/B
+    733.7 ps     _43_: _124_/Y -> _129_/C
+    867.6 ps     _48_: _129_/Y -> _136_/B
+   1002.7 ps     _55_: _136_/Y -> _140_/B
+   1162.8 ps     _59_: _140_/Y -> _141_/A
+   1271.4 ps     _60_: _141_/Y -> _143_/B
+   1331.7 ps   _0_[3]: _143_/Y -> _203_/D
+
+   clock skew at destination = 0
+   setup at destination = 190.712
+
+Path _213_/CLK to _202_/D delay 1153.67 ps
+      0.1 ps      clk:         -> _213_/CLK
+    260.6 ps  breg[1]: _213_/Q -> _104_/A
+    411.4 ps     _24_: _104_/Y -> _105_/B
+    556.8 ps     _25_: _105_/Y -> _109_/B
+    635.2 ps     _29_: _109_/Y -> _110_/C
+    737.8 ps     _30_: _110_/Y -> _111_/A
+    869.6 ps     _31_: _111_/Y -> _112_/A
+    961.9 ps   _0_[2]: _112_/Y -> _202_/D
+
+   clock skew at destination = 0
+   setup at destination = 191.809
+
+Path _212_/CLK to _201_/D delay 931.599 ps
+      0.1 ps      clk:         -> _212_/CLK
+    239.8 ps  breg[0]: _212_/Q ->  _96_/A
+    369.4 ps     _17_:  _96_/Y ->  _97_/A
+    469.6 ps     _18_:  _97_/Y ->  _98_/A
+    587.4 ps     _19_:  _98_/Y ->  _99_/A
+    679.5 ps     _20_:  _99_/Y -> _101_/B
+    740.9 ps   _0_[1]: _101_/Y -> _201_/D
+
+   clock skew at destination = 0
+   setup at destination = 190.669
+
+Path _208_/CLK to _200_/D delay 567.378 ps
+      0.2 ps      clk:         -> _208_/CLK
+    236.2 ps  areg[0]: _208_/Q ->  _94_/A
+    319.5 ps     _15_:  _94_/Y -> _191_/B
+    376.4 ps   _0_[0]: _191_/Y -> _200_/D
+
+   clock skew at destination = 0
+   setup at destination = 191.012
+
+Path _200_/CLK to output pin y[0] delay 267.615 ps
+      0.1 ps      clk:         -> _200_/CLK
+    188.6 ps  _92_[0]: _200_/Q -> _192_/A
+    267.6 ps     y[0]: _192_/Y -> y[0]
+
+Path _202_/CLK to output pin y[2] delay 260.409 ps
+      0.3 ps      clk:         -> _202_/CLK
+    182.8 ps  _92_[2]: _202_/Q -> _194_/A
+    260.4 ps     y[2]: _194_/Y -> y[2]
+
+Path _203_/CLK to output pin y[3] delay 254.767 ps
+      0.3 ps      clk:         -> _203_/CLK
+    178.2 ps  _92_[3]: _203_/Q -> _195_/A
+    254.8 ps     y[3]: _195_/Y -> y[3]
+
+Path _201_/CLK to output pin y[1] delay 254.696 ps
+      0.3 ps      clk:         -> _201_/CLK
+    178.2 ps  _92_[1]: _201_/Q -> _193_/A
+    254.7 ps     y[1]: _193_/Y -> y[1]
+
+Path _204_/CLK to output pin y[4] delay 254.696 ps
+      0.3 ps      clk:         -> _204_/CLK
+    178.2 ps  _92_[4]: _204_/Q -> _196_/A
+    254.7 ps     y[4]: _196_/Y -> y[4]
+
+Path _207_/CLK to output pin y[7] delay 254.696 ps
+      0.3 ps      clk:         -> _207_/CLK
+    178.2 ps  _92_[7]: _207_/Q -> _199_/A
+    254.7 ps     y[7]: _199_/Y -> y[7]
+
+Path _205_/CLK to output pin y[5] delay 254.696 ps
+      0.3 ps      clk:         -> _205_/CLK
+    178.2 ps  _92_[5]: _205_/Q -> _197_/A
+    254.7 ps     y[5]: _197_/Y -> y[5]
+
+Path _206_/CLK to output pin y[6] delay 254.696 ps
+      0.3 ps      clk:         -> _206_/CLK
+    178.2 ps  _92_[6]: _206_/Q -> _198_/A
+    254.7 ps     y[6]: _198_/Y -> y[6]
+
+Computed maximum clock frequency (zero margin) = 608.95 MHz
+-----------------------------------------
+

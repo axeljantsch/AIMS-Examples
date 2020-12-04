@@ -1,0 +1,121 @@
+$date
+	Tue Apr  7 13:49:26 2020
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	10ps
+$end
+$scope module multiplexer_tbtv $end
+$var wire 1 ! y $end
+$var reg 1 " clk $end
+$var reg 1 # d0 $end
+$var reg 1 $ d1 $end
+$var reg 32 % errors [31:0] $end
+$var reg 1 & reset $end
+$var reg 1 ' sel $end
+$var reg 32 ( vectornum [31:0] $end
+$var reg 1 ) yexpct $end
+$scope module dut_bh $end
+$var wire 1 # D0 $end
+$var wire 1 $ D1 $end
+$var wire 1 ' S $end
+$var reg 1 ! Y $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+x)
+b0 (
+x'
+1&
+b0 %
+x$
+x#
+1"
+x!
+$end
+#50
+0"
+#100
+1"
+#110
+0!
+0#
+0$
+0'
+0)
+#150
+0"
+#200
+1"
+#250
+0"
+#270
+0&
+#300
+1"
+#350
+b1 (
+0"
+#400
+1"
+#410
+1'
+#450
+b10 (
+0"
+#500
+1"
+#510
+1$
+0'
+#550
+b11 (
+0"
+#600
+1"
+#610
+1!
+1'
+1)
+#650
+b100 (
+0"
+#700
+1"
+#710
+1#
+0$
+0'
+#750
+b101 (
+0"
+#800
+1"
+#810
+0!
+1'
+0)
+#850
+b110 (
+0"
+#900
+1"
+#910
+1!
+1$
+0'
+1)
+#950
+b111 (
+0"
+#1000
+1"
+#1010
+1'
+#1050
+b1000 (
+0"

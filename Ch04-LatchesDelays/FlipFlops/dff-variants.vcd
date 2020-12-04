@@ -1,0 +1,135 @@
+$date
+	Mon Sep 21 18:30:13 2020
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	10ps
+$end
+$scope module dffvariants_tb $end
+$var wire 1 ! qesr $end
+$var wire 1 " qer $end
+$var wire 1 # qe $end
+$var wire 1 $ q $end
+$var reg 1 % clk $end
+$var reg 1 & sd $end
+$var reg 1 ' sen $end
+$var reg 1 ( srst $end
+$scope module uut1 $end
+$var wire 1 % clk $end
+$var wire 1 & d $end
+$var reg 1 $ q $end
+$upscope $end
+$scope module uut2 $end
+$var wire 1 % clk $end
+$var wire 1 & d $end
+$var wire 1 ' en $end
+$var reg 1 # q $end
+$upscope $end
+$scope module uut3 $end
+$var wire 1 % clk $end
+$var wire 1 & d $end
+$var wire 1 ' en $end
+$var wire 1 ( rst $end
+$var reg 1 " q $end
+$upscope $end
+$scope module uut4 $end
+$var wire 1 % clk $end
+$var wire 1 & d $end
+$var wire 1 ' en $end
+$var wire 1 ( rst $end
+$var reg 1 ! q $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+x(
+x'
+x&
+0%
+x$
+x#
+x"
+x!
+$end
+#10
+0'
+1(
+0&
+#20
+0"
+#30
+0(
+1&
+#60
+1'
+0&
+#90
+1&
+#100
+1%
+#110
+1$
+1#
+1!
+1"
+#120
+0&
+#150
+0'
+1&
+#180
+0&
+#200
+0%
+#300
+1%
+#310
+0$
+#340
+1&
+#370
+0&
+#380
+1(
+#390
+0"
+#400
+0(
+1&
+0%
+#430
+1'
+0&
+#460
+1&
+#490
+0&
+#500
+1%
+#510
+0#
+0!
+#590
+1&
+#600
+0%
+#700
+1%
+#710
+1!
+1#
+1$
+1"
+#790
+1(
+#800
+0"
+0%
+#900
+1%
+#910
+0!
+#990

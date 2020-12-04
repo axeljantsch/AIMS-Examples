@@ -1,0 +1,81 @@
+
+icetime topological timing analysis report
+==========================================
+
+Report for critical path:
+-------------------------
+
+        lc40_11_18_3 (LogicCell40) [clk] -> lcout: 0.896 ns
+     0.896 ns net_42299 (breg[3])
+        t231 (LocalMux) I -> O: 0.486 ns
+        inmux_12_18_50494_50542 (InMux) I -> O: 0.382 ns
+        lc40_12_18_3 (LogicCell40) in0 -> lcout: 0.662 ns
+     2.426 ns net_46376 ($abc$832$n54)
+        t365 (LocalMux) I -> O: 0.486 ns
+        inmux_12_18_50510_50566 (InMux) I -> O: 0.382 ns
+        lc40_12_18_7 (LogicCell40) in0 -> lcout: 0.662 ns
+     3.956 ns net_46380 ($abc$832$n57)
+        t371 (LocalMux) I -> O: 0.486 ns
+        inmux_12_18_50514_50530 (InMux) I -> O: 0.382 ns
+        lc40_12_18_1 (LogicCell40) in0 -> lcout: 0.662 ns
+     5.486 ns net_46374 ($abc$832$n56)
+        t362 (LocalMux) I -> O: 0.486 ns
+        inmux_12_19_50615_50667 (InMux) I -> O: 0.382 ns
+        t41 (CascadeMux) I -> O: 0.000 ns
+        lc40_12_19_3 (LogicCell40) in2 -> lcout: 0.558 ns
+     6.912 ns net_46499 ($abc$832$n48)
+        odrv_12_19_46499_50485 (Odrv4) I -> O: 0.548 ns
+        t383 (LocalMux) I -> O: 0.486 ns
+        inmux_12_20_50755_50796 (InMux) I -> O: 0.382 ns
+        t46 (CascadeMux) I -> O: 0.000 ns
+        lc40_12_20_4 (LogicCell40) in2 -> lcout: 0.558 ns
+     8.886 ns net_46623 ($abc$832$n294)
+        odrv_12_20_46623_50827 (Odrv12) I -> O: 0.796 ns
+        t395 (LocalMux) I -> O: 0.486 ns
+        inmux_14_20_58903_58932 (InMux) I -> O: 0.382 ns
+        t94 (CascadeMux) I -> O: 0.000 ns
+        lc40_14_20_1 (LogicCell40) in2 -> carryout: 0.341 ns
+    10.892 ns net_58929 ($auto$maccmap.cc:240:synth$217.C[7])
+        lc40_14_20_2 (LogicCell40) carryin -> carryout: 0.186 ns
+    11.078 ns net_58935 ($auto$maccmap.cc:240:synth$217.C[8])
+        lc40_14_20_3 (LogicCell40) carryin -> carryout: 0.186 ns
+    11.264 ns net_58941 ($auto$maccmap.cc:240:synth$217.C[9])
+        lc40_14_20_4 (LogicCell40) carryin -> carryout: 0.186 ns
+    11.450 ns net_58947 ($auto$maccmap.cc:240:synth$217.C[10])
+        lc40_14_20_5 (LogicCell40) carryin -> carryout: 0.186 ns
+    11.636 ns net_58953 ($auto$maccmap.cc:240:synth$217.C[11])
+        lc40_14_20_6 (LogicCell40) carryin -> carryout: 0.186 ns
+    11.822 ns net_58959 ($auto$maccmap.cc:240:synth$217.C[12])
+        lc40_14_20_7 (LogicCell40) carryin -> carryout: 0.186 ns
+    12.008 ns net_58965 ($auto$maccmap.cc:240:synth$217.C[13])
+        t74 (ICE_CARRY_IN_MUX) carryinitin -> carryinitout: 0.289 ns
+        lc40_14_21_0 (LogicCell40) carryin -> carryout: 0.186 ns
+    12.484 ns net_59046 ($auto$maccmap.cc:240:synth$217.C[14])
+        lc40_14_21_1 (LogicCell40) carryin -> carryout: 0.186 ns
+    12.670 ns net_59052 ($auto$maccmap.cc:240:synth$217.C[15])
+        inmux_14_21_59052_59062 (InMux) I -> O: 0.382 ns
+    13.052 ns net_59062 ($auto$maccmap.cc:240:synth$217.C[15])
+        lc40_14_21_2 (LogicCell40) in3 [setup]: 0.320 ns
+    13.373 ns net_54898 (partials[7][15])
+
+Resolvable net names on path:
+     0.896 ns ..  1.764 ns breg[3]
+     2.426 ns ..  3.294 ns $abc$832$n54
+     3.956 ns ..  4.824 ns $abc$832$n57
+     5.486 ns ..  6.354 ns $abc$832$n56
+     6.912 ns ..  8.328 ns $abc$832$n48
+     8.886 ns .. 10.551 ns $abc$832$n294
+    10.892 ns .. 10.892 ns $auto$maccmap.cc:240:synth$217.C[7]
+    11.078 ns .. 11.078 ns $auto$maccmap.cc:240:synth$217.C[8]
+    11.264 ns .. 11.264 ns $auto$maccmap.cc:240:synth$217.C[9]
+    11.450 ns .. 11.450 ns $auto$maccmap.cc:240:synth$217.C[10]
+    11.636 ns .. 11.636 ns $auto$maccmap.cc:240:synth$217.C[11]
+    11.822 ns .. 11.822 ns $auto$maccmap.cc:240:synth$217.C[12]
+    12.008 ns .. 12.298 ns $auto$maccmap.cc:240:synth$217.C[13]
+    12.484 ns .. 12.484 ns $auto$maccmap.cc:240:synth$217.C[14]
+    12.670 ns .. 13.052 ns $auto$maccmap.cc:240:synth$217.C[15]
+                  lcout -> partials[7][15]
+
+Total number of logic levels: 15
+Total path delay: 13.37 ns (74.78 MHz)
+

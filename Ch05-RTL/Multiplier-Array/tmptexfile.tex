@@ -1,0 +1,42 @@
+\documentclass[11pt,landscape]{article}
+\PassOptionsToPackage{table}{xcolor}
+\usepackage[margin=0.5cm]{geometry}
+\usepackage{graphics}
+\usepackage{tcolorbox}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{siunitx}
+\definecolor{Blue}{rgb}{0,0,1}
+\begin{document}
+\begin{tabular}{llllllllll}
+\hline
+\hline
+ Tech   & Bit width & Pipelining & Nr of      & Nr of & Critical path & Frequency & E2E Delay & Throuput    & Power \\
+        & (bit)     &            & LUTS/Gates & DFFs  & (ns)          & (MHz)     & (ns)      & (M ops/sec) & (mW)  \\
+ hx8k   & 4         & No         & 31         & 16    & 5.39          & 185.5     & 5.39      & 185.53      & 0     \\
+ hx8k   & 4         & Half       & 33         & 28    & 4.39          & 227.7     & 8.78      & 227.79      & 0     \\
+ hx8k   & 4         & Full       & 31         & 51    & 3.38          & 295.8     & 13.52     & 295.86      & 0     \\
+ hx8k   & 8         & No         & 163        & 32    & 8.92          & 112.1     & 8.92      & 112.11      & 0     \\
+ hx8k   & 8         & Half       & 131        & 56    & 6.78          & 147.4     & 13.56     & 147.49      & 0     \\
+ hx8k   & 8         & Full       & 127        & 199   & 4.06          & 246.3     & 32.48     & 246.31      & 0     \\
+ hx8k   & 16        & No         & 688        & 64    & 13.92         & 71.8      & 13.92     & 71.84       & 0     \\
+ hx8k   & 16        & Half       & 676        & 112   & 11.00         & 90.9      & 22        & 90.91       & 0     \\
+ hx8k   & 16        & Full       & 511        & 783   & 5.42          & 184.5     & 86.72     & 184.50      & 0     \\
+ hx8k   & 32        & No         & 2829       & 128   & 21.50         & 46.5      & 21.50     & 46.51       & 0     \\
+ hx8k   & 32        & Half       & 2786       & 224   & 17.42         & 57.4      & 34.84     & 57.41       & 0     \\
+ hx8k   & 32        & Full       & 2047       & 3103  & 9.48          & 105.4     & 303.36    & 105.49      & 0     \\
+ gscl45 & 4         & No         & 109        & 16    & 0.65          & 1538.4    & 0.65      & 1538.46     & 0     \\
+ gscl45 & 4         & Half       & 109        & 28    & 0.51          & 1960.7    & 1.02      & 1960.78     & 0     \\
+ gscl45 & 4         & Full       & 104        & 51    & 0.35          & 2857.1    & 1.4       & 2857.14     & 0     \\
+ gscl45 & 8         & No         & 575        & 32    & 1.32          & 757.5     & 1.32      & 757.58      & 0     \\
+ gscl45 & 8         & Half       & 591        & 56    & 1.15          & 869.5     & 2.3       & 869.57      & 0     \\
+ gscl45 & 8         & Full       & 490        & 199   & 0.70          & 1428.5    & 5.6       & 1428.57     & 0     \\
+ gscl45 & 16        & No         & 2701       & 64    & 2.72          & 367.6     & 2.72      & 367.65      & 0     \\
+ gscl45 & 16        & Half       & 2658       & 112   & 1.99          & 502.5     & 3.98      & 502.51      & 0     \\
+ gscl45 & 16        & Full       & 2178       & 783   & 1.37          & 729.9     & 21.92     & 729.93      & 0     \\
+ gscl45 & 32        & No         & 11318      & 128   & 4.94          & 202.4     & 4.94      & 202.43      & 0     \\
+ gscl45 & 32        & Half       & 11333      & 224   & 3.73          & 268.0     & 7.46      & 268.10      & 0     \\
+ gscl45 & 32        & Full       & 9689       & 3103  & 2.73          & 366.3     & 87.36     & 366.30      & 0     \\
+\hline
+\end{tabular}
+\end{document}

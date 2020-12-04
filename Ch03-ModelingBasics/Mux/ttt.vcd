@@ -1,0 +1,36 @@
+$date
+	Wed Apr  8 12:52:50 2020
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	10ps
+$end
+$scope module silly $end
+$var wire 1 ! a $end
+$var wire 1 " b $end
+$var wire 1 # c $end
+$var wire 1 $ d $end
+$var wire 4 % s [3:0] $end
+$var wire 4 & w [3:0] $end
+$var wire 4 ' v [3:0] $end
+$var wire 4 ( u [3:0] $end
+$var wire 4 ) t [3:0] $end
+$var wire 4 * r [3:0] $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b100 *
+b100 )
+b1100 (
+b1100 '
+b100 &
+b1000 %
+0$
+0#
+1"
+0!
+$end
+#100

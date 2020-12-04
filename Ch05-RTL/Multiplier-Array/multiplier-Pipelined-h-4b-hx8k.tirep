@@ -1,0 +1,46 @@
+
+icetime topological timing analysis report
+==========================================
+
+Report for critical path:
+-------------------------
+
+        lc40_30_8_7 (LogicCell40) [clk] -> lcout: 0.640 ns
+     0.640 ns net_117861 (bregp1[0])
+        t69 (LocalMux) I -> O: 0.330 ns
+        inmux_30_9_122110_122152 (InMux) I -> O: 0.260 ns
+        lc40_30_9_4 (LogicCell40) in0 -> lcout: 0.449 ns
+     1.678 ns net_117981 ($abc$431$n48_1)
+        t74 (LocalMux) I -> O: 0.330 ns
+        inmux_30_10_122230_122281 (InMux) I -> O: 0.260 ns
+        lc40_30_10_5 (LogicCell40) in0 -> lcout: 0.449 ns
+     2.716 ns net_118105 ($abc$431$n30)
+        t80 (LocalMux) I -> O: 0.330 ns
+        inmux_30_10_122247_122253 (InMux) I -> O: 0.260 ns
+        t20 (CascadeMux) I -> O: 0.000 ns
+        lc40_30_10_0 (LogicCell40) in2 -> carryout: 0.231 ns
+     3.537 ns net_122250 ($auto$maccmap.cc:240:synth$209.C[4])
+        lc40_30_10_1 (LogicCell40) carryin -> carryout: 0.126 ns
+     3.663 ns net_122256 ($auto$maccmap.cc:240:synth$209.C[5])
+        lc40_30_10_2 (LogicCell40) carryin -> carryout: 0.126 ns
+     3.789 ns net_122262 ($auto$maccmap.cc:240:synth$209.C[6])
+        lc40_30_10_3 (LogicCell40) carryin -> carryout: 0.126 ns
+     3.915 ns net_122268 ($auto$maccmap.cc:240:synth$209.C[7])
+        inmux_30_10_122268_122278 (InMux) I -> O: 0.260 ns
+     4.175 ns net_122278 ($auto$maccmap.cc:240:synth$209.C[7])
+        lc40_30_10_4 (LogicCell40) in3 [setup]: 0.217 ns
+     4.392 ns net_118104 (preg[3][7])
+
+Resolvable net names on path:
+     0.640 ns ..  1.229 ns bregp1[0]
+     1.678 ns ..  2.267 ns $abc$431$n48_1
+     2.716 ns ..  3.305 ns $abc$431$n30
+     3.537 ns ..  3.537 ns $auto$maccmap.cc:240:synth$209.C[4]
+     3.663 ns ..  3.663 ns $auto$maccmap.cc:240:synth$209.C[5]
+     3.789 ns ..  3.789 ns $auto$maccmap.cc:240:synth$209.C[6]
+     3.915 ns ..  4.175 ns $auto$maccmap.cc:240:synth$209.C[7]
+                  lcout -> preg[3][7]
+
+Total number of logic levels: 7
+Total path delay: 4.39 ns (227.67 MHz)
+

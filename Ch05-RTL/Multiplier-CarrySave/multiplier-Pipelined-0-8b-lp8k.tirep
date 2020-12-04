@@ -1,0 +1,82 @@
+
+icetime topological timing analysis report
+==========================================
+
+Report for critical path:
+-------------------------
+
+        lc40_19_19_3 (LogicCell40) [clk] -> lcout: 0.896 ns
+     0.896 ns net_75036 (areg[1])
+        t219 (LocalMux) I -> O: 0.486 ns
+        inmux_20_19_83239_83261 (InMux) I -> O: 0.382 ns
+        lc40_20_19_0 (LogicCell40) in0 -> lcout: 0.662 ns
+     2.426 ns net_79110 ($abc$1077$n56)
+        t282 (LocalMux) I -> O: 0.486 ns
+        inmux_21_19_87305_87350 (InMux) I -> O: 0.382 ns
+        lc40_21_19_2 (LogicCell40) in0 -> lcout: 0.662 ns
+     3.956 ns net_83189 ($abc$1077$n55)
+        t379 (LocalMux) I -> O: 0.486 ns
+        inmux_21_18_87184_87227 (InMux) I -> O: 0.382 ns
+        lc40_21_18_2 (LogicCell40) in0 -> lcout: 0.662 ns
+     5.486 ns net_83066 ($abc$1077$n54)
+        t369 (LocalMux) I -> O: 0.486 ns
+        inmux_21_18_87208_87259 (InMux) I -> O: 0.382 ns
+        t83 (CascadeMux) I -> O: 0.000 ns
+        lc40_21_18_7 (LogicCell40) in2 -> lcout: 0.558 ns
+     6.912 ns net_83071 ($abc$1077$n53_1)
+        t375 (LocalMux) I -> O: 0.486 ns
+        inmux_21_17_87066_87134 (InMux) I -> O: 0.382 ns
+        lc40_21_17_7 (LogicCell40) in0 -> lcout: 0.662 ns
+     8.442 ns net_82948 ($abc$1077$n106)
+        t365 (LocalMux) I -> O: 0.486 ns
+        inmux_22_17_91151_91193 (InMux) I -> O: 0.382 ns
+        lc40_22_17_4 (LogicCell40) in0 -> lcout: 0.662 ns
+     9.972 ns net_87022 ($abc$1077$n105)
+        t449 (LocalMux) I -> O: 0.486 ns
+        inmux_22_17_91156_91183 (InMux) I -> O: 0.382 ns
+        t109 (CascadeMux) I -> O: 0.000 ns
+        lc40_22_17_2 (LogicCell40) in2 -> lcout: 0.558 ns
+    11.398 ns net_87020 ($abc$1077$n126)
+        t448 (LocalMux) I -> O: 0.486 ns
+        inmux_22_17_91162_91211 (InMux) I -> O: 0.382 ns
+        lc40_22_17_7 (LogicCell40) in0 -> lcout: 0.662 ns
+    12.928 ns net_87025 ($abc$1077$n145)
+        odrv_22_17_87025_87049 (Odrv4) I -> O: 0.548 ns
+        t469 (Span4Mux_v3) I -> O: 0.496 ns
+        t468 (LocalMux) I -> O: 0.486 ns
+        inmux_21_22_87701_87707 (InMux) I -> O: 0.382 ns
+        lc40_21_22_0 (LogicCell40) in0 -> lcout: 0.662 ns
+    15.502 ns net_83556 ($abc$1077$n163)
+        t425 (LocalMux) I -> O: 0.486 ns
+        inmux_21_23_87805_87874 (InMux) I -> O: 0.382 ns
+        t108 (CascadeMux) I -> O: 0.000 ns
+        lc40_21_23_7 (LogicCell40) in2 -> lcout: 0.558 ns
+    16.928 ns net_83686 ($abc$1077$n174)
+        t440 (LocalMux) I -> O: 0.486 ns
+        inmux_20_23_83751_83762 (InMux) I -> O: 0.382 ns
+        lc40_20_23_1 (LogicCell40) in3 -> lcout: 0.465 ns
+    18.262 ns net_79603 ($abc$1077$n180)
+        t350 (LocalMux) I -> O: 0.486 ns
+        inmux_20_23_83737_83771 (InMux) I -> O: 0.382 ns
+    19.130 ns net_83771 ($abc$1077$n180)
+        lc40_20_23_3 (LogicCell40) in0 [setup]: 0.589 ns
+    19.719 ns net_79605 (y[15])
+
+Resolvable net names on path:
+     0.896 ns ..  1.764 ns areg[1]
+     2.426 ns ..  3.294 ns $abc$1077$n56
+     3.956 ns ..  4.824 ns $abc$1077$n55
+     5.486 ns ..  6.354 ns $abc$1077$n54
+     6.912 ns ..  7.780 ns $abc$1077$n53_1
+     8.442 ns ..  9.310 ns $abc$1077$n106
+     9.972 ns .. 10.840 ns $abc$1077$n105
+    11.398 ns .. 12.267 ns $abc$1077$n126
+    12.928 ns .. 14.840 ns $abc$1077$n145
+    15.502 ns .. 16.370 ns $abc$1077$n163
+    16.928 ns .. 17.797 ns $abc$1077$n174
+    18.262 ns .. 19.130 ns $abc$1077$n180
+                  lcout -> y[15]
+
+Total number of logic levels: 12
+Total path delay: 19.72 ns (50.71 MHz)
+

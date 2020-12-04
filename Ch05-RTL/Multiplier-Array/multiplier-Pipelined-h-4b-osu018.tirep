@@ -1,0 +1,207 @@
+Vesta static timing analysis, register-to-register maximum timing
+
+Top 20 maximum delay paths:
+Path _201_/CLK to _194_/D delay 1480.68 ps
+      0.1 ps       clk_bF$buf2: CLKBUF1_insert2/Y -> _201_/CLK
+    299.2 ps         aregp1[2]:           _201_/Q -> _153_/A
+    462.8 ps              _81_:           _153_/Y -> _160_/B
+    590.4 ps               _5_:           _160_/Y -> _163_/C
+    707.8 ps               _8_:           _163_/Y -> _165_/B
+    827.9 ps              _10_:           _165_/Y -> _166_/A
+    982.2 ps              _11_:           _166_/Y -> _170_/D
+   1136.7 ps              _14_:           _170_/Y -> _177_/B
+   1228.2 ps              _20_:           _177_/Y -> _178_/B
+   1289.3 ps  \partials[3] [7]:           _178_/Y -> _194_/D
+
+   clock skew at destination = 7.21778
+   setup at destination = 184.167
+
+Path _201_/CLK to _193_/D delay 1437.65 ps
+      0.1 ps       clk_bF$buf2: CLKBUF1_insert2/Y -> _201_/CLK
+    299.2 ps         aregp1[2]:           _201_/Q -> _153_/A
+    462.8 ps              _81_:           _153_/Y -> _160_/B
+    590.4 ps               _5_:           _160_/Y -> _163_/C
+    707.8 ps               _8_:           _163_/Y -> _165_/B
+    827.9 ps              _10_:           _165_/Y -> _166_/A
+    982.2 ps              _11_:           _166_/Y -> _170_/D
+   1136.7 ps              _14_:           _170_/Y -> _174_/A
+   1242.6 ps  \partials[3] [6]:           _174_/Y -> _193_/D
+
+   clock skew at destination = 7.21778
+   setup at destination = 187.798
+
+Path _204_/CLK to _192_/D delay 1380.92 ps
+      0.0 ps       clk_bF$buf2: CLKBUF1_insert2/Y -> _204_/CLK
+    234.1 ps         bregp1[1]:           _204_/Q -> _130_/A
+    395.8 ps              _59_:           _130_/Y -> _131_/A
+    518.4 ps              _60_:           _131_/Y -> _136_/A
+    634.8 ps              _65_:           _136_/Y -> _140_/B
+    804.5 ps              _69_:           _140_/Y -> _147_/A
+    973.2 ps              _75_:           _147_/Y -> _148_/B
+   1088.9 ps              _76_:           _148_/Y -> _167_/A
+   1186.3 ps  \partials[3] [5]:           _167_/Y -> _192_/D
+
+   clock skew at destination = 7.21778
+   setup at destination = 187.402
+
+Path _204_/CLK to _191_/D delay 1240.4 ps
+      0.0 ps       clk_bF$buf2: CLKBUF1_insert2/Y -> _204_/CLK
+    234.1 ps         bregp1[1]:           _204_/Q -> _130_/A
+    395.8 ps              _59_:           _130_/Y -> _131_/A
+    518.4 ps              _60_:           _131_/Y -> _136_/A
+    634.8 ps              _65_:           _136_/Y -> _140_/B
+    804.5 ps              _69_:           _140_/Y -> _145_/A
+    944.0 ps              _74_:           _145_/Y -> _146_/A
+   1044.5 ps  \partials[3] [4]:           _146_/Y -> _191_/D
+
+   clock skew at destination = 7.29052
+   setup at destination = 188.561
+
+Path _201_/CLK to _190_/D delay 1071.16 ps
+      0.1 ps       clk_bF$buf2: CLKBUF1_insert2/Y -> _201_/CLK
+    299.2 ps         aregp1[2]:           _201_/Q -> _117_/A
+    430.7 ps              _47_:           _117_/Y -> _121_/B
+    511.6 ps              _51_:           _121_/Y -> _123_/B
+    628.5 ps              _53_:           _123_/Y -> _124_/B
+    803.5 ps              _54_:           _124_/Y -> _127_/A
+    876.8 ps  \partials[3] [3]:           _127_/Y -> _190_/D
+
+   clock skew at destination = 7.29052
+   setup at destination = 187.039
+
+Path _208_/CLK to _200_/D delay 1046.16 ps
+      0.0 ps       clk_bF$buf0: CLKBUF1_insert4/Y -> _208_/CLK
+    234.6 ps           areg[1]:           _208_/Q ->  _97_/A
+    337.2 ps              _31_:            _97_/Y ->  _99_/A
+    448.3 ps              _33_:            _99_/Y -> _100_/C
+    595.3 ps              _34_:           _100_/Y -> _105_/B
+    728.5 ps              _38_:           _105_/Y -> _107_/A
+    801.3 ps              _39_:           _107_/Y -> _108_/B
+    855.6 ps  \partials[1] [5]:           _108_/Y -> _200_/D
+
+   clock skew at destination = 5.70526
+   setup at destination = 184.865
+
+Path _208_/CLK to _199_/D delay 1005.6 ps
+      0.0 ps       clk_bF$buf0: CLKBUF1_insert4/Y -> _208_/CLK
+    234.6 ps           areg[1]:           _208_/Q ->  _97_/A
+    337.2 ps              _31_:            _97_/Y ->  _99_/A
+    448.3 ps              _33_:            _99_/Y -> _100_/C
+    595.3 ps              _34_:           _100_/Y -> _105_/B
+    728.5 ps              _38_:           _105_/Y -> _106_/A
+    812.3 ps  \partials[1] [4]:           _106_/Y -> _199_/D
+
+   clock skew at destination = 5.70526
+   setup at destination = 187.59
+
+Path _207_/CLK to _197_/D delay 939.809 ps
+      0.0 ps       clk_bF$buf0: CLKBUF1_insert4/Y -> _207_/CLK
+    234.7 ps           areg[0]:           _207_/Q ->  _89_/A
+    353.7 ps              _24_:            _89_/Y ->  _90_/A
+    443.8 ps              _25_:            _90_/Y ->  _91_/A
+    568.3 ps              _26_:            _91_/Y ->  _93_/B
+    658.9 ps              _28_:            _93_/Y ->  _94_/A
+    756.5 ps  \partials[1] [2]:            _94_/Y -> _197_/D
+
+   clock skew at destination = -4.77577
+   setup at destination = 188.103
+
+Path _208_/CLK to _198_/D delay 906.672 ps
+      0.0 ps       clk_bF$buf0: CLKBUF1_insert4/Y -> _208_/CLK
+    234.6 ps           areg[1]:           _208_/Q ->  _97_/A
+    337.2 ps              _31_:            _97_/Y ->  _99_/A
+    448.3 ps              _33_:            _99_/Y -> _100_/C
+    595.3 ps              _34_:           _100_/Y -> _101_/B
+    713.1 ps  \partials[1] [3]:           _101_/Y -> _198_/D
+
+   clock skew at destination = 5.70526
+   setup at destination = 187.882
+
+Path _201_/CLK to _189_/D delay 874.292 ps
+      0.1 ps       clk_bF$buf2: CLKBUF1_insert2/Y -> _201_/CLK
+    299.2 ps         aregp1[2]:           _201_/Q -> _109_/A
+    450.1 ps              _40_:           _109_/Y -> _110_/B
+    533.8 ps              _41_:           _110_/Y -> _111_/A
+    624.0 ps              _42_:           _111_/Y -> _113_/B
+    682.3 ps  \partials[3] [2]:           _113_/Y -> _189_/D
+
+   clock skew at destination = 7.29052
+   setup at destination = 184.745
+
+Path _208_/CLK to _196_/D delay 766.628 ps
+      0.0 ps       clk_bF$buf0: CLKBUF1_insert4/Y -> _208_/CLK
+    234.7 ps           areg[1]:           _208_/Q ->  _85_/B
+    390.8 ps              _21_:            _85_/Y ->  _86_/A
+    531.2 ps              _22_:            _86_/Y ->  _88_/B
+    587.1 ps  \partials[1] [1]:            _88_/Y -> _196_/D
+
+   clock skew at destination = -4.77577
+   setup at destination = 184.275
+
+Path _211_/CLK to _195_/D delay 588.629 ps
+      0.0 ps       clk_bF$buf4: CLKBUF1_insert0/Y -> _211_/CLK
+    236.5 ps           breg[0]:           _211_/Q ->  _84_/B
+    380.3 ps  \partials[0] [0]:            _84_/Y -> _195_/D
+
+   clock skew at destination = 18.0408
+   setup at destination = 190.245
+
+Path _213_/CLK to _205_/D delay 443.426 ps
+      0.0 ps  clk_bF$buf0: CLKBUF1_insert4/Y -> _213_/CLK
+    237.2 ps      breg[2]:           _213_/Q -> _205_/D
+
+   clock skew at destination = 6.05668
+   setup at destination = 200.172
+
+Path _214_/CLK to _206_/D delay 443.33 ps
+      0.0 ps  clk_bF$buf1: CLKBUF1_insert3/Y -> _214_/CLK
+    237.1 ps      breg[3]:           _214_/Q -> _206_/D
+
+   clock skew at destination = 6.08762
+   setup at destination = 200.154
+
+Path _211_/CLK to _203_/D delay 442.988 ps
+      0.0 ps  clk_bF$buf4: CLKBUF1_insert0/Y -> _211_/CLK
+    236.5 ps      breg[0]:           _211_/Q -> _203_/D
+
+   clock skew at destination = 6.27505
+   setup at destination = 200.175
+
+Path _212_/CLK to _204_/D delay 442.955 ps
+      0.0 ps  clk_bF$buf4: CLKBUF1_insert0/Y -> _212_/CLK
+    236.5 ps      breg[1]:           _212_/Q -> _204_/D
+
+   clock skew at destination = 6.27505
+   setup at destination = 200.19
+
+Path _209_/CLK to _201_/D delay 410.914 ps
+      0.0 ps  clk_bF$buf3: CLKBUF1_insert1/Y -> _209_/CLK
+    209.9 ps      areg[2]:           _209_/Q -> _201_/D
+
+   clock skew at destination = 7.36966
+   setup at destination = 193.631
+
+Path _196_/CLK to _188_/D delay 367.185 ps
+      0.0 ps       clk_bF$buf4: CLKBUF1_insert0/Y -> _196_/CLK
+    177.2 ps  \partials[3] [1]:           _196_/Q -> _188_/D
+
+   clock skew at destination = 7.20834
+   setup at destination = 182.749
+
+Path _210_/CLK to _202_/D delay 365.003 ps
+      0.0 ps  clk_bF$buf3: CLKBUF1_insert1/Y -> _210_/CLK
+    175.4 ps      areg[3]:           _210_/Q -> _202_/D
+
+   clock skew at destination = 7.29692
+   setup at destination = 182.334
+
+Path _195_/CLK to _187_/D delay 355.201 ps
+      0.0 ps       clk_bF$buf0: CLKBUF1_insert4/Y -> _195_/CLK
+    177.2 ps  \partials[3] [0]:           _195_/Q -> _187_/D
+
+   clock skew at destination = -4.77577
+   setup at destination = 182.749
+
+Computed maximum clock frequency (zero margin) = 675.367 MHz
+-----------------------------------------
+

@@ -1,0 +1,6 @@
+# This places the pins to opposite sides on banks 0 and 2
+set_io a 9
+set_io b 10
+set_io ci 96
+set_io sum 97
+set_io co 11

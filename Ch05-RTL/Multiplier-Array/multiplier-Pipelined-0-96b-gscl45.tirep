@@ -1,0 +1,173 @@
+ABC: WireLoad = "none"  Gates =  55456 (  6.5 %)   Cap =  6.5 ff (  1.2 %)   Area =   165773.19 ( 97.7 %)   Delay =  7317.65 ps  (  0.6 %)               
+ABC: Path  0 --      33 : 0   33 pi      A =   0.00  Df =   0.0   -0.0 ps  S =   0.0 ps  Cin =  0.0 ff  Cout =  69.1 ff  Cmax =   0.0 ff  G =    0  
+ABC: Path  1 --     518 : 2    3 AND2X2  A =   2.82  Df =  45.6   -3.1 ps  S =  27.7 ps  Cin =  1.8 ff  Cout =  10.7 ff  Cmax = 505.1 ff  G =  570  
+ABC: Path  2 --     519 : 2    1 XNOR2X1 A =   4.69  Df = 107.3  -23.4 ps  S =  55.4 ps  Cin =  5.1 ff  Cout =   5.7 ff  Cmax = 228.3 ff  G =  106  
+ABC: Path  3 --     520 : 2    2 XOR2X1  A =   4.69  Df = 179.1  -26.2 ps  S =  69.4 ps  Cin =  5.3 ff  Cout =   7.9 ff  Cmax = 223.3 ff  G =  143  
+ABC: Path  4 --     521 : 2    2 XOR2X1  A =   4.69  Df = 252.4  -26.3 ps  S =  69.4 ps  Cin =  5.3 ff  Cout =   8.0 ff  Cmax = 223.3 ff  G =  141  
+ABC: Path  5 --     582 : 2    1 AND2X1  A =   2.35  Df = 282.6  -20.9 ps  S =  27.1 ps  Cin =  2.1 ff  Cout =   2.3 ff  Cmax = 137.4 ff  G =  111  
+ABC: Path  6 --     583 : 2    2 OR2X2   A =   2.82  Df = 335.9  -21.9 ps  S =  21.3 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path  7 --     584 : 2    3 XOR2X1  A =   4.69  Df = 413.5  -32.4 ps  S =  83.2 ps  Cin =  5.3 ff  Cout =  10.7 ff  Cmax = 223.3 ff  G =  192  
+ABC: Path  8 --     641 : 2    1 AND2X1  A =   2.35  Df = 443.5  -25.9 ps  S =  25.6 ps  Cin =  2.1 ff  Cout =   2.3 ff  Cmax = 137.4 ff  G =  111  
+ABC: Path  9 --     642 : 2    1 OR2X2   A =   2.82  Df = 494.0  -25.9 ps  S =  16.4 ps  Cin =  2.3 ff  Cout =   5.7 ff  Cmax = 519.7 ff  G =  233  
+ABC: Path 10 --     643 : 2    2 XOR2X1  A =   4.69  Df = 562.2  -27.6 ps  S =  70.2 ps  Cin =  5.3 ff  Cout =   7.9 ff  Cmax = 223.3 ff  G =  145  
+ABC: Path 11 --     701 : 2    1 OR2X2   A =   2.82  Df = 612.3  -28.1 ps  S =  15.1 ps  Cin =  2.3 ff  Cout =   1.8 ff  Cmax = 519.7 ff  G =   77  
+ABC: Path 12 --     704 : 2    2 AND2X2  A =   2.82  Df = 653.9  -31.9 ps  S =  21.8 ps  Cin =  1.8 ff  Cout =   7.8 ff  Cmax = 505.1 ff  G =  415  
+ABC: Path 13 --     705 : 2    2 XNOR2X1 A =   4.69  Df = 720.9  -26.3 ps  S =  64.0 ps  Cin =  5.1 ff  Cout =   7.5 ff  Cmax = 228.3 ff  G =  141  
+ABC: Path 14 --     706 : 2    2 XOR2X1  A =   4.69  Df = 792.1  -25.2 ps  S =  67.2 ps  Cin =  5.3 ff  Cout =   7.5 ff  Cmax = 223.3 ff  G =  135  
+ABC: Path 15 --     707 : 2    3 XOR2X1  A =   4.69  Df = 869.6  -27.8 ps  S =  76.0 ps  Cin =  5.3 ff  Cout =   9.3 ff  Cmax = 223.3 ff  G =  169  
+ABC: Path 16 --     786 : 2    2 AND2X2  A =   2.82  Df = 908.1  -25.0 ps  S =  18.1 ps  Cin =  1.8 ff  Cout =   4.2 ff  Cmax = 505.1 ff  G =  229  
+ABC: Path 17 --     787 : 2    1 OR2X2   A =   2.82  Df = 957.6  -26.0 ps  S =  17.0 ps  Cin =  2.3 ff  Cout =   5.7 ff  Cmax = 519.7 ff  G =  233  
+ABC: Path 18 --     788 : 2    2 XOR2X1  A =   4.69  Df =1025.9  -27.6 ps  S =  70.3 ps  Cin =  5.3 ff  Cout =   7.9 ff  Cmax = 223.3 ff  G =  145  
+ABC: Path 19 --     789 : 2    2 XOR2X1  A =   4.69  Df =1097.7  -24.9 ps  S =  67.1 ps  Cin =  5.3 ff  Cout =   7.5 ff  Cmax = 223.3 ff  G =  135  
+ABC: Path 20 --     790 : 2    2 XOR2X1  A =   4.69  Df =1170.8  -26.4 ps  S =  69.6 ps  Cin =  5.3 ff  Cout =   8.0 ff  Cmax = 223.3 ff  G =  141  
+ABC: Path 21 --     866 : 2    1 AND2X1  A =   2.35  Df =1200.9  -21.1 ps  S =  28.6 ps  Cin =  2.1 ff  Cout =   2.3 ff  Cmax = 137.4 ff  G =  111  
+ABC: Path 22 --     867 : 2    2 OR2X2   A =   2.82  Df =1254.5  -22.2 ps  S =  19.9 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path 23 --     956 : 2    2 AND2X2  A =   2.82  Df =1295.7  -24.9 ps  S =  23.3 ps  Cin =  1.8 ff  Cout =   7.5 ff  Cmax = 505.1 ff  G =  394  
+ABC: Path 24 --     958 : 2    2 AND2X2  A =   2.82  Df =1336.9  -28.2 ps  S =  22.7 ps  Cin =  1.8 ff  Cout =   7.3 ff  Cmax = 505.1 ff  G =  388  
+ABC: Path 25 --    1157 : 2    1 AND2X2  A =   2.82  Df =1369.5  -23.9 ps  S =  12.6 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path 26 --    1158 : 2    2 OR2X2   A =   2.82  Df =1421.1  -25.7 ps  S =  19.9 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path 27 --    1258 : 2    1 AND2X2  A =   2.82  Df =1454.3  -25.5 ps  S =  11.7 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path 28 --    1259 : 2    2 OR2X2   A =   2.82  Df =1505.8  -27.0 ps  S =  19.8 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path 29 --    1373 : 2    1 AND2X2  A =   2.82  Df =1539.0  -26.9 ps  S =  11.7 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path 30 --    1374 : 2    2 OR2X2   A =   2.82  Df =1590.5  -28.4 ps  S =  19.9 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path 31 --    1494 : 2    1 AND2X2  A =   2.82  Df =1623.7  -28.3 ps  S =  11.7 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path 32 --    1495 : 2    2 OR2X2   A =   2.82  Df =1675.2  -29.7 ps  S =  21.5 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path 33 --    1620 : 2    1 AND2X2  A =   2.82  Df =1708.5  -29.6 ps  S =  11.7 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path 34 --    1621 : 2    2 OR2X2   A =   2.82  Df =1760.0  -31.2 ps  S =  19.9 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path 35 --    1747 : 2    1 AND2X2  A =   2.82  Df =1793.2  -31.0 ps  S =  11.7 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path 36 --    1748 : 2    2 OR2X2   A =   2.82  Df =1844.7  -32.5 ps  S =  19.9 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path 37 --    1883 : 2    1 AND2X2  A =   2.82  Df =1878.0  -32.4 ps  S =  11.7 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path 38 --    1884 : 2    2 OR2X2   A =   2.82  Df =1929.4  -33.9 ps  S =  19.9 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path 39 --    2025 : 2    1 AND2X2  A =   2.82  Df =1962.7  -33.7 ps  S =  11.7 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path 40 --    2026 : 2    2 OR2X2   A =   2.82  Df =2014.2  -35.2 ps  S =  19.9 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path 41 --    2171 : 2    1 AND2X2  A =   2.82  Df =2047.4  -35.1 ps  S =  11.7 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path 42 --    2172 : 2    2 OR2X2   A =   2.82  Df =2098.9  -36.6 ps  S =  19.9 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path 43 --    2317 : 2    1 AND2X2  A =   2.82  Df =2132.1  -36.5 ps  S =  11.7 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path 44 --    2318 : 2    2 OR2X2   A =   2.82  Df =2183.6  -38.0 ps  S =  19.9 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path 45 --    2320 : 2    2 AND2X2  A =   2.82  Df =2219.5  -38.8 ps  S =  15.7 ps  Cin =  1.8 ff  Cout =   4.0 ff  Cmax = 505.1 ff  G =  221  
+ABC: Path 46 --    2635 : 2    1 AND2X2  A =   2.82  Df =2252.6  -40.0 ps  S =   8.9 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path 47 --    2636 : 2    2 OR2X2   A =   2.82  Df =2303.7  -41.6 ps  S =  19.9 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path 48 --    2638 : 2    2 AND2X2  A =   2.82  Df =2340.4  -42.7 ps  S =  16.7 ps  Cin =  1.8 ff  Cout =   4.6 ff  Cmax = 505.1 ff  G =  250  
+ABC: Path 49 --    2982 : 2    1 OR2X2   A =   2.82  Df =2383.9  -41.2 ps  S =   6.7 ps  Cin =  2.3 ff  Cout =   1.8 ff  Cmax = 519.7 ff  G =   77  
+ABC: Path 50 --    2983 : 2    2 AND2X2  A =   2.82  Df =2424.7  -45.6 ps  S =  20.9 ps  Cin =  1.8 ff  Cout =   7.5 ff  Cmax = 505.1 ff  G =  394  
+ABC: Path 51 --    3156 : 2    1 AND2X2  A =   2.82  Df =2458.0  -47.4 ps  S =  11.7 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path 52 --    3157 : 2    2 OR2X2   A =   2.82  Df =2509.5  -48.9 ps  S =  21.7 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path 53 --    3334 : 2    1 AND2X2  A =   2.82  Df =2542.8  -48.9 ps  S =  11.7 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path 54 --    3335 : 2    2 OR2X2   A =   2.82  Df =2594.3  -50.4 ps  S =  21.7 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path 55 --    3337 : 2    2 AND2X2  A =   2.82  Df =2631.0  -51.4 ps  S =  16.8 ps  Cin =  1.8 ff  Cout =   4.6 ff  Cmax = 505.1 ff  G =  250  
+ABC: Path 56 --    3731 : 2    1 OR2X2   A =   2.82  Df =2674.6  -50.0 ps  S =   6.9 ps  Cin =  2.3 ff  Cout =   1.8 ff  Cmax = 519.7 ff  G =   77  
+ABC: Path 57 --    3732 : 2    2 AND2X2  A =   2.82  Df =2715.3  -54.4 ps  S =  20.9 ps  Cin =  1.8 ff  Cout =   7.5 ff  Cmax = 505.1 ff  G =  394  
+ABC: Path 58 --    3944 : 2    2 AND2X2  A =   2.82  Df =2752.1  -57.3 ps  S =  16.8 ps  Cin =  1.8 ff  Cout =   4.6 ff  Cmax = 505.1 ff  G =  250  
+ABC: Path 59 --    4158 : 2    1 OR2X2   A =   2.82  Df =2795.6  -55.8 ps  S =   6.7 ps  Cin =  2.3 ff  Cout =   1.8 ff  Cmax = 519.7 ff  G =   77  
+ABC: Path 60 --    4159 : 2    3 AND2X2  A =   2.82  Df =2840.6  -61.6 ps  S =  27.1 ps  Cin =  1.8 ff  Cout =  10.2 ff  Cmax = 505.1 ff  G =  543  
+ABC: Path 61 --    4625 : 2    1 AND2X2  A =   2.82  Df =2874.2  -62.7 ps  S =   8.8 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path 62 --    4626 : 2    2 OR2X2   A =   2.82  Df =2925.3  -64.3 ps  S =  19.5 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path 63 --    4628 : 2    2 AND2X2  A =   2.82  Df =2962.4  -65.6 ps  S =  17.2 ps  Cin =  1.8 ff  Cout =   4.8 ff  Cmax = 505.1 ff  G =  264  
+ABC: Path 64 --    4852 : 2    3 AND2X2  A =   2.82  Df =3003.5  -69.0 ps  S =  23.0 ps  Cin =  1.8 ff  Cout =   7.4 ff  Cmax = 505.1 ff  G =  405  
+ABC: Path 65 --    5553 : 2    1 AND2X2  A =   2.82  Df =3036.8  -69.2 ps  S =   9.1 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path 66 --    5554 : 2    2 OR2X2   A =   2.82  Df =3088.0  -70.9 ps  S =  19.3 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path 67 --    5815 : 2    2 AND2X2  A =   2.82  Df =3123.9  -71.8 ps  S =  15.7 ps  Cin =  1.8 ff  Cout =   4.0 ff  Cmax = 505.1 ff  G =  221  
+ABC: Path 68 --    5820 : 2    2 AND2X2  A =   2.82  Df =3160.9  -74.2 ps  S =  17.7 ps  Cin =  1.8 ff  Cout =   4.8 ff  Cmax = 505.1 ff  G =  264  
+ABC: Path 69 --    6076 : 2    2 AND2X2  A =   2.82  Df =3198.8  -76.4 ps  S =  18.4 ps  Cin =  1.8 ff  Cout =   5.4 ff  Cmax = 505.1 ff  G =  296  
+ABC: Path 70 --    6339 : 2    2 OR2X2   A =   2.82  Df =3251.1  -77.9 ps  S =  19.6 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path 71 --    6611 : 2    1 AND2X2  A =   2.82  Df =3284.3  -77.6 ps  S =  11.7 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path 72 --    6612 : 2    2 OR2X2   A =   2.82  Df =3335.8  -79.1 ps  S =  21.9 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path 73 --    6896 : 2    2 AND2X2  A =   2.82  Df =3371.9  -79.9 ps  S =  15.7 ps  Cin =  1.8 ff  Cout =   4.1 ff  Cmax = 505.1 ff  G =  225  
+ABC: Path 74 --    7755 : 2    1 AND2X2  A =   2.82  Df =3405.0  -80.9 ps  S =   8.7 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path 75 --    7756 : 2    2 OR2X2   A =   2.82  Df =3456.1  -82.6 ps  S =  23.1 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path 76 --    8053 : 2    2 AND2X2  A =   2.82  Df =3492.2  -83.3 ps  S =  15.6 ps  Cin =  1.8 ff  Cout =   4.0 ff  Cmax = 505.1 ff  G =  221  
+ABC: Path 77 --    8367 : 2    2 AND2X2  A =   2.82  Df =3528.0  -85.3 ps  S =  15.6 ps  Cin =  1.8 ff  Cout =   4.1 ff  Cmax = 505.1 ff  G =  225  
+ABC: Path 78 --    8988 : 2    2 AND2X2  A =   2.82  Df =3563.9  -87.4 ps  S =  13.2 ps  Cin =  1.8 ff  Cout =   4.1 ff  Cmax = 505.1 ff  G =  225  
+ABC: Path 79 --   10326 : 2    1 AND2X2  A =   2.82  Df =3596.8  -89.7 ps  S =   8.8 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path 80 --   10327 : 2    3 OR2X2   A =   2.82  Df =3652.1  -92.5 ps  S =  29.2 ps  Cin =  2.3 ff  Cout =  10.2 ff  Cmax = 519.7 ff  G =  427  
+ABC: Path 81 --   11096 : 2    2 AND2X2  A =   2.82  Df =3688.5  -92.4 ps  S =  13.0 ps  Cin =  1.8 ff  Cout =   4.1 ff  Cmax = 505.1 ff  G =  225  
+ABC: Path 82 --   11791 : 2    2 AND2X2  A =   2.82  Df =3723.8  -95.6 ps  S =  12.6 ps  Cin =  1.8 ff  Cout =   3.8 ff  Cmax = 505.1 ff  G =  211  
+ABC: Path 83 --   13259 : 2    1 OR2X2   A =   2.82  Df =3766.8  -94.7 ps  S =  10.5 ps  Cin =  2.3 ff  Cout =   1.8 ff  Cmax = 519.7 ff  G =   77  
+ABC: Path 84 --   13262 : 2    2 AND2X2  A =   2.82  Df =3807.8  -98.9 ps  S =  21.8 ps  Cin =  1.8 ff  Cout =   7.5 ff  Cmax = 505.1 ff  G =  394  
+ABC: Path 85 --   13634 : 2    2 AND2X2  A =   2.82  Df =3843.8 -101.3 ps  S =  15.6 ps  Cin =  1.8 ff  Cout =   4.0 ff  Cmax = 505.1 ff  G =  221  
+ABC: Path 86 --   14020 : 2    2 AND2X2  A =   2.82  Df =3879.6 -103.3 ps  S =  15.6 ps  Cin =  1.8 ff  Cout =   4.1 ff  Cmax = 505.1 ff  G =  225  
+ABC: Path 87 --   14808 : 2    1 AND2X2  A =   2.82  Df =3912.7 -104.4 ps  S =   9.0 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path 88 --   14809 : 2    3 OR2X2   A =   2.82  Df =3966.6 -106.9 ps  S =  26.8 ps  Cin =  2.3 ff  Cout =   9.3 ff  Cmax = 519.7 ff  G =  387  
+ABC: Path 89 --   16447 : 2    1 AND2X2  A =   2.82  Df =4000.1 -105.9 ps  S =  10.7 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path 90 --   16448 : 2    3 OR2X2   A =   2.82  Df =4054.5 -108.5 ps  S =  27.7 ps  Cin =  2.3 ff  Cout =   9.5 ff  Cmax = 519.7 ff  G =  396  
+ABC: Path 91 --   17323 : 2    2 AND2X2  A =   2.82  Df =4091.6 -108.8 ps  S =  14.0 ps  Cin =  1.8 ff  Cout =   4.7 ff  Cmax = 505.1 ff  G =  255  
+ABC: Path 92 --   20189 : 2    1 OR2X2   A =   2.82  Df =4134.8 -108.0 ps  S =   7.0 ps  Cin =  2.3 ff  Cout =   1.8 ff  Cmax = 519.7 ff  G =   77  
+ABC: Path 93 --   20193 : 2    2 AND2X2  A =   2.82  Df =4175.6 -112.6 ps  S =  21.8 ps  Cin =  1.8 ff  Cout =   7.5 ff  Cmax = 505.1 ff  G =  394  
+ABC: Path 94 --   20700 : 2    2 AND2X2  A =   2.82  Df =4211.6 -115.0 ps  S =  15.7 ps  Cin =  1.8 ff  Cout =   4.0 ff  Cmax = 505.1 ff  G =  221  
+ABC: Path 95 --   21196 : 2    2 AND2X2  A =   2.82  Df =4247.5 -117.1 ps  S =  14.9 ps  Cin =  1.8 ff  Cout =   4.1 ff  Cmax = 505.1 ff  G =  225  
+ABC: Path 96 --   22164 : 2    2 AND2X2  A =   2.82  Df =4283.3 -120.2 ps  S =  13.1 ps  Cin =  1.8 ff  Cout =   4.1 ff  Cmax = 505.1 ff  G =  225  
+ABC: Path 97 --   24164 : 2    1 AND2X2  A =   2.82  Df =4316.2 -122.5 ps  S =   8.9 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path 98 --   24165 : 2    3 OR2X2   A =   2.82  Df =4371.5 -125.3 ps  S =  29.2 ps  Cin =  2.3 ff  Cout =  10.2 ff  Cmax = 519.7 ff  G =  427  
+ABC: Path 99 --   25199 : 2    2 AND2X2  A =   2.82  Df =4407.9 -125.3 ps  S =  12.9 ps  Cin =  1.8 ff  Cout =   4.1 ff  Cmax = 505.1 ff  G =  225  
+ABC: Path100 --   26318 : 2    2 AND2X2  A =   2.82  Df =4444.4 -128.7 ps  S =  14.2 ps  Cin =  1.8 ff  Cout =   4.7 ff  Cmax = 505.1 ff  G =  255  
+ABC: Path101 --   28507 : 2    1 OR2X2   A =   2.82  Df =4487.6 -127.9 ps  S =   6.9 ps  Cin =  2.3 ff  Cout =   1.8 ff  Cmax = 519.7 ff  G =   77  
+ABC: Path102 --   28510 : 2    4 AND2X2  A =   2.82  Df =4535.8 -135.0 ps  S =  31.6 ps  Cin =  1.8 ff  Cout =  12.2 ff  Cmax = 505.1 ff  G =  653  
+ABC: Path103 --   30639 : 2    2 AND2X2  A =   2.82  Df =4572.3 -136.6 ps  S =  12.7 ps  Cin =  1.8 ff  Cout =   4.1 ff  Cmax = 505.1 ff  G =  225  
+ABC: Path104 --   32682 : 2    2 AND2X2  A =   2.82  Df =4608.8 -140.0 ps  S =  14.0 ps  Cin =  1.8 ff  Cout =   4.7 ff  Cmax = 505.1 ff  G =  255  
+ABC: Path105 --   36673 : 2    1 OR2X2   A =   2.82  Df =4652.0 -139.2 ps  S =   6.8 ps  Cin =  2.3 ff  Cout =   1.8 ff  Cmax = 519.7 ff  G =   77  
+ABC: Path106 --   36677 : 2    4 AND2X2  A =   2.82  Df =4700.2 -146.3 ps  S =  32.9 ps  Cin =  1.8 ff  Cout =  12.2 ff  Cmax = 505.1 ff  G =  653  
+ABC: Path107 --   38458 : 2    2 AND2X2  A =   2.82  Df =4736.7 -147.9 ps  S =  12.7 ps  Cin =  1.8 ff  Cout =   4.1 ff  Cmax = 505.1 ff  G =  225  
+ABC: Path108 --   40176 : 2    2 AND2X2  A =   2.82  Df =4773.2 -151.2 ps  S =  14.1 ps  Cin =  1.8 ff  Cout =   4.7 ff  Cmax = 505.1 ff  G =  255  
+ABC: Path109 --   43397 : 2    1 OR2X2   A =   2.82  Df =4816.4 -150.5 ps  S =   6.9 ps  Cin =  2.3 ff  Cout =   1.8 ff  Cmax = 519.7 ff  G =   77  
+ABC: Path110 --   43400 : 2    4 AND2X2  A =   2.82  Df =4864.6 -157.6 ps  S =  31.7 ps  Cin =  1.8 ff  Cout =  12.2 ff  Cmax = 505.1 ff  G =  653  
+ABC: Path111 --   46356 : 2    1 AND2X2  A =   2.82  Df =4898.4 -158.2 ps  S =   8.6 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path112 --   46357 : 2    3 OR2X2   A =   2.82  Df =4953.6 -161.0 ps  S =  28.8 ps  Cin =  2.3 ff  Cout =  10.2 ff  Cmax = 519.7 ff  G =  427  
+ABC: Path113 --   47026 : 2    2 AND2X2  A =   2.82  Df =4990.0 -160.8 ps  S =  13.0 ps  Cin =  1.8 ff  Cout =   4.1 ff  Cmax = 505.1 ff  G =  225  
+ABC: Path114 --   47675 : 2    2 AND2X2  A =   2.82  Df =5026.5 -164.1 ps  S =  14.2 ps  Cin =  1.8 ff  Cout =   4.7 ff  Cmax = 505.1 ff  G =  255  
+ABC: Path115 --   48854 : 2    1 OR2X2   A =   2.82  Df =5069.7 -163.4 ps  S =   6.9 ps  Cin =  2.3 ff  Cout =   1.8 ff  Cmax = 519.7 ff  G =   77  
+ABC: Path116 --   48857 : 2    2 AND2X2  A =   2.82  Df =5110.4 -167.9 ps  S =  21.8 ps  Cin =  1.8 ff  Cout =   7.5 ff  Cmax = 505.1 ff  G =  394  
+ABC: Path117 --   49126 : 2    2 AND2X2  A =   2.82  Df =5146.5 -170.4 ps  S =  15.6 ps  Cin =  1.8 ff  Cout =   4.0 ff  Cmax = 505.1 ff  G =  221  
+ABC: Path118 --   49394 : 2    2 AND2X2  A =   2.82  Df =5182.3 -172.4 ps  S =  15.7 ps  Cin =  1.8 ff  Cout =   4.1 ff  Cmax = 505.1 ff  G =  225  
+ABC: Path119 --   49920 : 2    2 AND2X2  A =   2.82  Df =5218.9 -174.6 ps  S =  14.3 ps  Cin =  1.8 ff  Cout =   4.7 ff  Cmax = 505.1 ff  G =  255  
+ABC: Path120 --   50898 : 2    1 OR2X2   A =   2.82  Df =5262.1 -173.9 ps  S =   6.6 ps  Cin =  2.3 ff  Cout =   1.8 ff  Cmax = 519.7 ff  G =   77  
+ABC: Path121 --   50901 : 2    3 AND2X2  A =   2.82  Df =5306.1 -179.5 ps  S =  26.5 ps  Cin =  1.8 ff  Cout =   9.5 ff  Cmax = 505.1 ff  G =  504  
+ABC: Path122 --   51363 : 2    2 AND2X2  A =   2.82  Df =5342.4 -181.3 ps  S =  12.9 ps  Cin =  1.8 ff  Cout =   4.1 ff  Cmax = 505.1 ff  G =  225  
+ABC: Path123 --   51798 : 2    2 AND2X2  A =   2.82  Df =5378.1 -184.6 ps  S =  13.2 ps  Cin =  1.8 ff  Cout =   4.1 ff  Cmax = 505.1 ff  G =  225  
+ABC: Path124 --   52603 : 2    1 AND2X2  A =   2.82  Df =5411.0 -186.9 ps  S =   8.8 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path125 --   52604 : 2    2 OR2X2   A =   2.82  Df =5462.2 -188.5 ps  S =  22.8 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path126 --   52786 : 2    2 AND2X2  A =   2.82  Df =5499.1 -189.0 ps  S =  16.8 ps  Cin =  1.8 ff  Cout =   4.7 ff  Cmax = 505.1 ff  G =  255  
+ABC: Path127 --   53317 : 2    1 OR2X2   A =   2.82  Df =5542.6 -187.5 ps  S =   6.7 ps  Cin =  2.3 ff  Cout =   1.8 ff  Cmax = 519.7 ff  G =   77  
+ABC: Path128 --   53320 : 2    2 AND2X2  A =   2.82  Df =5583.3 -191.9 ps  S =  20.6 ps  Cin =  1.8 ff  Cout =   7.5 ff  Cmax = 505.1 ff  G =  394  
+ABC: Path129 --   53479 : 2    2 AND2X2  A =   2.82  Df =5620.2 -194.9 ps  S =  16.6 ps  Cin =  1.8 ff  Cout =   4.7 ff  Cmax = 505.1 ff  G =  255  
+ABC: Path130 --   53953 : 2    1 OR2X2   A =   2.82  Df =5663.6 -193.4 ps  S =   6.6 ps  Cin =  2.3 ff  Cout =   1.8 ff  Cmax = 519.7 ff  G =   77  
+ABC: Path131 --   53956 : 2    2 AND2X2  A =   2.82  Df =5704.4 -197.8 ps  S =  20.6 ps  Cin =  1.8 ff  Cout =   7.5 ff  Cmax = 505.1 ff  G =  394  
+ABC: Path132 --   54101 : 2    2 AND2X2  A =   2.82  Df =5741.4 -201.0 ps  S =  17.0 ps  Cin =  1.8 ff  Cout =   4.7 ff  Cmax = 505.1 ff  G =  257  
+ABC: Path133 --   54243 : 2    1 OR2X2   A =   2.82  Df =5784.9 -199.5 ps  S =  11.0 ps  Cin =  2.3 ff  Cout =   1.8 ff  Cmax = 519.7 ff  G =   77  
+ABC: Path134 --   54244 : 2    2 AND2X2  A =   2.82  Df =5825.8 -204.0 ps  S =  20.9 ps  Cin =  1.8 ff  Cout =   7.5 ff  Cmax = 505.1 ff  G =  394  
+ABC: Path135 --   54378 : 2    2 AND2X2  A =   2.82  Df =5862.6 -207.0 ps  S =  16.8 ps  Cin =  1.8 ff  Cout =   4.6 ff  Cmax = 505.1 ff  G =  250  
+ABC: Path136 --   54498 : 2    1 OR2X2   A =   2.82  Df =5906.1 -205.5 ps  S =   6.4 ps  Cin =  2.3 ff  Cout =   1.8 ff  Cmax = 519.7 ff  G =   77  
+ABC: Path137 --   54500 : 2    2 AND2X2  A =   2.82  Df =5946.9 -209.9 ps  S =  21.7 ps  Cin =  1.8 ff  Cout =   7.5 ff  Cmax = 505.1 ff  G =  394  
+ABC: Path138 --   54623 : 2    2 AND2X2  A =   2.82  Df =5983.6 -212.4 ps  S =  16.7 ps  Cin =  1.8 ff  Cout =   4.6 ff  Cmax = 505.1 ff  G =  250  
+ABC: Path139 --   54736 : 2    1 OR2X2   A =   2.82  Df =6027.1 -210.9 ps  S =   6.4 ps  Cin =  2.3 ff  Cout =   1.8 ff  Cmax = 519.7 ff  G =   77  
+ABC: Path140 --   54738 : 2    2 AND2X2  A =   2.82  Df =6067.9 -215.3 ps  S =  21.7 ps  Cin =  1.8 ff  Cout =   7.5 ff  Cmax = 505.1 ff  G =  394  
+ABC: Path141 --   54840 : 2    2 AND2X2  A =   2.82  Df =6104.7 -217.8 ps  S =  16.8 ps  Cin =  1.8 ff  Cout =   4.6 ff  Cmax = 505.1 ff  G =  250  
+ABC: Path142 --   54944 : 2    1 OR2X2   A =   2.82  Df =6148.2 -216.3 ps  S =   6.4 ps  Cin =  2.3 ff  Cout =   1.8 ff  Cmax = 519.7 ff  G =   77  
+ABC: Path143 --   54946 : 2    2 AND2X2  A =   2.82  Df =6189.0 -220.7 ps  S =  21.7 ps  Cin =  1.8 ff  Cout =   7.5 ff  Cmax = 505.1 ff  G =  394  
+ABC: Path144 --   55040 : 2    1 AND2X2  A =   2.82  Df =6222.3 -222.1 ps  S =  11.7 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path145 --   55041 : 2    2 OR2X2   A =   2.82  Df =6273.6 -223.5 ps  S =  21.4 ps  Cin =  2.3 ff  Cout =   7.4 ff  Cmax = 519.7 ff  G =  307  
+ABC: Path146 --   55131 : 2    1 AND2X2  A =   2.82  Df =6306.9 -223.5 ps  S =   8.9 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path147 --   55132 : 2    2 OR2X2   A =   2.82  Df =6358.1 -225.1 ps  S =  18.2 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path148 --   55224 : 2    1 AND2X2  A =   2.82  Df =6391.2 -224.9 ps  S =  11.7 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path149 --   55225 : 2    2 OR2X2   A =   2.82  Df =6443.3 -226.5 ps  S =  20.7 ps  Cin =  2.3 ff  Cout =   7.9 ff  Cmax = 519.7 ff  G =  330  
+ABC: Path150 --   55304 : 2    1 OR2X2   A =   2.82  Df =6487.3 -224.5 ps  S =   5.0 ps  Cin =  2.3 ff  Cout =   1.8 ff  Cmax = 519.7 ff  G =   77  
+ABC: Path151 --   55305 : 2    2 AND2X2  A =   2.82  Df =6528.0 -228.6 ps  S =  20.9 ps  Cin =  1.8 ff  Cout =   7.5 ff  Cmax = 505.1 ff  G =  394  
+ABC: Path152 --   55377 : 2    1 AND2X2  A =   2.82  Df =6561.3 -230.4 ps  S =  11.7 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path153 --   55378 : 2    2 OR2X2   A =   2.82  Df =6612.7 -231.9 ps  S =  19.7 ps  Cin =  2.3 ff  Cout =   7.4 ff  Cmax = 519.7 ff  G =  307  
+ABC: Path154 --   55447 : 2    1 AND2X2  A =   2.82  Df =6645.9 -231.7 ps  S =   9.0 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path155 --   55448 : 2    2 OR2X2   A =   2.82  Df =6697.0 -233.4 ps  S =  18.2 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path156 --   55514 : 2    2 AND2X2  A =   2.82  Df =6732.9 -234.2 ps  S =  15.7 ps  Cin =  1.8 ff  Cout =   4.0 ff  Cmax = 505.1 ff  G =  221  
+ABC: Path157 --   55569 : 2    1 AND2X2  A =   2.82  Df =6766.0 -235.3 ps  S =  11.6 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path158 --   55570 : 2    2 OR2X2   A =   2.82  Df =6817.4 -236.8 ps  S =  19.8 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path159 --   55625 : 2    1 AND2X2  A =   2.82  Df =6850.7 -236.7 ps  S =  11.7 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path160 --   55626 : 2    2 OR2X2   A =   2.82  Df =6902.2 -238.1 ps  S =  19.8 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path161 --   55673 : 2    2 AND2X2  A =   2.82  Df =6938.9 -239.0 ps  S =  16.6 ps  Cin =  1.8 ff  Cout =   4.7 ff  Cmax = 505.1 ff  G =  255  
+ABC: Path162 --   55760 : 2    1 OR2X2   A =   2.82  Df =6982.4 -237.5 ps  S =  10.5 ps  Cin =  2.3 ff  Cout =   1.8 ff  Cmax = 519.7 ff  G =   77  
+ABC: Path163 --   55763 : 2    2 AND2X2  A =   2.82  Df =7023.3 -241.7 ps  S =  21.8 ps  Cin =  1.8 ff  Cout =   7.5 ff  Cmax = 505.1 ff  G =  394  
+ABC: Path164 --   55791 : 2    1 AND2X2  A =   2.82  Df =7056.6 -243.2 ps  S =  11.5 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path165 --   55792 : 2    2 OR2X2   A =   2.82  Df =7108.1 -244.7 ps  S =  19.8 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path166 --   55822 : 2    1 AND2X2  A =   2.82  Df =7141.3 -244.6 ps  S =  11.7 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path167 --   55823 : 2    2 OR2X2   A =   2.82  Df =7192.8 -246.1 ps  S =  21.8 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path168 --   55838 : 2    1 AND2X2  A =   2.82  Df =7226.1 -246.0 ps  S =  11.7 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path169 --   55839 : 2    1 OR2X2   A =   2.82  Df =7274.9 -246.7 ps  S =  20.8 ps  Cin =  2.3 ff  Cout =   5.7 ff  Cmax = 519.7 ff  G =  233  
+ABC: Path170 --   55840 : 2    1 XOR2X1  A =   4.69  Df =7317.7  -14.8 ps  S =  32.2 ps  Cin =  5.3 ff  Cout =   0.0 ff  Cmax = 223.3 ff  G =    0  
+ABC: Start-point = pi032.  End-point = po191.

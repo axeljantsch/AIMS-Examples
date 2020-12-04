@@ -1,0 +1,112 @@
+
+# Basename is used to derive the bitwidth specific files with the width parameter.
+#   So typically, make is called like this
+#   make width=8 all
+#   to generate all targets for the 8bit multiplier.
+
+bname = multiplier-Pipelined-0
+width = 4
+dbname = $(bname)-$(width)b
+
+# The variable QFLAG is passed from the environment. if it is -q Yosys runs silently.
+
+logfile = $(dbname)-yosys-synth.log
+loggscl45file = $(dbname)-yosys-synthgscl45.log
+
+synthgscl45script = $${HOME}/developments/Verilog-Projects/AIMS-Book-Examples/Scripts/synthgscl45script.yosys
+
+all: map resources abcgscl45report
+
+map json $(logfile) &: $(dbname).v
+	yosys $(QFLAG) -l $(logfile) -p "read_verilog $<; proc; opt; synth_ice40; write_json $(dbname).json; show -notitle -prefix $(dbname)-Map -format dot; ";
+
+
+synth: $(dbname)-Synth.dot
+
+opt: $(dbname)-Opt.dot
+
+resources: $(dbname)-ice40-Resources.txt $(dbname)-gscl45-Resources.txt
+
+abcgscl45report: $(dbname)-ABC-gscl45-Report.txt
+
+json: $(dbname).json
+
+synthgscl45 $(loggscl45file) : $(dbname).v
+	yosys $(QFLAG) -l $(loggscl45file) -p "read_verilog $<; script $(synthgscl45script); show -notitle -prefix $(dbname)-Map -format dot; ";
+
+$(dbname).v: $(bname).v
+	sed -e "s/parameter width = 4/parameter width = $(width)/" $(bname).v > $(dbname).v
+
+$(dbname)-Opt.dot: $(dbname).v
+	stem=`basename $@ .dot`; \
+	yosys $(QFLAG) -p "read_verilog $<; proc; opt; show -notitle -prefix $${stem} -format dot; ";
+
+$(dbname)-Synth.dot: $(dbname).v
+	stem=`basename $@ .dot`; \
+	yosys $(QFLAG) -l $(logfile) -p "read_verilog $<; proc; opt; synth; opt -purge; show -notitle -prefix $${stem} -format dot; ";
+
+$(dbname)-Map.dot: $(dbname).v
+	stem=`basename $@ .dot`; \
+	yosys $(QFLAG) -l $(logfile) -p "read_verilog $<; proc; opt; synth_ice40; show -notitle -prefix $${stem} -format dot; ";
+
+
+showopt: $(dbname)-Opt.dot
+	xdot $< &
+
+showsynth: $(dbname)-Synth.dot
+	xdot $< &
+
+showmap: $(dbname)-Map.dot
+	xdot $< &
+
+$(dbname)-ice40-Resources.txt: $(logfile)
+	awk 'BEGIN {state = 0;} \
+	     /Printing statistics/ {state=1;} \
+	     /Number of/  {if (state==1) { rname=$$3; \
+	                                   for (i=4; i<NF; i++) rname=rname" "$$i; \
+	                                   res[rname]=$$(NF); }\
+	                  }      \
+	     /SB_LUT4/  {if (state==1) res["LUT4"]=$$2; } \
+	     /SB_CARRY/  {if (state==1) res["CARRY"]=$$2; } \
+	     /SB_DFF/  {if (state==1) res["DFF"]+=$$2; } \
+	      END { for (r in res) \
+	                printf "%s = %s\n", r, res[r];}' \
+	     $< >$@
+
+$(dbname)-gscl45-Resources.txt: $(loggscl45file)
+	awk 'BEGIN {state = 0; }\
+	     /Executing/ {state=0; } \
+	     /Generating/ {state=0; } \
+	     /Printing statistics/ {state=1; for (r in res) res[r]=0; } \
+	     /Number of/  {if (state==1) { rname=$$3; \
+	                                   for (i=4; i<NF; i++) rname=rname" "$$i; \
+	                                   res[rname]=$$(NF); }\
+	                  }      \
+	     /DFF/  {if (state==1) res["DFF"]+=$$2; } \
+	     /AND/  {if (state==1) res["GATE"]+=$$2; } \
+	     /AOI/  {if (state==1) res["GATE"]+=$$2; } \
+	     /INV/  {if (state==1) res["GATE"]+=$$2; } \
+	     /NAND/  {if (state==1) res["GATE"]+=$$2; } \
+	     /NOR/  {if (state==1) res["GATE"]+=$$2; } \
+	     /OAI/  {if (state==1) res["GATE"]+=$$2; } \
+	     /OR/  {if (state==1) res["GATE"]+=$$2; } \
+	     /XNOR/  {if (state==1) res["GATE"]+=$$2; } \
+	     /XOR/  {if (state==1) res["GATE"]+=$$2; } \
+	      END { for (r in res) \
+	                printf "%s = %s\n", r, res[r];}' \
+	     $< >$@
+
+
+$(dbname)-ABC-gscl45-Report.txt: $(loggscl45file)
+	grep "ABC:" $< >$@
+
+%.json: %.v
+	yosys $(QFLAG) -l $(logfile) -p "read_verilog $<; proc; opt; synth_ice40; write_json $@;"
+
+copy:
+	cp $(dbname)-Map.dot $(dbname)-ice40-Resources.txt $(dbname)-gscl45-Resources.txt\
+	   $(dbname)-ABC-gscl45-Report.txt ..
+clean:
+	rm -f $(dbname)-Opt.dot $(dbname)-Synth.dot $(dbname)-Map.dot \
+		$(dbname)-ice40-Resources.txt $(dbname)-gscl45-Resources.txt $(logfile)\
+		$(loggscl45file) $(dbname)-ABC-gscl45-Report.txt

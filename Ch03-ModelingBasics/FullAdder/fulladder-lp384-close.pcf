@@ -1,0 +1,5 @@
+set_io ci 18
+set_io a 19
+set_io b 20
+set_io sum 22
+set_io co 23

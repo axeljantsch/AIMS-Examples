@@ -1,0 +1,54 @@
+
+icetime topological timing analysis report
+==========================================
+
+Report for critical path:
+-------------------------
+
+        lc40_14_19_2 (LogicCell40) [clk] -> lcout: 0.896 ns
+     0.896 ns net_54652 (areg[1])
+        odrv_14_19_54652_58868 (Odrv4) I -> O: 0.548 ns
+        t321 (Span4Mux_v1) I -> O: 0.300 ns
+        t320 (LocalMux) I -> O: 0.486 ns
+        inmux_17_18_70906_70944 (InMux) I -> O: 0.382 ns
+        lc40_17_18_6 (LogicCell40) in0 -> lcout: 0.662 ns
+     3.273 ns net_66763 ($abc$983$n138)
+        t437 (LocalMux) I -> O: 0.486 ns
+        inmux_16_18_66820_66850 (InMux) I -> O: 0.382 ns
+        lc40_16_18_3 (LogicCell40) in1 -> lcout: 0.589 ns
+     4.731 ns net_62684 ($abc$983$n137_1)
+        t393 (LocalMux) I -> O: 0.486 ns
+        inmux_16_18_66801_66873 (InMux) I -> O: 0.382 ns
+        lc40_16_18_7 (LogicCell40) in0 -> lcout: 0.662 ns
+     6.261 ns net_62688 ($abc$983$n136)
+        t397 (LocalMux) I -> O: 0.486 ns
+        inmux_16_19_66936_66954 (InMux) I -> O: 0.382 ns
+        lc40_16_19_0 (LogicCell40) in0 -> lcout: 0.662 ns
+     7.791 ns net_62804 ($abc$983$n135)
+        t407 (LocalMux) I -> O: 0.486 ns
+        inmux_15_19_62861_62878 (InMux) I -> O: 0.382 ns
+        lc40_15_19_0 (LogicCell40) in0 -> lcout: 0.662 ns
+     9.321 ns net_58727 ($abc$983$n223)
+        t349 (LocalMux) I -> O: 0.486 ns
+        inmux_15_20_62976_63043 (InMux) I -> O: 0.382 ns
+        lc40_15_20_7 (LogicCell40) in0 -> lcout: 0.662 ns
+    10.850 ns net_58857 ($abc$983$n149)
+        t384 (LocalMux) I -> O: 0.486 ns
+        inmux_15_20_62999_63032 (InMux) I -> O: 0.382 ns
+    11.719 ns net_63032 ($abc$983$n149)
+        lc40_15_20_5 (LogicCell40) in1 [setup]: 0.558 ns
+    12.277 ns net_58855 (pcreg[2])
+
+Resolvable net names on path:
+     0.896 ns ..  2.612 ns areg[1]
+     3.273 ns ..  4.142 ns $abc$983$n138
+     4.731 ns ..  5.599 ns $abc$983$n137_1
+     6.261 ns ..  7.129 ns $abc$983$n136
+     7.791 ns ..  8.659 ns $abc$983$n135
+     9.321 ns .. 10.189 ns $abc$983$n223
+    10.850 ns .. 11.719 ns $abc$983$n149
+                  lcout -> pcreg[2]
+
+Total number of logic levels: 7
+Total path delay: 12.28 ns (81.45 MHz)
+

@@ -1,0 +1,12 @@
+\begin{tabular}{llllllllllllll}
+\hline
+\hline
+ {Tech} & {Bit width} & {Pipelining} & {Nr of}      & {Nr of}   & {Nr of}   & {Critical path} & {Critical path} & {Frequency} & {E2E Delay} & {E2E Delay} & {Throughput}  & {Throughput}  & {Power} \\
+        & {(bit)}     &              & {LUTS/Gates} & {DFFs}    & {DFFs}    & {(ns)}          & {(ns)}          & {(MHz)}     & {(ns)}      & {(ns)}      & {(M ops/sec)} & {(M ops/sec)} & {(mW)}  \\
+        &             &              &              & {(Synth)} & {(Model)} & {(Synth)}       & {(Model)}       &             & {(Synth)}   & {(Model)}   & {(Synth)}     & {(Model)}     &         \\
+ {lp8k} & 4           & {No}         & 30           & 16        & 16        & 8.44            & 6.84            & 118.4       & 8.44        & 8.44        & 118.48        & 146.20        & 0       \\
+ {lp8k} & 4           & {Half}       & 29           & 26        & 28        & 5.41            & 4.88            & 184.8       & 10.82       & 9.76        & 184.84        & 204.92        & 0       \\
+ {lp8k} & 8           & {No}         & 155          & 32        & 32        & 19.73           & 10.76           & 50.6        & 19.73       & 19.73       & 50.68         & 92.94         & 0       \\
+ {lp8k} & 8           & {Half}       & 160          & 54        & 56        & 12.28           & 6.84            & 81.4        & 24.56       & 13.68       & 81.43         & 146.20        & 0       \\
+\hline
+\end{tabular}

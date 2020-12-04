@@ -1,0 +1,38 @@
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /home/jantsch/developments/Verilog-Projects/AIMS-Book-Examples/Liberty/gscl45nm.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.00 sec
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFNEGX1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFPOSX1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFSR".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "LATCH".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUFX1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUFX2".
+ABC: Library "gscl45nm" from "/home/jantsch/developments/Verilog-Projects/AIMS-Book-Examples/Liberty/gscl45nm.lib" has 25 cells (6 skipped: 4 seq; 2 tri-state; 0 no func).  Time =     0.00 sec
+ABC: Memory =    0.36 MB. Time =     0.00 sec
+ABC: Warning: Detected 2 multi-output gates (for example, "FAX1").
+ABC: + read_constr -v /home/jantsch/developments/Verilog-Projects/AIMS-Book-Examples/ETC/abc-constraints.txt 
+ABC: Directive set_driving_cell should be followed by two arguments.
+ABC: Directive set_load should be followed by two arguments.
+ABC: + source /home/jantsch/developments/Verilog-Projects/AIMS-Book-Examples/Scripts/synthscript.abc 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: WireLoad = "none"  Gates =    352 (  7.7 %)   Cap =  4.2 ff (  7.7 %)   Area =     1084.08 ( 84.7 %)   Delay =   695.86 ps  ( 35.2 %)               
+ABC: Path  0 --      11 : 0    9 pi     A =   0.00  Df =   0.0   -0.0 ps  S =   0.0 ps  Cin =  0.0 ff  Cout =  18.3 ff  Cmax =   0.0 ff  G =    0  
+ABC: Path  1 --     207 : 2    2 AND2X1 A =   2.35  Df =  59.5   -7.8 ps  S =  59.3 ps  Cin =  2.1 ff  Cout =   7.5 ff  Cmax = 137.4 ff  G =  343  
+ABC: Path  2 --     209 : 2    2 AND2X2 A =   2.82  Df = 102.8   -7.9 ps  S =  23.8 ps  Cin =  1.8 ff  Cout =   7.7 ff  Cmax = 505.1 ff  G =  401  
+ABC: Path  3 --     214 : 2    1 AND2X1 A =   2.35  Df = 144.6   -6.1 ps  S =  31.9 ps  Cin =  2.1 ff  Cout =   2.3 ff  Cmax = 137.4 ff  G =  111  
+ABC: Path  4 --     215 : 2    2 OR2X2  A =   2.82  Df = 198.3   -7.0 ps  S =  22.4 ps  Cin =  2.3 ff  Cout =   7.3 ff  Cmax = 519.7 ff  G =  309  
+ABC: Path  5 --     225 : 2    1 OR2X2  A =   2.82  Df = 242.5   -5.0 ps  S =   5.0 ps  Cin =  2.3 ff  Cout =   1.8 ff  Cmax = 519.7 ff  G =   77  
+ABC: Path  6 --     226 : 2    2 AND2X2 A =   2.82  Df = 283.2   -9.1 ps  S =  22.2 ps  Cin =  1.8 ff  Cout =   7.5 ff  Cmax = 505.1 ff  G =  394  
+ABC: Path  7 --     231 : 2    1 AND2X2 A =   2.82  Df = 316.7  -10.2 ps  S =  12.1 ps  Cin =  1.8 ff  Cout =   2.4 ff  Cmax = 505.1 ff  G =  128  
+ABC: Path  8 --     232 : 2    2 OR2X1  A =   2.35  Df = 382.3  -18.8 ps  S =  44.9 ps  Cin =  2.4 ff  Cout =   7.5 ff  Cmax =  70.0 ff  G =  300  
+ABC: Path  9 --     237 : 2    1 AND2X2 A =   2.82  Df = 416.6  -15.9 ps  S =  11.8 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path 10 --     238 : 2    2 OR2X2  A =   2.82  Df = 468.1  -17.4 ps  S =  19.3 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path 11 --     243 : 2    1 AND2X2 A =   2.82  Df = 501.5  -17.6 ps  S =  12.1 ps  Cin =  1.8 ff  Cout =   2.4 ff  Cmax = 505.1 ff  G =  128  
+ABC: Path 12 --     244 : 2    2 OR2X1  A =   2.35  Df = 567.0  -26.2 ps  S =  46.6 ps  Cin =  2.4 ff  Cout =   7.5 ff  Cmax =  70.0 ff  G =  300  
+ABC: Path 13 --     248 : 2    1 AND2X2 A =   2.82  Df = 601.4  -23.4 ps  S =  11.8 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path 14 --     249 : 2    2 OR2X2  A =   2.82  Df = 652.9  -24.9 ps  S =  22.8 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path 15 --     250 : 2    1 XOR2X1 A =   4.69  Df = 695.9  -14.7 ps  S =  32.9 ps  Cin =  5.3 ff  Cout =   0.0 ff  Cmax = 223.3 ff  G =    0  
+ABC: Start-point = pi010.  End-point = po15.
+ABC: + write_blif <abc-temp-dir>/output.blif 

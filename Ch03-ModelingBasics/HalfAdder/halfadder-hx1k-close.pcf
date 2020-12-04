@@ -1,0 +1,5 @@
+# This places the pins close to each other on bank1:
+set_io a 99
+set_io b 98
+set_io sum 97
+set_io carry 96

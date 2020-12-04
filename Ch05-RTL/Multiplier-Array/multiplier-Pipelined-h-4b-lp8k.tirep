@@ -1,0 +1,46 @@
+
+icetime topological timing analysis report
+==========================================
+
+Report for critical path:
+-------------------------
+
+        lc40_30_13_5 (LogicCell40) [clk] -> lcout: 0.896 ns
+     0.896 ns net_118474 (bregp1[0])
+        t63 (LocalMux) I -> O: 0.486 ns
+        inmux_30_12_122477_122533 (InMux) I -> O: 0.382 ns
+        lc40_30_12_6 (LogicCell40) in0 -> lcout: 0.662 ns
+     2.426 ns net_118352 ($abc$431$n48_1)
+        t55 (LocalMux) I -> O: 0.486 ns
+        inmux_30_11_122347_122405 (InMux) I -> O: 0.382 ns
+        lc40_30_11_5 (LogicCell40) in1 -> lcout: 0.589 ns
+     3.883 ns net_118228 ($abc$431$n30)
+        t39 (LocalMux) I -> O: 0.486 ns
+        inmux_30_11_122370_122376 (InMux) I -> O: 0.382 ns
+        t6 (CascadeMux) I -> O: 0.000 ns
+        lc40_30_11_0 (LogicCell40) in2 -> carryout: 0.341 ns
+     5.093 ns net_122373 ($auto$maccmap.cc:240:synth$209.C[4])
+        lc40_30_11_1 (LogicCell40) carryin -> carryout: 0.186 ns
+     5.279 ns net_122379 ($auto$maccmap.cc:240:synth$209.C[5])
+        lc40_30_11_2 (LogicCell40) carryin -> carryout: 0.186 ns
+     5.465 ns net_122385 ($auto$maccmap.cc:240:synth$209.C[6])
+        lc40_30_11_3 (LogicCell40) carryin -> carryout: 0.186 ns
+     5.651 ns net_122391 ($auto$maccmap.cc:240:synth$209.C[7])
+        inmux_30_11_122391_122401 (InMux) I -> O: 0.382 ns
+     6.033 ns net_122401 ($auto$maccmap.cc:240:synth$209.C[7])
+        lc40_30_11_4 (LogicCell40) in3 [setup]: 0.320 ns
+     6.354 ns net_118227 (preg[3][7])
+
+Resolvable net names on path:
+     0.896 ns ..  1.764 ns bregp1[0]
+     2.426 ns ..  3.294 ns $abc$431$n48_1
+     3.883 ns ..  4.752 ns $abc$431$n30
+     5.093 ns ..  5.093 ns $auto$maccmap.cc:240:synth$209.C[4]
+     5.279 ns ..  5.279 ns $auto$maccmap.cc:240:synth$209.C[5]
+     5.465 ns ..  5.465 ns $auto$maccmap.cc:240:synth$209.C[6]
+     5.651 ns ..  6.033 ns $auto$maccmap.cc:240:synth$209.C[7]
+                  lcout -> preg[3][7]
+
+Total number of logic levels: 7
+Total path delay: 6.35 ns (157.38 MHz)
+

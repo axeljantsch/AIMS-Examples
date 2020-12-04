@@ -1,0 +1,46 @@
+
+icetime topological timing analysis report
+==========================================
+
+Report for critical path:
+-------------------------
+
+        lc40_24_24_1 (LogicCell40) [clk] -> lcout: 0.640 ns
+     0.640 ns net_96034 (breg[0])
+        t78 (LocalMux) I -> O: 0.330 ns
+        inmux_23_25_96206_96254 (InMux) I -> O: 0.260 ns
+        lc40_23_25_4 (LogicCell40) in0 -> lcout: 0.449 ns
+     1.678 ns net_92083 ($abc$345$n56_1)
+        t60 (LocalMux) I -> O: 0.330 ns
+        inmux_23_25_96225_96236 (InMux) I -> O: 0.260 ns
+        lc40_23_25_1 (LogicCell40) in0 -> lcout: 0.449 ns
+     2.716 ns net_92080 ($abc$345$n41)
+        t56 (LocalMux) I -> O: 0.330 ns
+        inmux_22_25_92145_92155 (InMux) I -> O: 0.260 ns
+        t3 (CascadeMux) I -> O: 0.000 ns
+        lc40_22_25_0 (LogicCell40) in2 -> carryout: 0.231 ns
+     3.537 ns net_92152 ($auto$maccmap.cc:240:synth$137.C[4])
+        lc40_22_25_1 (LogicCell40) carryin -> carryout: 0.126 ns
+     3.663 ns net_92158 ($auto$maccmap.cc:240:synth$137.C[5])
+        lc40_22_25_2 (LogicCell40) carryin -> carryout: 0.126 ns
+     3.789 ns net_92164 ($auto$maccmap.cc:240:synth$137.C[6])
+        lc40_22_25_3 (LogicCell40) carryin -> carryout: 0.126 ns
+     3.915 ns net_92170 ($auto$maccmap.cc:240:synth$137.C[7])
+        inmux_22_25_92170_92180 (InMux) I -> O: 0.260 ns
+     4.175 ns net_92180 ($auto$maccmap.cc:240:synth$137.C[7])
+        lc40_22_25_4 (LogicCell40) in3 [setup]: 0.217 ns
+     4.392 ns net_88006 (partials[3][7])
+
+Resolvable net names on path:
+     0.640 ns ..  1.229 ns breg[0]
+     1.678 ns ..  2.267 ns $abc$345$n56_1
+     2.716 ns ..  3.305 ns $abc$345$n41
+     3.537 ns ..  3.537 ns $auto$maccmap.cc:240:synth$137.C[4]
+     3.663 ns ..  3.663 ns $auto$maccmap.cc:240:synth$137.C[5]
+     3.789 ns ..  3.789 ns $auto$maccmap.cc:240:synth$137.C[6]
+     3.915 ns ..  4.175 ns $auto$maccmap.cc:240:synth$137.C[7]
+                  lcout -> partials[3][7]
+
+Total number of logic levels: 7
+Total path delay: 4.39 ns (227.67 MHz)
+

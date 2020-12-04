@@ -1,0 +1,12 @@
+strash;
+dc2;
+scorr;
+ifraig;
+retime -o {D};
+strash;
+dch -f;
+map {D};
+buffer;
+upsize {D};
+dnsize {D};
+stime -p

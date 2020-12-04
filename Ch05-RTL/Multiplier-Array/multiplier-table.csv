@@ -1,0 +1,8 @@
+ 
+ Tech , Bit width ,  Pipelining ,  Nr of ,  Nr of , Nr of , Critical path ,  Critical path , Frequency ,  E2E Delay ,  E2E Delay , Throughput , Throughput ,  Power 
+      ,  (bit)    ,   , LUTS/Gates , DFFs , DFFs ,  (ns) , (ns) , (MHz) ,  (ns) , (ns) , (M ops/sec) , (M ops/sec) , (mW) 
+      ,      ,   ,  , (Synth) , (Model) ,  (Synth) , (Model) ,  ,  (Synth) , (Model) , (Synth) , (Model) ,  
+ lp8k , 4 , Half , 33 , 28 , 28, 6.35 , 5.86 , 157.4 , 	12.7 , 	11.72 , 157.48 , 170.65 , 0 
+ lp8k , 8 , Half , 131 , 56 , 56, 9.98 , 9.78 , 100.2 , 	19.96 , 	19.56 , 100.20 , 102.25 , 0 
+ lp8k , 16 , Half , 676 , 112 , 112, 15.58 , 17.62 , 64.1 , 	31.16 , 	35.24 , 64.18 , 56.75 , 0 
+ lp8k , 32 , Half , 2786 , 224 , 224, 26.10 , 33.30 , 38.3 , 	52.2 , 	66.6 , 38.31 , 30.03 , 0 

@@ -1,0 +1,117 @@
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /home/jantsch/developments/Verilog-Projects/AIMS-Book-Examples/Liberty/gscl45nm.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.00 sec
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFNEGX1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFPOSX1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFSR".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "LATCH".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUFX1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUFX2".
+ABC: Library "gscl45nm" from "/home/jantsch/developments/Verilog-Projects/AIMS-Book-Examples/Liberty/gscl45nm.lib" has 25 cells (6 skipped: 4 seq; 2 tri-state; 0 no func).  Time =     0.00 sec
+ABC: Memory =    0.36 MB. Time =     0.00 sec
+ABC: Warning: Detected 2 multi-output gates (for example, "FAX1").
+ABC: + read_constr -v /home/jantsch/developments/Verilog-Projects/AIMS-Book-Examples/ETC/abc-constraints.txt 
+ABC: Directive set_driving_cell should be followed by two arguments.
+ABC: Directive set_load should be followed by two arguments.
+ABC: + source /home/jantsch/developments/Verilog-Projects/AIMS-Book-Examples/Scripts/synthscript.abc 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: WireLoad = "none"  Gates =  16628 (  6.0 %)   Cap =  6.0 ff ( 19.2 %)   Area =    47310.13 ( 61.6 %)   Delay =  7153.91 ps  ( 13.1 %)               
+ABC: Path  0 --       2 : 0   41 pi      A =   0.00  Df =   0.0   -0.0 ps  S =   0.0 ps  Cin =  0.0 ff  Cout =  87.6 ff  Cmax =   0.0 ff  G =    0  
+ABC: Path  1 --    8548 : 2    1 AND2X2  A =   2.82  Df =  37.6   -0.4 ps  S =  15.8 ps  Cin =  1.8 ff  Cout =   5.6 ff  Cmax = 505.1 ff  G =  292  
+ABC: Path  2 --    8549 : 2    3 XNOR2X1 A =   4.69  Df = 111.8  -25.9 ps  S =  75.8 ps  Cin =  5.1 ff  Cout =   9.9 ff  Cmax = 228.3 ff  G =  187  
+ABC: Path  3 --    8550 : 2    1 XOR2X1  A =   4.69  Df = 178.2  -21.9 ps  S =  58.3 ps  Cin =  5.3 ff  Cout =   5.7 ff  Cmax = 223.3 ff  G =  101  
+ABC: Path  4 --    8551 : 2    3 XOR2X1  A =   4.69  Df = 256.8  -29.3 ps  S =  78.8 ps  Cin =  5.3 ff  Cout =   9.9 ff  Cmax = 223.3 ff  G =  179  
+ABC: Path  5 --    8552 : 2    2 XOR2X1  A =   4.69  Df = 342.0  -31.3 ps  S =  85.3 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  203  
+ABC: Path  6 --    8553 : 2    2 XOR2X1  A =   4.69  Df = 417.7  -25.9 ps  S =  70.9 ps  Cin =  5.3 ff  Cout =   8.2 ff  Cmax = 223.3 ff  G =  146  
+ABC: Path  7 --    8554 : 2    2 XOR2X1  A =   4.69  Df = 501.9  -31.5 ps  S =  85.1 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path  8 --    8555 : 2    2 XOR2X1  A =   4.69  Df = 577.5  -26.0 ps  S =  70.3 ps  Cin =  5.3 ff  Cout =   8.2 ff  Cmax = 223.3 ff  G =  146  
+ABC: Path  9 --    8556 : 2    1 XOR2X1  A =   4.69  Df = 643.5  -22.2 ps  S =  58.5 ps  Cin =  5.3 ff  Cout =   5.7 ff  Cmax = 223.3 ff  G =  101  
+ABC: Path 10 --    8557 : 2    3 XOR2X1  A =   4.69  Df = 724.1  -30.4 ps  S =  81.9 ps  Cin =  5.3 ff  Cout =  10.5 ff  Cmax = 223.3 ff  G =  190  
+ABC: Path 11 --    8558 : 2    1 XOR2X1  A =   4.69  Df = 791.2  -21.7 ps  S =  58.5 ps  Cin =  5.3 ff  Cout =   5.7 ff  Cmax = 223.3 ff  G =  101  
+ABC: Path 12 --    8559 : 2    3 XOR2X1  A =   4.69  Df = 869.7  -29.3 ps  S =  78.8 ps  Cin =  5.3 ff  Cout =   9.9 ff  Cmax = 223.3 ff  G =  179  
+ABC: Path 13 --    8560 : 2    1 XOR2X1  A =   4.69  Df = 936.5  -21.8 ps  S =  58.3 ps  Cin =  5.3 ff  Cout =   5.7 ff  Cmax = 223.3 ff  G =  101  
+ABC: Path 14 --    8561 : 2    3 XOR2X1  A =   4.69  Df =1015.0  -29.3 ps  S =  78.8 ps  Cin =  5.3 ff  Cout =   9.9 ff  Cmax = 223.3 ff  G =  179  
+ABC: Path 15 --    8562 : 2    2 XOR2X1  A =   4.69  Df =1100.0  -31.2 ps  S =  84.9 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 16 --    8563 : 2    2 XOR2X1  A =   4.69  Df =1175.6  -26.0 ps  S =  70.5 ps  Cin =  5.3 ff  Cout =   8.2 ff  Cmax = 223.3 ff  G =  146  
+ABC: Path 17 --    8564 : 2    1 XOR2X1  A =   4.69  Df =1241.5  -22.1 ps  S =  58.5 ps  Cin =  5.3 ff  Cout =   5.7 ff  Cmax = 223.3 ff  G =  101  
+ABC: Path 18 --    8565 : 2    3 XOR2X1  A =   4.69  Df =1322.2  -30.4 ps  S =  81.9 ps  Cin =  5.3 ff  Cout =  10.5 ff  Cmax = 223.3 ff  G =  190  
+ABC: Path 19 --    8566 : 2    2 XOR2X1  A =   4.69  Df =1407.4  -31.1 ps  S =  85.1 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 20 --    8567 : 2    1 XOR2X1  A =   4.69  Df =1474.8  -21.5 ps  S =  58.2 ps  Cin =  5.3 ff  Cout =   5.7 ff  Cmax = 223.3 ff  G =  101  
+ABC: Path 21 --    8568 : 2    2 XOR2X1  A =   4.69  Df =1557.8  -32.0 ps  S =  85.3 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 22 --    8569 : 2    2 XOR2X1  A =   4.69  Df =1633.4  -25.9 ps  S =  70.3 ps  Cin =  5.3 ff  Cout =   8.2 ff  Cmax = 223.3 ff  G =  146  
+ABC: Path 23 --    8570 : 2    2 XOR2X1  A =   4.69  Df =1717.6  -31.5 ps  S =  85.1 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 24 --    8571 : 2    2 XOR2X1  A =   4.69  Df =1793.3  -26.0 ps  S =  70.3 ps  Cin =  5.3 ff  Cout =   8.2 ff  Cmax = 223.3 ff  G =  146  
+ABC: Path 25 --    8572 : 2    2 XOR2X1  A =   4.69  Df =1877.4  -31.5 ps  S =  85.1 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 26 --    8573 : 2    2 XOR2X1  A =   4.69  Df =1953.1  -26.0 ps  S =  70.3 ps  Cin =  5.3 ff  Cout =   8.2 ff  Cmax = 223.3 ff  G =  146  
+ABC: Path 27 --    8574 : 2    2 XOR2X1  A =   4.69  Df =2037.2  -31.5 ps  S =  85.1 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 28 --    8575 : 2    2 XOR2X1  A =   4.69  Df =2112.9  -26.0 ps  S =  70.3 ps  Cin =  5.3 ff  Cout =   8.2 ff  Cmax = 223.3 ff  G =  146  
+ABC: Path 29 --    8576 : 2    2 XOR2X1  A =   4.69  Df =2197.0  -31.5 ps  S =  85.1 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 30 --    8577 : 2    2 XOR2X1  A =   4.69  Df =2272.7  -26.0 ps  S =  70.3 ps  Cin =  5.3 ff  Cout =   8.2 ff  Cmax = 223.3 ff  G =  146  
+ABC: Path 31 --    8578 : 2    2 XOR2X1  A =   4.69  Df =2356.8  -31.5 ps  S =  85.1 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 32 --    8579 : 2    2 XOR2X1  A =   4.69  Df =2432.5  -26.0 ps  S =  70.3 ps  Cin =  5.3 ff  Cout =   8.2 ff  Cmax = 223.3 ff  G =  146  
+ABC: Path 33 --    8580 : 2    1 XOR2X1  A =   4.69  Df =2498.4  -22.2 ps  S =  58.5 ps  Cin =  5.3 ff  Cout =   5.7 ff  Cmax = 223.3 ff  G =  101  
+ABC: Path 34 --    8581 : 2    3 XOR2X1  A =   4.69  Df =2577.0  -29.3 ps  S =  78.8 ps  Cin =  5.3 ff  Cout =   9.9 ff  Cmax = 223.3 ff  G =  179  
+ABC: Path 35 --    8582 : 2    2 XOR2X1  A =   4.69  Df =2661.9  -31.2 ps  S =  85.1 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 36 --    8583 : 2    1 XOR2X1  A =   4.69  Df =2729.3  -21.5 ps  S =  58.2 ps  Cin =  5.3 ff  Cout =   5.7 ff  Cmax = 223.3 ff  G =  101  
+ABC: Path 37 --    8584 : 2    2 XOR2X1  A =   4.69  Df =2812.3  -32.0 ps  S =  85.3 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 38 --    8585 : 2    2 XOR2X1  A =   4.69  Df =2887.9  -25.9 ps  S =  70.3 ps  Cin =  5.3 ff  Cout =   8.2 ff  Cmax = 223.3 ff  G =  146  
+ABC: Path 39 --    8586 : 2    2 XOR2X1  A =   4.69  Df =2972.1  -31.5 ps  S =  85.1 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 40 --    8587 : 2    2 XOR2X1  A =   4.69  Df =3047.7  -26.0 ps  S =  70.3 ps  Cin =  5.3 ff  Cout =   8.2 ff  Cmax = 223.3 ff  G =  146  
+ABC: Path 41 --    8588 : 2    2 XOR2X1  A =   4.69  Df =3131.9  -31.5 ps  S =  85.1 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 42 --    8589 : 2    2 XOR2X1  A =   4.69  Df =3207.6  -26.0 ps  S =  70.4 ps  Cin =  5.3 ff  Cout =   8.2 ff  Cmax = 223.3 ff  G =  146  
+ABC: Path 43 --    8590 : 2    2 XOR2X1  A =   4.69  Df =3291.7  -31.5 ps  S =  85.1 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 44 --    8591 : 2    2 XOR2X1  A =   4.69  Df =3367.4  -26.0 ps  S =  70.3 ps  Cin =  5.3 ff  Cout =   8.2 ff  Cmax = 223.3 ff  G =  146  
+ABC: Path 45 --    8592 : 2    1 XOR2X1  A =   4.69  Df =3433.3  -22.2 ps  S =  58.5 ps  Cin =  5.3 ff  Cout =   5.7 ff  Cmax = 223.3 ff  G =  101  
+ABC: Path 46 --    8593 : 2    3 XOR2X1  A =   4.69  Df =3513.9  -30.4 ps  S =  81.9 ps  Cin =  5.3 ff  Cout =  10.5 ff  Cmax = 223.3 ff  G =  190  
+ABC: Path 47 --    8594 : 2    1 XOR2X1  A =   4.69  Df =3581.0  -21.7 ps  S =  58.5 ps  Cin =  5.3 ff  Cout =   5.7 ff  Cmax = 223.3 ff  G =  101  
+ABC: Path 48 --    8595 : 2    3 XOR2X1  A =   4.69  Df =3659.5  -29.3 ps  S =  78.8 ps  Cin =  5.3 ff  Cout =   9.9 ff  Cmax = 223.3 ff  G =  179  
+ABC: Path 49 --    8596 : 2    2 XOR2X1  A =   4.69  Df =3744.5  -31.2 ps  S =  85.0 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 50 --    8597 : 2    1 XOR2X1  A =   4.69  Df =3811.8  -21.6 ps  S =  58.2 ps  Cin =  5.3 ff  Cout =   5.7 ff  Cmax = 223.3 ff  G =  101  
+ABC: Path 51 --    8598 : 2    1 XOR2X1  A =   4.69  Df =3876.6  -22.7 ps  S =  59.8 ps  Cin =  5.3 ff  Cout =   5.7 ff  Cmax = 223.3 ff  G =  101  
+ABC: Path 52 --    8599 : 2    3 XOR2X1  A =   4.69  Df =3955.3  -29.2 ps  S =  78.9 ps  Cin =  5.3 ff  Cout =   9.9 ff  Cmax = 223.3 ff  G =  179  
+ABC: Path 53 --    8600 : 2    1 XOR2X1  A =   4.69  Df =4022.1  -21.8 ps  S =  58.3 ps  Cin =  5.3 ff  Cout =   5.7 ff  Cmax = 223.3 ff  G =  101  
+ABC: Path 54 --    8601 : 2    3 XOR2X1  A =   4.69  Df =4100.6  -29.3 ps  S =  78.8 ps  Cin =  5.3 ff  Cout =   9.9 ff  Cmax = 223.3 ff  G =  179  
+ABC: Path 55 --    8602 : 2    2 XOR2X1  A =   4.69  Df =4185.5  -31.2 ps  S =  84.9 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 56 --    8603 : 2    1 XOR2X1  A =   4.69  Df =4252.9  -21.6 ps  S =  58.2 ps  Cin =  5.3 ff  Cout =   5.7 ff  Cmax = 223.3 ff  G =  101  
+ABC: Path 57 --    8604 : 2    2 XOR2X1  A =   4.69  Df =4335.9  -32.0 ps  S =  85.3 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 58 --    8605 : 2    2 XOR2X1  A =   4.69  Df =4411.5  -25.9 ps  S =  70.3 ps  Cin =  5.3 ff  Cout =   8.2 ff  Cmax = 223.3 ff  G =  146  
+ABC: Path 59 --    8606 : 2    2 XOR2X1  A =   4.69  Df =4495.7  -31.5 ps  S =  85.1 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 60 --    8607 : 2    2 XOR2X1  A =   4.69  Df =4571.3  -26.0 ps  S =  70.3 ps  Cin =  5.3 ff  Cout =   8.2 ff  Cmax = 223.3 ff  G =  146  
+ABC: Path 61 --    8608 : 2    2 XOR2X1  A =   4.69  Df =4655.5  -31.5 ps  S =  85.1 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 62 --    8609 : 2    2 XOR2X1  A =   4.69  Df =4731.2  -26.0 ps  S =  70.3 ps  Cin =  5.3 ff  Cout =   8.2 ff  Cmax = 223.3 ff  G =  146  
+ABC: Path 63 --    8610 : 2    2 XOR2X1  A =   4.69  Df =4815.3  -31.5 ps  S =  85.1 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 64 --    8611 : 2    2 XOR2X1  A =   4.69  Df =4891.0  -26.0 ps  S =  70.3 ps  Cin =  5.3 ff  Cout =   8.2 ff  Cmax = 223.3 ff  G =  146  
+ABC: Path 65 --    8612 : 2    2 XOR2X1  A =   4.69  Df =4975.1  -31.5 ps  S =  85.1 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 66 --    8613 : 2    2 XOR2X1  A =   4.69  Df =5050.8  -26.0 ps  S =  70.3 ps  Cin =  5.3 ff  Cout =   8.2 ff  Cmax = 223.3 ff  G =  146  
+ABC: Path 67 --    8614 : 2    2 XOR2X1  A =   4.69  Df =5134.9  -31.5 ps  S =  85.1 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 68 --    8615 : 2    2 XOR2X1  A =   4.69  Df =5210.6  -26.0 ps  S =  70.3 ps  Cin =  5.3 ff  Cout =   8.2 ff  Cmax = 223.3 ff  G =  146  
+ABC: Path 69 --    8616 : 2    2 XOR2X1  A =   4.69  Df =5294.7  -31.5 ps  S =  85.1 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 70 --    8617 : 2    2 XOR2X1  A =   4.69  Df =5370.4  -26.0 ps  S =  70.3 ps  Cin =  5.3 ff  Cout =   8.2 ff  Cmax = 223.3 ff  G =  146  
+ABC: Path 71 --    8618 : 2    2 XOR2X1  A =   4.69  Df =5454.5  -31.5 ps  S =  85.1 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 72 --    8619 : 2    1 XOR2X1  A =   4.69  Df =5521.9  -21.5 ps  S =  58.4 ps  Cin =  5.3 ff  Cout =   5.7 ff  Cmax = 223.3 ff  G =  101  
+ABC: Path 73 --    8620 : 2    1 XOR2X1  A =   4.69  Df =5586.7  -22.6 ps  S =  58.6 ps  Cin =  5.3 ff  Cout =   5.7 ff  Cmax = 223.3 ff  G =  101  
+ABC: Path 74 --    8621 : 2    3 XOR2X1  A =   4.69  Df =5667.3  -30.4 ps  S =  81.9 ps  Cin =  5.3 ff  Cout =  10.5 ff  Cmax = 223.3 ff  G =  190  
+ABC: Path 75 --    8622 : 2    2 XOR2X1  A =   4.69  Df =5752.6  -31.1 ps  S =  85.1 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 76 --    8623 : 2    1 XOR2X1  A =   4.69  Df =5819.9  -21.5 ps  S =  58.2 ps  Cin =  5.3 ff  Cout =   5.7 ff  Cmax = 223.3 ff  G =  101  
+ABC: Path 77 --    8624 : 2    2 XOR2X1  A =   4.69  Df =5902.9  -32.0 ps  S =  85.3 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 78 --    8625 : 2    2 XOR2X1  A =   4.69  Df =5978.6  -25.9 ps  S =  70.3 ps  Cin =  5.3 ff  Cout =   8.2 ff  Cmax = 223.3 ff  G =  146  
+ABC: Path 79 --    8626 : 2    2 XOR2X1  A =   4.69  Df =6062.7  -31.5 ps  S =  85.1 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 80 --    8627 : 2    2 XOR2X1  A =   4.69  Df =6138.4  -26.0 ps  S =  70.3 ps  Cin =  5.3 ff  Cout =   8.2 ff  Cmax = 223.3 ff  G =  146  
+ABC: Path 81 --    8628 : 2    2 XOR2X1  A =   4.69  Df =6222.5  -31.5 ps  S =  85.1 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 82 --    8629 : 2    2 XOR2X1  A =   4.69  Df =6298.2  -26.0 ps  S =  70.3 ps  Cin =  5.3 ff  Cout =   8.2 ff  Cmax = 223.3 ff  G =  146  
+ABC: Path 83 --    8630 : 2    2 XOR2X1  A =   4.69  Df =6382.4  -31.5 ps  S =  85.1 ps  Cin =  5.3 ff  Cout =  11.3 ff  Cmax = 223.3 ff  G =  201  
+ABC: Path 84 --    8631 : 2    2 XOR2X1  A =   4.69  Df =6458.0  -26.0 ps  S =  70.3 ps  Cin =  5.3 ff  Cout =   8.2 ff  Cmax = 223.3 ff  G =  146  
+ABC: Path 85 --    8632 : 2    1 XOR2X1  A =   4.69  Df =6523.9  -22.2 ps  S =  58.5 ps  Cin =  5.3 ff  Cout =   5.7 ff  Cmax = 223.3 ff  G =  101  
+ABC: Path 86 --    8633 : 2    3 XOR2X1  A =   4.69  Df =6604.6  -30.4 ps  S =  81.9 ps  Cin =  5.3 ff  Cout =  10.5 ff  Cmax = 223.3 ff  G =  190  
+ABC: Path 87 --    8634 : 2    1 XOR2X1  A =   4.69  Df =6671.6  -21.7 ps  S =  58.5 ps  Cin =  5.3 ff  Cout =   5.7 ff  Cmax = 223.3 ff  G =  101  
+ABC: Path 88 --    8635 : 2    3 XOR2X1  A =   4.69  Df =6750.2  -29.3 ps  S =  78.8 ps  Cin =  5.3 ff  Cout =   9.9 ff  Cmax = 223.3 ff  G =  179  
+ABC: Path 89 --    8636 : 2    1 XOR2X1  A =   4.69  Df =6816.9  -21.8 ps  S =  58.3 ps  Cin =  5.3 ff  Cout =   5.7 ff  Cmax = 223.3 ff  G =  101  
+ABC: Path 90 --    8637 : 2    3 XOR2X1  A =   4.69  Df =6895.5  -29.3 ps  S =  78.8 ps  Cin =  5.3 ff  Cout =   9.9 ff  Cmax = 223.3 ff  G =  179  
+ABC: Path 91 --    8638 : 2    1 XOR2X1  A =   4.69  Df =6962.2  -21.8 ps  S =  58.3 ps  Cin =  5.3 ff  Cout =   5.7 ff  Cmax = 223.3 ff  G =  101  
+ABC: Path 92 --    8639 : 2    3 XOR2X1  A =   4.69  Df =7040.7  -29.3 ps  S =  79.0 ps  Cin =  5.3 ff  Cout =   9.9 ff  Cmax = 223.3 ff  G =  179  
+ABC: Path 93 --    8640 : 2    1 XOR2X1  A =   4.69  Df =7107.5  -21.8 ps  S =  59.2 ps  Cin =  5.3 ff  Cout =   5.7 ff  Cmax = 223.3 ff  G =  101  
+ABC: Path 94 --    8641 : 2    1 XOR2X1  A =   4.69  Df =7153.9  -13.1 ps  S =  32.2 ps  Cin =  5.3 ff  Cout =   0.0 ff  Cmax = 223.3 ff  G =    0  
+ABC: Start-point = pi001.  End-point = po051.
+ABC: + write_blif <abc-temp-dir>/output.blif 

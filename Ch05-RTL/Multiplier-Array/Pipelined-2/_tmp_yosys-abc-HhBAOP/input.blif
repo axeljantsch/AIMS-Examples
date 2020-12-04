@@ -1,0 +1,1458 @@
+.model netlist
+.inputs n0 n1 n3 n4 n6 n7 n9 n10 n12 n13 n15 n16 n18 n19 n21 n22 n32 n33 n35 n37 n39 n41 n43 n45 n47 n49 n58 n67 n76 n85 n94 n103 n334 n336 n337 n338 n339 n340 n341 n342 n357 n359 n361 n363 n365 n367 n369 n371 n410 n411 n413 n415 n417 n419 n421 n423
+.outputs n30 n34 n114 n136 n138 n140 n142 n144 n146 n148 n189 n230 n257 n258 n266 n268 n270 n272 n274 n276 n278 n343 n344 n345 n346 n347 n348 n349 n350 n351 n353 n394 n402 n403 n404 n405 n406 n407 n408 n409 n439
+# n0     \partials[7] [0]
+# n1     \partials[7] [1]
+# n2     $auto$simplemap.cc:127:simplemap_reduce$138 [0]
+# n3     \partials[7] [2]
+# n4     \partials[7] [3]
+# n5     $auto$simplemap.cc:127:simplemap_reduce$138 [1]
+# n6     \partials[7] [4]
+# n7     \partials[7] [5]
+# n8     $auto$simplemap.cc:127:simplemap_reduce$138 [2]
+# n9     \partials[7] [6]
+# n10    \partials[7] [7]
+# n11    $auto$simplemap.cc:127:simplemap_reduce$138 [3]
+# n12    \partials[7] [8]
+# n13    \partials[7] [9]
+# n14    $auto$simplemap.cc:127:simplemap_reduce$138 [4]
+# n15    \partials[7] [10]
+# n16    \partials[7] [11]
+# n17    $auto$simplemap.cc:127:simplemap_reduce$138 [5]
+# n18    \partials[7] [12]
+# n19    \partials[7] [13]
+# n20    $auto$simplemap.cc:127:simplemap_reduce$138 [6]
+# n21    \partials[7] [14]
+# n22    \partials[7] [15]
+# n23    $auto$simplemap.cc:127:simplemap_reduce$138 [7]
+# n24    $auto$simplemap.cc:127:simplemap_reduce$147 [0]
+# n25    $auto$simplemap.cc:127:simplemap_reduce$147 [1]
+# n26    $auto$simplemap.cc:127:simplemap_reduce$147 [2]
+# n27    $auto$simplemap.cc:127:simplemap_reduce$147 [3]
+# n28    $auto$simplemap.cc:127:simplemap_reduce$152 [0]
+# n29    $auto$simplemap.cc:127:simplemap_reduce$152 [1]
+# n30    \y
+# n31    1'0
+# n32    \breg [0]
+# n33    \areg [0]
+# n34    $0\partials[0][15:0] [0]
+# n35    \breg [1]
+# n36    $0\partials[0][15:0] [1]
+# n37    \breg [2]
+# n38    $0\partials[0][15:0] [2]
+# n39    \breg [3]
+# n40    $0\partials[0][15:0] [3]
+# n41    \breg [4]
+# n42    $0\partials[0][15:0] [4]
+# n43    \breg [5]
+# n44    $0\partials[0][15:0] [5]
+# n45    \breg [6]
+# n46    $0\partials[0][15:0] [6]
+# n47    \breg [7]
+# n48    $0\partials[0][15:0] [7]
+# n49    \areg [1]
+# n50    $auto$alumacc.cc:470:replace_alu$56.BB [1]
+# n51    $auto$alumacc.cc:470:replace_alu$56.BB [2]
+# n52    $auto$alumacc.cc:470:replace_alu$56.BB [3]
+# n53    $auto$alumacc.cc:470:replace_alu$56.BB [4]
+# n54    $auto$alumacc.cc:470:replace_alu$56.BB [5]
+# n55    $auto$alumacc.cc:470:replace_alu$56.BB [6]
+# n56    $auto$alumacc.cc:470:replace_alu$56.BB [7]
+# n57    $auto$alumacc.cc:470:replace_alu$56.BB [8]
+# n58    \areg [2]
+# n59    $auto$wreduce.cc:347:run$47 [2]
+# n60    $auto$wreduce.cc:347:run$47 [3]
+# n61    $auto$wreduce.cc:347:run$47 [4]
+# n62    $auto$wreduce.cc:347:run$47 [5]
+# n63    $auto$wreduce.cc:347:run$47 [6]
+# n64    $auto$wreduce.cc:347:run$47 [7]
+# n65    $auto$wreduce.cc:347:run$47 [8]
+# n66    $auto$wreduce.cc:347:run$47 [9]
+# n67    \areg [3]
+# n68    $auto$wreduce.cc:347:run$50 [3]
+# n69    $auto$wreduce.cc:347:run$50 [4]
+# n70    $auto$wreduce.cc:347:run$50 [5]
+# n71    $auto$wreduce.cc:347:run$50 [6]
+# n72    $auto$wreduce.cc:347:run$50 [7]
+# n73    $auto$wreduce.cc:347:run$50 [8]
+# n74    $auto$wreduce.cc:347:run$50 [9]
+# n75    $auto$maccmap.cc:111:fulladd$108 [10]
+# n76    \areg [4]
+# n77    $auto$wreduce.cc:347:run$48 [4]
+# n78    $auto$wreduce.cc:347:run$48 [5]
+# n79    $auto$wreduce.cc:347:run$48 [6]
+# n80    $auto$wreduce.cc:347:run$48 [7]
+# n81    $auto$wreduce.cc:347:run$48 [8]
+# n82    $auto$wreduce.cc:347:run$48 [9]
+# n83    $auto$wreduce.cc:347:run$48 [10]
+# n84    $auto$wreduce.cc:347:run$48 [11]
+# n85    \areg [5]
+# n86    $auto$wreduce.cc:347:run$51 [5]
+# n87    $auto$wreduce.cc:347:run$51 [6]
+# n88    $auto$wreduce.cc:347:run$51 [7]
+# n89    $auto$wreduce.cc:347:run$51 [8]
+# n90    $auto$wreduce.cc:347:run$51 [9]
+# n91    $auto$wreduce.cc:347:run$51 [10]
+# n92    $auto$wreduce.cc:347:run$51 [11]
+# n93    $auto$maccmap.cc:111:fulladd$157 [12]
+# n94    \areg [6]
+# n95    $auto$wreduce.cc:347:run$49 [6]
+# n96    $auto$wreduce.cc:347:run$49 [7]
+# n97    $auto$wreduce.cc:347:run$49 [8]
+# n98    $auto$wreduce.cc:347:run$49 [9]
+# n99    $auto$wreduce.cc:347:run$49 [10]
+# n100   $auto$wreduce.cc:347:run$49 [11]
+# n101   $auto$wreduce.cc:347:run$49 [12]
+# n102   $auto$wreduce.cc:347:run$49 [13]
+# n103   \areg [7]
+# n104   $auto$wreduce.cc:347:run$52 [7]
+# n105   $auto$wreduce.cc:347:run$52 [8]
+# n106   $auto$wreduce.cc:347:run$52 [9]
+# n107   $auto$wreduce.cc:347:run$52 [10]
+# n108   $auto$wreduce.cc:347:run$52 [11]
+# n109   $auto$wreduce.cc:347:run$52 [12]
+# n110   $auto$wreduce.cc:347:run$52 [13]
+# n111   $auto$maccmap.cc:111:fulladd$115 [14]
+# n112   $auto$maccmap.cc:111:fulladd$157 [5]
+# n113   $auto$maccmap.cc:112:fulladd$158 [4]
+# n114   $0\partials[5][15:0] [5]
+# n115   $auto$maccmap.cc:111:fulladd$157 [6]
+# n116   $auto$maccmap.cc:112:fulladd$158 [5]
+# n117   $auto$maccmap.cc:246:synth$162 [6]
+# n118   $auto$maccmap.cc:111:fulladd$157 [7]
+# n119   $auto$maccmap.cc:112:fulladd$158 [6]
+# n120   $auto$maccmap.cc:246:synth$162 [7]
+# n121   $auto$maccmap.cc:111:fulladd$157 [8]
+# n122   $auto$maccmap.cc:112:fulladd$158 [7]
+# n123   $auto$maccmap.cc:246:synth$162 [8]
+# n124   $auto$maccmap.cc:111:fulladd$157 [9]
+# n125   $auto$maccmap.cc:112:fulladd$158 [8]
+# n126   $auto$maccmap.cc:246:synth$162 [9]
+# n127   $auto$maccmap.cc:111:fulladd$157 [10]
+# n128   $auto$maccmap.cc:112:fulladd$158 [9]
+# n129   $auto$maccmap.cc:246:synth$162 [10]
+# n130   $auto$maccmap.cc:111:fulladd$157 [11]
+# n131   $auto$maccmap.cc:112:fulladd$158 [10]
+# n132   $auto$maccmap.cc:246:synth$162 [11]
+# n133   $auto$maccmap.cc:112:fulladd$158 [11]
+# n134   $auto$maccmap.cc:246:synth$162 [12]
+# n135   $auto$maccmap.cc:240:synth$160.lcu.g [5]
+# n136   $0\partials[5][15:0] [6]
+# n137   $auto$maccmap.cc:240:synth$160.lcu.g [6]
+# n138   $0\partials[5][15:0] [7]
+# n139   $auto$maccmap.cc:240:synth$160.lcu.g [7]
+# n140   $0\partials[5][15:0] [8]
+# n141   $auto$maccmap.cc:240:synth$160.lcu.g [8]
+# n142   $0\partials[5][15:0] [9]
+# n143   $auto$maccmap.cc:240:synth$160.lcu.g [9]
+# n144   $0\partials[5][15:0] [10]
+# n145   $auto$maccmap.cc:240:synth$160.lcu.g [10]
+# n146   $0\partials[5][15:0] [11]
+# n147   $auto$maccmap.cc:240:synth$160.lcu.g [11]
+# n148   $0\partials[5][15:0] [12]
+# n149   $techmap$auto$maccmap.cc:240:synth$111.lcu.$and$<techmap.v>:222$633_Y
+# n150   $auto$maccmap.cc:240:synth$111.lcu.g [3]
+# n151   $techmap$auto$maccmap.cc:240:synth$111.lcu.$and$<techmap.v>:221$640_Y
+# n152   $techmap$auto$maccmap.cc:240:synth$111.lcu.$and$<techmap.v>:222$615_Y
+# n153   $techmap$auto$maccmap.cc:240:synth$111.lcu.$or$<techmap.v>:221$611_Y
+# n154   $techmap$auto$maccmap.cc:240:synth$111.lcu.$and$<techmap.v>:221$631_Y
+# n155   $auto$maccmap.cc:246:synth$113 [9]
+# n156   $techmap$auto$maccmap.cc:240:synth$111.$and$<techmap.v>:260$299_Y [8]
+# n157   $techmap$auto$maccmap.cc:240:synth$111.lcu.$and$<techmap.v>:221$616_Y
+# n158   $auto$maccmap.cc:246:synth$113 [7]
+# n159   $techmap$auto$maccmap.cc:240:synth$111.$and$<techmap.v>:260$299_Y [6]
+# n160   $techmap$auto$maccmap.cc:240:synth$111.lcu.$and$<techmap.v>:221$613_Y
+# n161   $auto$maccmap.cc:246:synth$113 [5]
+# n162   $techmap$auto$maccmap.cc:240:synth$111.$and$<techmap.v>:260$299_Y [4]
+# n163   $techmap$auto$maccmap.cc:240:synth$111.lcu.$and$<techmap.v>:221$610_Y
+# n164   $techmap$auto$maccmap.cc:240:synth$111.lcu.$and$<techmap.v>:222$612_Y
+# n165   $auto$maccmap.cc:246:synth$113 [8]
+# n166   $techmap$auto$maccmap.cc:240:synth$111.lcu.$and$<techmap.v>:222$618_Y
+# n167   $auto$maccmap.cc:246:synth$113 [6]
+# n168   $auto$maccmap.cc:246:synth$113 [4]
+# n169   $techmap$auto$maccmap.cc:240:synth$111.lcu.$and$<techmap.v>:229$652_Y
+# n170   $auto$maccmap.cc:240:synth$111.lcu.g [7]
+# n171   $techmap$auto$maccmap.cc:240:synth$111.lcu.$and$<techmap.v>:229$655_Y
+# n172   $techmap$auto$maccmap.cc:240:synth$111.lcu.$and$<techmap.v>:229$664_Y
+# n173   $auto$maccmap.cc:240:synth$111.lcu.g [5]
+# n174   $techmap$auto$maccmap.cc:240:synth$111.lcu.$and$<techmap.v>:229$667_Y
+# n175   $techmap$auto$maccmap.cc:240:synth$111.lcu.$and$<techmap.v>:229$670_Y
+# n176   $auto$maccmap.cc:246:synth$113 [10]
+# n177   $auto$maccmap.cc:240:synth$111.lcu.g [9]
+# n178   $techmap$auto$maccmap.cc:240:synth$111.lcu.$and$<techmap.v>:229$673_Y
+# n179   $techmap$auto$maccmap.cc:240:synth$111.$and$<techmap.v>:260$299_Y [5]
+# n180   $techmap$auto$maccmap.cc:240:synth$111.$and$<techmap.v>:260$299_Y [7]
+# n181   $techmap$auto$maccmap.cc:240:synth$111.lcu.$or$<techmap.v>:221$614_Y
+# n182   $techmap$auto$maccmap.cc:240:synth$111.$and$<techmap.v>:260$299_Y [9]
+# n183   $techmap$auto$maccmap.cc:240:synth$111.lcu.$or$<techmap.v>:221$617_Y
+# n184   $techmap$auto$maccmap.cc:240:synth$111.lcu.$or$<techmap.v>:221$632_Y
+# n185   $auto$maccmap.cc:240:synth$111.lcu.g [4]
+# n186   $auto$maccmap.cc:240:synth$111.lcu.g [6]
+# n187   $auto$maccmap.cc:240:synth$111.lcu.g [8]
+# n188   $techmap$auto$maccmap.cc:240:synth$111.$and$<techmap.v>:260$299_Y [10]
+# n189   $0\partials[3][15:0] [11]
+# n190   $auto$maccmap.cc:246:synth$120 [9]
+# n191   $techmap$auto$maccmap.cc:240:synth$118.$and$<techmap.v>:260$299_Y [8]
+# n192   $techmap$auto$maccmap.cc:240:synth$118.lcu.$and$<techmap.v>:221$616_Y
+# n193   $auto$maccmap.cc:246:synth$120 [11]
+# n194   $techmap$auto$maccmap.cc:240:synth$118.$and$<techmap.v>:260$299_Y [10]
+# n195   $techmap$auto$maccmap.cc:240:synth$118.lcu.$and$<techmap.v>:221$619_Y
+# n196   $auto$maccmap.cc:246:synth$120 [13]
+# n197   $techmap$auto$maccmap.cc:240:synth$118.$and$<techmap.v>:260$299_Y [12]
+# n198   $techmap$auto$maccmap.cc:240:synth$118.lcu.$and$<techmap.v>:221$622_Y
+# n199   $techmap$auto$maccmap.cc:240:synth$118.lcu.$and$<techmap.v>:222$621_Y
+# n200   $techmap$auto$maccmap.cc:240:synth$118.lcu.$or$<techmap.v>:221$617_Y
+# n201   $techmap$auto$maccmap.cc:240:synth$118.lcu.$and$<techmap.v>:221$634_Y
+# n202   $auto$maccmap.cc:246:synth$120 [8]
+# n203   $techmap$auto$maccmap.cc:240:synth$118.lcu.$and$<techmap.v>:222$618_Y
+# n204   $auto$maccmap.cc:246:synth$120 [10]
+# n205   $auto$maccmap.cc:246:synth$120 [12]
+# n206   $techmap$auto$maccmap.cc:240:synth$118.lcu.$and$<techmap.v>:222$624_Y
+# n207   $techmap$auto$maccmap.cc:240:synth$118.lcu.$and$<techmap.v>:222$636_Y
+# n208   $auto$maccmap.cc:240:synth$118.lcu.g [7]
+# n209   $techmap$auto$maccmap.cc:240:synth$118.lcu.$and$<techmap.v>:229$649_Y
+# n210   $techmap$auto$maccmap.cc:240:synth$118.lcu.$and$<techmap.v>:229$655_Y
+# n211   $auto$maccmap.cc:240:synth$118.lcu.g [11]
+# n212   $techmap$auto$maccmap.cc:240:synth$118.lcu.$and$<techmap.v>:229$658_Y
+# n213   $techmap$auto$maccmap.cc:240:synth$118.lcu.$and$<techmap.v>:229$670_Y
+# n214   $auto$maccmap.cc:240:synth$118.lcu.g [9]
+# n215   $techmap$auto$maccmap.cc:240:synth$118.lcu.$and$<techmap.v>:229$673_Y
+# n216   $techmap$auto$maccmap.cc:240:synth$118.lcu.$and$<techmap.v>:229$676_Y
+# n217   $auto$maccmap.cc:246:synth$120 [14]
+# n218   $auto$maccmap.cc:240:synth$118.lcu.g [13]
+# n219   $techmap$auto$maccmap.cc:240:synth$118.lcu.$and$<techmap.v>:229$679_Y
+# n220   $techmap$auto$maccmap.cc:240:synth$118.$and$<techmap.v>:260$299_Y [9]
+# n221   $techmap$auto$maccmap.cc:240:synth$118.$and$<techmap.v>:260$299_Y [11]
+# n222   $techmap$auto$maccmap.cc:240:synth$118.lcu.$or$<techmap.v>:221$620_Y
+# n223   $techmap$auto$maccmap.cc:240:synth$118.$and$<techmap.v>:260$299_Y [13]
+# n224   $techmap$auto$maccmap.cc:240:synth$118.lcu.$or$<techmap.v>:221$623_Y
+# n225   $techmap$auto$maccmap.cc:240:synth$118.lcu.$or$<techmap.v>:221$635_Y
+# n226   $auto$maccmap.cc:240:synth$118.lcu.g [8]
+# n227   $auto$maccmap.cc:240:synth$118.lcu.g [10]
+# n228   $auto$maccmap.cc:240:synth$118.lcu.g [12]
+# n229   $techmap$auto$maccmap.cc:240:synth$118.$and$<techmap.v>:260$299_Y [14]
+# n230   $0\partials[7][15:0] [15]
+# n231   $techmap$auto$maccmap.cc:240:synth$160.$and$<techmap.v>:260$299_Y [6]
+# n232   $techmap$auto$maccmap.cc:240:synth$160.lcu.$and$<techmap.v>:221$613_Y
+# n233   $techmap$auto$maccmap.cc:240:synth$160.$and$<techmap.v>:260$299_Y [8]
+# n234   $techmap$auto$maccmap.cc:240:synth$160.lcu.$and$<techmap.v>:221$616_Y
+# n235   $techmap$auto$maccmap.cc:240:synth$160.$and$<techmap.v>:260$299_Y [10]
+# n236   $techmap$auto$maccmap.cc:240:synth$160.lcu.$and$<techmap.v>:221$619_Y
+# n237   $techmap$auto$maccmap.cc:240:synth$160.lcu.$and$<techmap.v>:222$615_Y
+# n238   $techmap$auto$maccmap.cc:240:synth$160.lcu.$and$<techmap.v>:221$631_Y
+# n239   $techmap$auto$maccmap.cc:240:synth$160.lcu.$and$<techmap.v>:222$621_Y
+# n240   $techmap$auto$maccmap.cc:240:synth$160.lcu.$or$<techmap.v>:221$617_Y
+# n241   $techmap$auto$maccmap.cc:240:synth$160.lcu.$and$<techmap.v>:221$634_Y
+# n242   $techmap$auto$maccmap.cc:240:synth$160.lcu.$and$<techmap.v>:222$618_Y
+# n243   $techmap$auto$maccmap.cc:240:synth$160.lcu.$and$<techmap.v>:222$636_Y
+# n244   $techmap$auto$maccmap.cc:240:synth$160.lcu.$and$<techmap.v>:229$649_Y
+# n245   $techmap$auto$maccmap.cc:240:synth$160.lcu.$and$<techmap.v>:229$655_Y
+# n246   $techmap$auto$maccmap.cc:240:synth$160.lcu.$and$<techmap.v>:229$667_Y
+# n247   $techmap$auto$maccmap.cc:240:synth$160.lcu.$and$<techmap.v>:229$670_Y
+# n248   $techmap$auto$maccmap.cc:240:synth$160.lcu.$and$<techmap.v>:229$673_Y
+# n249   $techmap$auto$maccmap.cc:240:synth$160.lcu.$and$<techmap.v>:229$676_Y
+# n250   $techmap$auto$maccmap.cc:240:synth$160.$and$<techmap.v>:260$299_Y [7]
+# n251   $techmap$auto$maccmap.cc:240:synth$160.lcu.$or$<techmap.v>:221$614_Y
+# n252   $techmap$auto$maccmap.cc:240:synth$160.$and$<techmap.v>:260$299_Y [9]
+# n253   $techmap$auto$maccmap.cc:240:synth$160.$and$<techmap.v>:260$299_Y [11]
+# n254   $techmap$auto$maccmap.cc:240:synth$160.lcu.$or$<techmap.v>:221$620_Y
+# n255   $techmap$auto$maccmap.cc:240:synth$160.lcu.$or$<techmap.v>:221$635_Y
+# n256   $techmap$auto$maccmap.cc:240:synth$160.$and$<techmap.v>:260$299_Y [12]
+# n257   $0\partials[5][15:0] [13]
+# n258   $0\partials[1][15:0] [1]
+# n259   $auto$alumacc.cc:483:replace_alu$57 [2]
+# n260   $auto$alumacc.cc:483:replace_alu$57 [3]
+# n261   $auto$alumacc.cc:483:replace_alu$57 [4]
+# n262   $auto$alumacc.cc:483:replace_alu$57 [5]
+# n263   $auto$alumacc.cc:483:replace_alu$57 [6]
+# n264   $auto$alumacc.cc:483:replace_alu$57 [7]
+# n265   $auto$alumacc.cc:470:replace_alu$56.lcu.g [1]
+# n266   $0\partials[1][15:0] [2]
+# n267   $auto$alumacc.cc:470:replace_alu$56.lcu.g [2]
+# n268   $0\partials[1][15:0] [3]
+# n269   $auto$alumacc.cc:470:replace_alu$56.lcu.g [3]
+# n270   $0\partials[1][15:0] [4]
+# n271   $auto$alumacc.cc:470:replace_alu$56.lcu.g [4]
+# n272   $0\partials[1][15:0] [5]
+# n273   $auto$alumacc.cc:470:replace_alu$56.lcu.g [5]
+# n274   $0\partials[1][15:0] [6]
+# n275   $auto$alumacc.cc:470:replace_alu$56.lcu.g [6]
+# n276   $0\partials[1][15:0] [7]
+# n277   $auto$alumacc.cc:470:replace_alu$56.lcu.g [7]
+# n278   $0\partials[1][15:0] [8]
+# n279   $techmap$auto$alumacc.cc:470:replace_alu$56.$and$<techmap.v>:260$105_Y [2]
+# n280   $techmap$auto$alumacc.cc:470:replace_alu$56.$and$<techmap.v>:260$105_Y [3]
+# n281   $techmap$auto$alumacc.cc:470:replace_alu$56.$and$<techmap.v>:260$105_Y [4]
+# n282   $techmap$auto$alumacc.cc:470:replace_alu$56.$and$<techmap.v>:260$105_Y [5]
+# n283   $techmap$auto$alumacc.cc:470:replace_alu$56.$and$<techmap.v>:260$105_Y [6]
+# n284   $techmap$auto$alumacc.cc:470:replace_alu$56.$and$<techmap.v>:260$105_Y [7]
+# n285   $techmap$auto$alumacc.cc:470:replace_alu$56.lcu.$and$<techmap.v>:229$391_Y
+# n286   $techmap$auto$alumacc.cc:470:replace_alu$56.lcu.$and$<techmap.v>:229$388_Y
+# n287   $techmap$auto$alumacc.cc:470:replace_alu$56.lcu.$and$<techmap.v>:222$366_Y
+# n288   $techmap$auto$alumacc.cc:470:replace_alu$56.lcu.$and$<techmap.v>:229$382_Y
+# n289   $techmap$auto$alumacc.cc:470:replace_alu$56.lcu.$and$<techmap.v>:222$369_Y
+# n290   $techmap$auto$alumacc.cc:470:replace_alu$56.lcu.$and$<techmap.v>:222$378_Y
+# n291   $techmap$auto$alumacc.cc:470:replace_alu$56.lcu.$and$<techmap.v>:222$363_Y
+# n292   $techmap$auto$alumacc.cc:470:replace_alu$56.lcu.$and$<techmap.v>:221$379_Y
+# n293   $techmap$auto$alumacc.cc:470:replace_alu$56.lcu.$or$<techmap.v>:221$365_Y
+# n294   $techmap$auto$alumacc.cc:470:replace_alu$56.lcu.$and$<techmap.v>:221$376_Y
+# n295   $techmap$auto$alumacc.cc:470:replace_alu$56.lcu.$and$<techmap.v>:221$373_Y
+# n296   $techmap$auto$alumacc.cc:470:replace_alu$56.lcu.$and$<techmap.v>:221$367_Y
+# n297   $techmap$auto$alumacc.cc:470:replace_alu$56.lcu.$and$<techmap.v>:221$364_Y
+# n298   $techmap$auto$alumacc.cc:470:replace_alu$56.lcu.$and$<techmap.v>:221$361_Y
+# n299   $auto$maccmap.cc:114:fulladd$110.t1 [3]
+# n300   $auto$maccmap.cc:111:fulladd$108 [3]
+# n301   $auto$maccmap.cc:114:fulladd$110.t1 [4]
+# n302   $auto$maccmap.cc:111:fulladd$108 [4]
+# n303   $auto$maccmap.cc:114:fulladd$110.t1 [5]
+# n304   $auto$maccmap.cc:111:fulladd$108 [5]
+# n305   $auto$maccmap.cc:114:fulladd$110.t1 [6]
+# n306   $auto$maccmap.cc:111:fulladd$108 [6]
+# n307   $auto$maccmap.cc:114:fulladd$110.t1 [7]
+# n308   $auto$maccmap.cc:111:fulladd$108 [7]
+# n309   $auto$maccmap.cc:114:fulladd$110.t1 [8]
+# n310   $auto$maccmap.cc:111:fulladd$108 [8]
+# n311   $auto$maccmap.cc:114:fulladd$110.t1 [9]
+# n312   $auto$maccmap.cc:111:fulladd$108 [9]
+# n313   $auto$maccmap.cc:114:fulladd$110.t2 [3]
+# n314   $auto$maccmap.cc:114:fulladd$110.t3 [3]
+# n315   $auto$maccmap.cc:112:fulladd$109 [3]
+# n316   $auto$maccmap.cc:114:fulladd$110.t2 [4]
+# n317   $auto$maccmap.cc:114:fulladd$110.t3 [4]
+# n318   $auto$maccmap.cc:112:fulladd$109 [4]
+# n319   $auto$maccmap.cc:114:fulladd$110.t2 [5]
+# n320   $auto$maccmap.cc:114:fulladd$110.t3 [5]
+# n321   $auto$maccmap.cc:112:fulladd$109 [5]
+# n322   $auto$maccmap.cc:114:fulladd$110.t2 [6]
+# n323   $auto$maccmap.cc:114:fulladd$110.t3 [6]
+# n324   $auto$maccmap.cc:112:fulladd$109 [6]
+# n325   $auto$maccmap.cc:114:fulladd$110.t2 [7]
+# n326   $auto$maccmap.cc:114:fulladd$110.t3 [7]
+# n327   $auto$maccmap.cc:112:fulladd$109 [7]
+# n328   $auto$maccmap.cc:114:fulladd$110.t2 [8]
+# n329   $auto$maccmap.cc:114:fulladd$110.t3 [8]
+# n330   $auto$maccmap.cc:112:fulladd$109 [8]
+# n331   $auto$maccmap.cc:114:fulladd$110.t2 [9]
+# n332   $auto$maccmap.cc:114:fulladd$110.t3 [9]
+# n333   $auto$maccmap.cc:112:fulladd$109 [9]
+# n334   \partials[1] [2]
+# n335   $auto$maccmap.cc:112:fulladd$109 [2]
+# n336   \partials[1] [3]
+# n337   \partials[1] [4]
+# n338   \partials[1] [5]
+# n339   \partials[1] [6]
+# n340   \partials[1] [7]
+# n341   \partials[1] [8]
+# n342   \partials[1] [9]
+# n343   $0\partials[3][15:0] [2]
+# n344   $0\partials[3][15:0] [3]
+# n345   $0\partials[3][15:0] [4]
+# n346   $0\partials[3][15:0] [5]
+# n347   $0\partials[3][15:0] [6]
+# n348   $0\partials[3][15:0] [7]
+# n349   $0\partials[3][15:0] [8]
+# n350   $0\partials[3][15:0] [9]
+# n351   $0\partials[3][15:0] [10]
+# n352   $techmap$auto$alumacc.cc:470:replace_alu$56.lcu.$and$<techmap.v>:229$394_Y
+# n353   $0\partials[1][15:0] [9]
+# n354   $techmap$auto$alumacc.cc:470:replace_alu$56.lcu.$or$<techmap.v>:221$362_Y
+# n355   $techmap$auto$alumacc.cc:470:replace_alu$56.lcu.$or$<techmap.v>:221$368_Y
+# n356   $techmap$auto$alumacc.cc:470:replace_alu$56.lcu.$or$<techmap.v>:221$377_Y
+# n357   \partials[5] [6]
+# n358   $auto$maccmap.cc:112:fulladd$116 [6]
+# n359   \partials[5] [7]
+# n360   $auto$maccmap.cc:114:fulladd$117.t2 [7]
+# n361   \partials[5] [8]
+# n362   $auto$maccmap.cc:114:fulladd$117.t2 [8]
+# n363   \partials[5] [9]
+# n364   $auto$maccmap.cc:114:fulladd$117.t2 [9]
+# n365   \partials[5] [10]
+# n366   $auto$maccmap.cc:114:fulladd$117.t2 [10]
+# n367   \partials[5] [11]
+# n368   $auto$maccmap.cc:114:fulladd$117.t2 [11]
+# n369   \partials[5] [12]
+# n370   $auto$maccmap.cc:114:fulladd$117.t2 [12]
+# n371   \partials[5] [13]
+# n372   $auto$maccmap.cc:114:fulladd$117.t2 [13]
+# n373   $auto$maccmap.cc:114:fulladd$117.t1 [7]
+# n374   $auto$maccmap.cc:114:fulladd$117.t3 [7]
+# n375   $auto$maccmap.cc:114:fulladd$117.t1 [8]
+# n376   $auto$maccmap.cc:114:fulladd$117.t3 [8]
+# n377   $auto$maccmap.cc:114:fulladd$117.t1 [9]
+# n378   $auto$maccmap.cc:114:fulladd$117.t3 [9]
+# n379   $auto$maccmap.cc:114:fulladd$117.t1 [10]
+# n380   $auto$maccmap.cc:114:fulladd$117.t3 [10]
+# n381   $auto$maccmap.cc:114:fulladd$117.t1 [11]
+# n382   $auto$maccmap.cc:114:fulladd$117.t3 [11]
+# n383   $auto$maccmap.cc:114:fulladd$117.t1 [12]
+# n384   $auto$maccmap.cc:114:fulladd$117.t3 [12]
+# n385   $auto$maccmap.cc:114:fulladd$117.t1 [13]
+# n386   $auto$maccmap.cc:114:fulladd$117.t3 [13]
+# n387   $auto$maccmap.cc:112:fulladd$116 [7]
+# n388   $auto$maccmap.cc:112:fulladd$116 [8]
+# n389   $auto$maccmap.cc:112:fulladd$116 [9]
+# n390   $auto$maccmap.cc:112:fulladd$116 [10]
+# n391   $auto$maccmap.cc:112:fulladd$116 [11]
+# n392   $auto$maccmap.cc:112:fulladd$116 [12]
+# n393   $auto$maccmap.cc:112:fulladd$116 [13]
+# n394   $0\partials[7][15:0] [6]
+# n395   $auto$maccmap.cc:111:fulladd$115 [7]
+# n396   $auto$maccmap.cc:111:fulladd$115 [8]
+# n397   $auto$maccmap.cc:111:fulladd$115 [9]
+# n398   $auto$maccmap.cc:111:fulladd$115 [10]
+# n399   $auto$maccmap.cc:111:fulladd$115 [11]
+# n400   $auto$maccmap.cc:111:fulladd$115 [12]
+# n401   $auto$maccmap.cc:111:fulladd$115 [13]
+# n402   $0\partials[7][15:0] [7]
+# n403   $0\partials[7][15:0] [8]
+# n404   $0\partials[7][15:0] [9]
+# n405   $0\partials[7][15:0] [10]
+# n406   $0\partials[7][15:0] [11]
+# n407   $0\partials[7][15:0] [12]
+# n408   $0\partials[7][15:0] [13]
+# n409   $0\partials[7][15:0] [14]
+# n410   \partials[3] [4]
+# n411   \partials[3] [5]
+# n412   $auto$maccmap.cc:114:fulladd$159.t2 [5]
+# n413   \partials[3] [6]
+# n414   $auto$maccmap.cc:114:fulladd$159.t2 [6]
+# n415   \partials[3] [7]
+# n416   $auto$maccmap.cc:114:fulladd$159.t2 [7]
+# n417   \partials[3] [8]
+# n418   $auto$maccmap.cc:114:fulladd$159.t2 [8]
+# n419   \partials[3] [9]
+# n420   $auto$maccmap.cc:114:fulladd$159.t2 [9]
+# n421   \partials[3] [10]
+# n422   $auto$maccmap.cc:114:fulladd$159.t2 [10]
+# n423   \partials[3] [11]
+# n424   $auto$maccmap.cc:114:fulladd$159.t2 [11]
+# n425   $auto$maccmap.cc:114:fulladd$159.t1 [5]
+# n426   $auto$maccmap.cc:114:fulladd$159.t3 [5]
+# n427   $auto$maccmap.cc:114:fulladd$159.t1 [6]
+# n428   $auto$maccmap.cc:114:fulladd$159.t3 [6]
+# n429   $auto$maccmap.cc:114:fulladd$159.t1 [7]
+# n430   $auto$maccmap.cc:114:fulladd$159.t3 [7]
+# n431   $auto$maccmap.cc:114:fulladd$159.t1 [8]
+# n432   $auto$maccmap.cc:114:fulladd$159.t3 [8]
+# n433   $auto$maccmap.cc:114:fulladd$159.t1 [9]
+# n434   $auto$maccmap.cc:114:fulladd$159.t3 [9]
+# n435   $auto$maccmap.cc:114:fulladd$159.t1 [10]
+# n436   $auto$maccmap.cc:114:fulladd$159.t3 [10]
+# n437   $auto$maccmap.cc:114:fulladd$159.t1 [11]
+# n438   $auto$maccmap.cc:114:fulladd$159.t3 [11]
+# n439   $0\partials[5][15:0] [4]
+.names n31
+.names n0 n1 n2
+01 1
+10 1
+.names n3 n4 n5
+01 1
+10 1
+.names n6 n7 n8
+01 1
+10 1
+.names n9 n10 n11
+01 1
+10 1
+.names n12 n13 n14
+01 1
+10 1
+.names n15 n16 n17
+01 1
+10 1
+.names n18 n19 n20
+01 1
+10 1
+.names n21 n22 n23
+01 1
+10 1
+.names n2 n5 n24
+01 1
+10 1
+.names n8 n11 n25
+01 1
+10 1
+.names n14 n17 n26
+01 1
+10 1
+.names n20 n23 n27
+01 1
+10 1
+.names n24 n25 n28
+01 1
+10 1
+.names n26 n27 n29
+01 1
+10 1
+.names n28 n29 n30
+01 1
+10 1
+.names n31 n32 n33 n34
+1-0 1
+-11 1
+.names n31 n35 n33 n36
+1-0 1
+-11 1
+.names n31 n37 n33 n38
+1-0 1
+-11 1
+.names n31 n39 n33 n40
+1-0 1
+-11 1
+.names n31 n41 n33 n42
+1-0 1
+-11 1
+.names n31 n43 n33 n44
+1-0 1
+-11 1
+.names n31 n45 n33 n46
+1-0 1
+-11 1
+.names n31 n47 n33 n48
+1-0 1
+-11 1
+.names n31 n32 n49 n50
+1-0 1
+-11 1
+.names n31 n35 n49 n51
+1-0 1
+-11 1
+.names n31 n37 n49 n52
+1-0 1
+-11 1
+.names n31 n39 n49 n53
+1-0 1
+-11 1
+.names n31 n41 n49 n54
+1-0 1
+-11 1
+.names n31 n43 n49 n55
+1-0 1
+-11 1
+.names n31 n45 n49 n56
+1-0 1
+-11 1
+.names n31 n47 n49 n57
+1-0 1
+-11 1
+.names n31 n32 n58 n59
+1-0 1
+-11 1
+.names n31 n35 n58 n60
+1-0 1
+-11 1
+.names n31 n37 n58 n61
+1-0 1
+-11 1
+.names n31 n39 n58 n62
+1-0 1
+-11 1
+.names n31 n41 n58 n63
+1-0 1
+-11 1
+.names n31 n43 n58 n64
+1-0 1
+-11 1
+.names n31 n45 n58 n65
+1-0 1
+-11 1
+.names n31 n47 n58 n66
+1-0 1
+-11 1
+.names n31 n32 n67 n68
+1-0 1
+-11 1
+.names n31 n35 n67 n69
+1-0 1
+-11 1
+.names n31 n37 n67 n70
+1-0 1
+-11 1
+.names n31 n39 n67 n71
+1-0 1
+-11 1
+.names n31 n41 n67 n72
+1-0 1
+-11 1
+.names n31 n43 n67 n73
+1-0 1
+-11 1
+.names n31 n45 n67 n74
+1-0 1
+-11 1
+.names n31 n47 n67 n75
+1-0 1
+-11 1
+.names n31 n32 n76 n77
+1-0 1
+-11 1
+.names n31 n35 n76 n78
+1-0 1
+-11 1
+.names n31 n37 n76 n79
+1-0 1
+-11 1
+.names n31 n39 n76 n80
+1-0 1
+-11 1
+.names n31 n41 n76 n81
+1-0 1
+-11 1
+.names n31 n43 n76 n82
+1-0 1
+-11 1
+.names n31 n45 n76 n83
+1-0 1
+-11 1
+.names n31 n47 n76 n84
+1-0 1
+-11 1
+.names n31 n32 n85 n86
+1-0 1
+-11 1
+.names n31 n35 n85 n87
+1-0 1
+-11 1
+.names n31 n37 n85 n88
+1-0 1
+-11 1
+.names n31 n39 n85 n89
+1-0 1
+-11 1
+.names n31 n41 n85 n90
+1-0 1
+-11 1
+.names n31 n43 n85 n91
+1-0 1
+-11 1
+.names n31 n45 n85 n92
+1-0 1
+-11 1
+.names n31 n47 n85 n93
+1-0 1
+-11 1
+.names n31 n32 n94 n95
+1-0 1
+-11 1
+.names n31 n35 n94 n96
+1-0 1
+-11 1
+.names n31 n37 n94 n97
+1-0 1
+-11 1
+.names n31 n39 n94 n98
+1-0 1
+-11 1
+.names n31 n41 n94 n99
+1-0 1
+-11 1
+.names n31 n43 n94 n100
+1-0 1
+-11 1
+.names n31 n45 n94 n101
+1-0 1
+-11 1
+.names n31 n47 n94 n102
+1-0 1
+-11 1
+.names n31 n32 n103 n104
+1-0 1
+-11 1
+.names n31 n35 n103 n105
+1-0 1
+-11 1
+.names n31 n37 n103 n106
+1-0 1
+-11 1
+.names n31 n39 n103 n107
+1-0 1
+-11 1
+.names n31 n41 n103 n108
+1-0 1
+-11 1
+.names n31 n43 n103 n109
+1-0 1
+-11 1
+.names n31 n45 n103 n110
+1-0 1
+-11 1
+.names n31 n47 n103 n111
+1-0 1
+-11 1
+.names n425 n78 n112
+01 1
+10 1
+.names n410 n77 n113
+11 1
+.names n112 n113 n114
+01 1
+10 1
+.names n427 n79 n115
+01 1
+10 1
+.names n412 n426 n116
+-1 1
+1- 1
+.names n115 n116 n117
+01 1
+10 1
+.names n429 n80 n118
+01 1
+10 1
+.names n414 n428 n119
+-1 1
+1- 1
+.names n118 n119 n120
+01 1
+10 1
+.names n431 n81 n121
+01 1
+10 1
+.names n416 n430 n122
+-1 1
+1- 1
+.names n121 n122 n123
+01 1
+10 1
+.names n433 n82 n124
+01 1
+10 1
+.names n418 n432 n125
+-1 1
+1- 1
+.names n124 n125 n126
+01 1
+10 1
+.names n435 n83 n127
+01 1
+10 1
+.names n420 n434 n128
+-1 1
+1- 1
+.names n127 n128 n129
+01 1
+10 1
+.names n437 n84 n130
+01 1
+10 1
+.names n422 n436 n131
+-1 1
+1- 1
+.names n130 n131 n132
+01 1
+10 1
+.names n424 n438 n133
+-1 1
+1- 1
+.names n93 n133 n134
+01 1
+10 1
+.names n112 n113 n135
+11 1
+.names n117 n135 n136
+01 1
+10 1
+.names n231 n246 n137
+-1 1
+1- 1
+.names n120 n137 n138
+01 1
+10 1
+.names n251 n238 n139
+-1 1
+1- 1
+.names n123 n139 n140
+01 1
+10 1
+.names n233 n247 n141
+-1 1
+1- 1
+.names n126 n141 n142
+01 1
+10 1
+.names n240 n245 n143
+-1 1
+1- 1
+.names n129 n143 n144
+01 1
+10 1
+.names n235 n248 n145
+-1 1
+1- 1
+.names n132 n145 n146
+01 1
+10 1
+.names n255 n244 n147
+-1 1
+1- 1
+.names n134 n147 n148
+01 1
+10 1
+.names n152 n164 n149
+11 1
+.names n300 n335 n150
+11 1
+.names n149 n150 n151
+11 1
+.names n158 n167 n152
+11 1
+.names n179 n163 n153
+-1 1
+1- 1
+.names n152 n153 n154
+11 1
+.names n312 n330 n155
+01 1
+10 1
+.names n310 n327 n156
+11 1
+.names n155 n156 n157
+11 1
+.names n308 n324 n158
+01 1
+10 1
+.names n306 n321 n159
+11 1
+.names n158 n159 n160
+11 1
+.names n304 n318 n161
+01 1
+10 1
+.names n302 n315 n162
+11 1
+.names n161 n162 n163
+11 1
+.names n161 n168 n164
+11 1
+.names n310 n327 n165
+01 1
+10 1
+.names n155 n165 n166
+11 1
+.names n306 n321 n167
+01 1
+10 1
+.names n302 n315 n168
+01 1
+10 1
+.names n164 n150 n169
+11 1
+.names n184 n151 n170
+-1 1
+1- 1
+.names n166 n170 n171
+11 1
+.names n168 n150 n172
+11 1
+.names n153 n169 n173
+-1 1
+1- 1
+.names n167 n173 n174
+11 1
+.names n165 n170 n175
+11 1
+.names n75 n333 n176
+01 1
+10 1
+.names n183 n171 n177
+-1 1
+1- 1
+.names n176 n177 n178
+11 1
+.names n304 n318 n179
+11 1
+.names n308 n324 n180
+11 1
+.names n180 n160 n181
+-1 1
+1- 1
+.names n312 n330 n182
+11 1
+.names n182 n157 n183
+-1 1
+1- 1
+.names n181 n154 n184
+-1 1
+1- 1
+.names n162 n172 n185
+-1 1
+1- 1
+.names n159 n174 n186
+-1 1
+1- 1
+.names n156 n175 n187
+-1 1
+1- 1
+.names n75 n333 n188
+11 1
+.names n188 n178 n189
+-1 1
+1- 1
+.names n397 n388 n190
+01 1
+10 1
+.names n396 n387 n191
+11 1
+.names n190 n191 n192
+11 1
+.names n399 n390 n193
+01 1
+10 1
+.names n398 n389 n194
+11 1
+.names n193 n194 n195
+11 1
+.names n401 n392 n196
+01 1
+10 1
+.names n400 n391 n197
+11 1
+.names n196 n197 n198
+11 1
+.names n193 n204 n199
+11 1
+.names n220 n192 n200
+-1 1
+1- 1
+.names n199 n200 n201
+11 1
+.names n396 n387 n202
+01 1
+10 1
+.names n190 n202 n203
+11 1
+.names n398 n389 n204
+01 1
+10 1
+.names n400 n391 n205
+01 1
+10 1
+.names n196 n205 n206
+11 1
+.names n199 n203 n207
+11 1
+.names n395 n358 n208
+11 1
+.names n207 n208 n209
+11 1
+.names n203 n208 n210
+11 1
+.names n225 n209 n211
+-1 1
+1- 1
+.names n206 n211 n212
+11 1
+.names n202 n208 n213
+11 1
+.names n200 n210 n214
+-1 1
+1- 1
+.names n204 n214 n215
+11 1
+.names n205 n211 n216
+11 1
+.names n111 n393 n217
+01 1
+10 1
+.names n224 n212 n218
+-1 1
+1- 1
+.names n217 n218 n219
+11 1
+.names n397 n388 n220
+11 1
+.names n399 n390 n221
+11 1
+.names n221 n195 n222
+-1 1
+1- 1
+.names n401 n392 n223
+11 1
+.names n223 n198 n224
+-1 1
+1- 1
+.names n222 n201 n225
+-1 1
+1- 1
+.names n191 n213 n226
+-1 1
+1- 1
+.names n194 n215 n227
+-1 1
+1- 1
+.names n197 n216 n228
+-1 1
+1- 1
+.names n111 n393 n229
+11 1
+.names n229 n219 n230
+-1 1
+1- 1
+.names n115 n116 n231
+11 1
+.names n120 n231 n232
+11 1
+.names n121 n122 n233
+11 1
+.names n126 n233 n234
+11 1
+.names n127 n128 n235
+11 1
+.names n132 n235 n236
+11 1
+.names n120 n117 n237
+11 1
+.names n237 n135 n238
+11 1
+.names n132 n129 n239
+11 1
+.names n252 n234 n240
+-1 1
+1- 1
+.names n239 n240 n241
+11 1
+.names n126 n123 n242
+11 1
+.names n239 n242 n243
+11 1
+.names n243 n139 n244
+11 1
+.names n242 n139 n245
+11 1
+.names n117 n135 n246
+11 1
+.names n123 n139 n247
+11 1
+.names n129 n143 n248
+11 1
+.names n134 n147 n249
+11 1
+.names n118 n119 n250
+11 1
+.names n250 n232 n251
+-1 1
+1- 1
+.names n124 n125 n252
+11 1
+.names n130 n131 n253
+11 1
+.names n253 n236 n254
+-1 1
+1- 1
+.names n254 n241 n255
+-1 1
+1- 1
+.names n93 n133 n256
+11 1
+.names n256 n249 n257
+-1 1
+1- 1
+.names n36 n50 n258
+01 1
+10 1
+.names n38 n51 n259
+01 1
+10 1
+.names n40 n52 n260
+01 1
+10 1
+.names n42 n53 n261
+01 1
+10 1
+.names n44 n54 n262
+01 1
+10 1
+.names n46 n55 n263
+01 1
+10 1
+.names n48 n56 n264
+01 1
+10 1
+.names n36 n50 n265
+11 1
+.names n259 n265 n266
+01 1
+10 1
+.names n279 n286 n267
+-1 1
+1- 1
+.names n260 n267 n268
+01 1
+10 1
+.names n354 n295 n269
+-1 1
+1- 1
+.names n261 n269 n270
+01 1
+10 1
+.names n281 n285 n271
+-1 1
+1- 1
+.names n262 n271 n272
+01 1
+10 1
+.names n293 n288 n273
+-1 1
+1- 1
+.names n263 n273 n274
+01 1
+10 1
+.names n283 n352 n275
+-1 1
+1- 1
+.names n264 n275 n276
+01 1
+10 1
+.names n356 n292 n277
+-1 1
+1- 1
+.names n57 n277 n278
+01 1
+10 1
+.names n38 n51 n279
+11 1
+.names n40 n52 n280
+11 1
+.names n42 n53 n281
+11 1
+.names n44 n54 n282
+11 1
+.names n46 n55 n283
+11 1
+.names n48 n56 n284
+11 1
+.names n261 n269 n285
+11 1
+.names n259 n265 n286
+11 1
+.names n262 n261 n287
+11 1
+.names n287 n269 n288
+11 1
+.names n264 n263 n289
+11 1
+.names n289 n287 n290
+11 1
+.names n260 n259 n291
+11 1
+.names n290 n269 n292
+11 1
+.names n282 n297 n293
+-1 1
+1- 1
+.names n289 n293 n294
+11 1
+.names n291 n265 n295
+11 1
+.names n264 n283 n296
+11 1
+.names n262 n281 n297
+11 1
+.names n260 n279 n298
+11 1
+.names n336 n68 n299
+01 1
+10 1
+.names n299 n60 n300
+01 1
+10 1
+.names n337 n69 n301
+01 1
+10 1
+.names n301 n61 n302
+01 1
+10 1
+.names n338 n70 n303
+01 1
+10 1
+.names n303 n62 n304
+01 1
+10 1
+.names n339 n71 n305
+01 1
+10 1
+.names n305 n63 n306
+01 1
+10 1
+.names n340 n72 n307
+01 1
+10 1
+.names n307 n64 n308
+01 1
+10 1
+.names n341 n73 n309
+01 1
+10 1
+.names n309 n65 n310
+01 1
+10 1
+.names n342 n74 n311
+01 1
+10 1
+.names n311 n66 n312
+01 1
+10 1
+.names n336 n68 n313
+11 1
+.names n60 n299 n314
+11 1
+.names n313 n314 n315
+-1 1
+1- 1
+.names n337 n69 n316
+11 1
+.names n61 n301 n317
+11 1
+.names n316 n317 n318
+-1 1
+1- 1
+.names n338 n70 n319
+11 1
+.names n62 n303 n320
+11 1
+.names n319 n320 n321
+-1 1
+1- 1
+.names n339 n71 n322
+11 1
+.names n63 n305 n323
+11 1
+.names n322 n323 n324
+-1 1
+1- 1
+.names n340 n72 n325
+11 1
+.names n64 n307 n326
+11 1
+.names n325 n326 n327
+-1 1
+1- 1
+.names n341 n73 n328
+11 1
+.names n65 n309 n329
+11 1
+.names n328 n329 n330
+-1 1
+1- 1
+.names n342 n74 n331
+11 1
+.names n66 n311 n332
+11 1
+.names n331 n332 n333
+-1 1
+1- 1
+.names n334 n59 n335
+11 1
+.names n334 n59 n343
+01 1
+10 1
+.names n300 n335 n344
+01 1
+10 1
+.names n168 n150 n345
+01 1
+10 1
+.names n161 n185 n346
+01 1
+10 1
+.names n167 n173 n347
+01 1
+10 1
+.names n158 n186 n348
+01 1
+10 1
+.names n165 n170 n349
+01 1
+10 1
+.names n155 n187 n350
+01 1
+10 1
+.names n176 n177 n351
+01 1
+10 1
+.names n263 n273 n352
+11 1
+.names n57 n277 n353
+11 1
+.names n280 n298 n354
+-1 1
+1- 1
+.names n284 n296 n355
+-1 1
+1- 1
+.names n355 n294 n356
+-1 1
+1- 1
+.names n357 n95 n358
+11 1
+.names n359 n104 n360
+11 1
+.names n361 n105 n362
+11 1
+.names n363 n106 n364
+11 1
+.names n365 n107 n366
+11 1
+.names n367 n108 n368
+11 1
+.names n369 n109 n370
+11 1
+.names n371 n110 n372
+11 1
+.names n359 n104 n373
+01 1
+10 1
+.names n96 n373 n374
+11 1
+.names n361 n105 n375
+01 1
+10 1
+.names n97 n375 n376
+11 1
+.names n363 n106 n377
+01 1
+10 1
+.names n98 n377 n378
+11 1
+.names n365 n107 n379
+01 1
+10 1
+.names n99 n379 n380
+11 1
+.names n367 n108 n381
+01 1
+10 1
+.names n100 n381 n382
+11 1
+.names n369 n109 n383
+01 1
+10 1
+.names n101 n383 n384
+11 1
+.names n371 n110 n385
+01 1
+10 1
+.names n102 n385 n386
+11 1
+.names n360 n374 n387
+-1 1
+1- 1
+.names n362 n376 n388
+-1 1
+1- 1
+.names n364 n378 n389
+-1 1
+1- 1
+.names n366 n380 n390
+-1 1
+1- 1
+.names n368 n382 n391
+-1 1
+1- 1
+.names n370 n384 n392
+-1 1
+1- 1
+.names n372 n386 n393
+-1 1
+1- 1
+.names n357 n95 n394
+01 1
+10 1
+.names n373 n96 n395
+01 1
+10 1
+.names n375 n97 n396
+01 1
+10 1
+.names n377 n98 n397
+01 1
+10 1
+.names n379 n99 n398
+01 1
+10 1
+.names n381 n100 n399
+01 1
+10 1
+.names n383 n101 n400
+01 1
+10 1
+.names n385 n102 n401
+01 1
+10 1
+.names n395 n358 n402
+01 1
+10 1
+.names n202 n208 n403
+01 1
+10 1
+.names n190 n226 n404
+01 1
+10 1
+.names n204 n214 n405
+01 1
+10 1
+.names n193 n227 n406
+01 1
+10 1
+.names n205 n211 n407
+01 1
+10 1
+.names n196 n228 n408
+01 1
+10 1
+.names n217 n218 n409
+01 1
+10 1
+.names n411 n86 n412
+11 1
+.names n413 n87 n414
+11 1
+.names n415 n88 n416
+11 1
+.names n417 n89 n418
+11 1
+.names n419 n90 n420
+11 1
+.names n421 n91 n422
+11 1
+.names n423 n92 n424
+11 1
+.names n411 n86 n425
+01 1
+10 1
+.names n78 n425 n426
+11 1
+.names n413 n87 n427
+01 1
+10 1
+.names n79 n427 n428
+11 1
+.names n415 n88 n429
+01 1
+10 1
+.names n80 n429 n430
+11 1
+.names n417 n89 n431
+01 1
+10 1
+.names n81 n431 n432
+11 1
+.names n419 n90 n433
+01 1
+10 1
+.names n82 n433 n434
+11 1
+.names n421 n91 n435
+01 1
+10 1
+.names n83 n435 n436
+11 1
+.names n423 n92 n437
+01 1
+10 1
+.names n84 n437 n438
+11 1
+.names n410 n77 n439
+01 1
+10 1
+.end

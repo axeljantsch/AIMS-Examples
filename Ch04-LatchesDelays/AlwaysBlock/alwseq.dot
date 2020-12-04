@@ -1,0 +1,13 @@
+digraph "alwseq" {
+rankdir="LR";
+remincross=true;
+n3 [ shape=octagon, label="clk", color="black", fontcolor="black" ];
+n4 [ shape=octagon, label="d", color="black", fontcolor="black" ];
+n5 [ shape=octagon, label="q", color="black", fontcolor="black" ];
+c8 [ shape=record, label="{{<p6> A}|$4\n$logic_not|{<p7> Y}}" ];
+c12 [ shape=record, label="{{<p9> CLK|<p10> D}|$7\n$dff|{<p11> Q}}" ];
+c8:p7:e -> c12:p10:w [color="black", label=""];
+n3:e -> c12:p9:w [color="black", label=""];
+n4:e -> c8:p6:w [color="black", label=""];
+c12:p11:e -> n5:w [color="black", label=""];
+}

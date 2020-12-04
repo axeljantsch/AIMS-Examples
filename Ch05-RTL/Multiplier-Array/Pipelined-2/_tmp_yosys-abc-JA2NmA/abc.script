@@ -1,0 +1,10 @@
+echo + read_blif _tmp_yosys-abc-JA2NmA/input.blif;
+read_blif _tmp_yosys-abc-JA2NmA/input.blif;
+echo + read_lib -w /home/jantsch/developments/Verilog-Projects/AIMS-Book-Examples/Liberty/gscl45nm.lib;
+read_lib -w /home/jantsch/developments/Verilog-Projects/AIMS-Book-Examples/Liberty/gscl45nm.lib;
+echo + read_constr -v /home/jantsch/developments/Verilog-Projects/AIMS-Book-Examples/ETC/abc-constraints.txt;
+read_constr -v /home/jantsch/developments/Verilog-Projects/AIMS-Book-Examples/ETC/abc-constraints.txt;
+echo + source /home/jantsch/developments/Verilog-Projects/AIMS-Book-Examples/Scripts/synthscript.abc;
+source /home/jantsch/developments/Verilog-Projects/AIMS-Book-Examples/Scripts/synthscript.abc;
+echo + write_blif _tmp_yosys-abc-JA2NmA/output.blif;
+write_blif _tmp_yosys-abc-JA2NmA/output.blif

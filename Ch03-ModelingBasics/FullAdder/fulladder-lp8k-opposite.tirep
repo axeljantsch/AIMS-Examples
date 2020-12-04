@@ -1,0 +1,34 @@
+
+icetime topological timing analysis report
+==========================================
+
+Report for critical path:
+-------------------------
+
+        pre_io_33_26_0 (PRE_IO) [clk] -> DIN0: 0.307 ns
+     0.307 ns net_133031 (ci$SB_IO_IN)
+        odrv_33_26_133031_116122 (Odrv12) I -> O: 0.796 ns
+        t15 (Span12Mux_h12) I -> O: 0.796 ns
+        t14 (Span12Mux_h12) I -> O: 0.796 ns
+        t13 (Sp12to4) I -> O: 0.662 ns
+        t12 (Span4Mux_v4) I -> O: 0.548 ns
+        t11 (LocalMux) I -> O: 0.486 ns
+        inmux_2_30_11879_11912 (InMux) I -> O: 0.382 ns
+        lc40_2_30_1 (LogicCell40) in3 -> lcout: 0.465 ns
+     5.237 ns net_7704 (sum$SB_IO_OUT)
+        odrv_2_30_7704_3396 (Odrv12) I -> O: 0.796 ns
+        t8 (Span12Mux_h12) I -> O: 0.796 ns
+        t7 (Span12Mux_h12) I -> O: 0.796 ns
+        t6 (LocalMux) I -> O: 0.486 ns
+        inmux_33_30_135120_135100 (IoInMux) I -> O: 0.382 ns
+     8.494 ns net_135100 (sum$SB_IO_OUT)
+        pre_io_33_30_1 (PRE_IO) DOUT0 [setup]: 0.103 ns
+     8.597 ns io_pad_33_30_1_din
+
+Resolvable net names on path:
+     0.307 ns ..  4.772 ns ci$SB_IO_IN
+     5.237 ns ..  8.494 ns sum$SB_IO_OUT
+
+Total number of logic levels: 2
+Total path delay: 8.60 ns (116.32 MHz)
+

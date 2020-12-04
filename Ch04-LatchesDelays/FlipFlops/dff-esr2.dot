@@ -1,0 +1,22 @@
+digraph "dffesr_2" {
+rankdir="LR";
+remincross=true;
+n3 [ shape=octagon, label="clk", color="black", fontcolor="black" ];
+n4 [ shape=octagon, label="d", color="black", fontcolor="black" ];
+n5 [ shape=octagon, label="en", color="black", fontcolor="black" ];
+n6 [ shape=octagon, label="q", color="black", fontcolor="black" ];
+n7 [ shape=octagon, label="rst", color="black", fontcolor="black" ];
+v0 [ label="1'0" ];
+v1 [ label="1'0" ];
+c13 [ shape=record, label="{{<p8> I0|<p9> I1|<p10> I2|<p11> I3}|$86\nSB_LUT4|{<p12> O}}" ];
+c19 [ shape=record, label="{{<p14> C|<p15> D|<p16> E|<p17> R}|$61\nSB_DFFESR|{<p18> Q}}" ];
+c13:p12:e -> c19:p16:w [color="black", label=""];
+n3:e -> c19:p14:w [color="black", label=""];
+n4:e -> c19:p15:w [color="black", label=""];
+n5:e -> c13:p8:w [color="black", label=""];
+c19:p18:e -> n6:w [color="black", label=""];
+n7:e -> c13:p9:w [color="black", label=""];
+n7:e -> c19:p17:w [color="black", label=""];
+v0:e -> c13:p10:w [color="black", label=""];
+v1:e -> c13:p11:w [color="black", label=""];
+}

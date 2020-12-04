@@ -1,0 +1,52 @@
+
+icetime topological timing analysis report
+==========================================
+
+Report for critical path:
+-------------------------
+
+        lc40_23_13_3 (LogicCell40) [clk] -> lcout: 0.640 ns
+     0.640 ns net_90606 (areg[7][7])
+        odrv_23_13_90606_90514 (Odrv4) I -> O: 0.372 ns
+        t503 (LocalMux) I -> O: 0.330 ns
+        inmux_22_14_90786_90813 (InMux) I -> O: 0.260 ns
+        lc40_22_14_2 (LogicCell40) in1 -> lcout: 0.400 ns
+     2.001 ns net_86651 ($abc$3330$n106)
+        t478 (LocalMux) I -> O: 0.330 ns
+        inmux_22_13_90646_90679 (InMux) I -> O: 0.260 ns
+        t112 (CascadeMux) I -> O: 0.000 ns
+        lc40_22_13_0 (LogicCell40) in2 -> carryout: 0.231 ns
+     2.821 ns net_90676 ($auto$alumacc.cc:470:replace_alu$334.C[8])
+        lc40_22_13_1 (LogicCell40) carryin -> carryout: 0.126 ns
+     2.947 ns net_90682 ($auto$alumacc.cc:470:replace_alu$334.C[9])
+        lc40_22_13_2 (LogicCell40) carryin -> carryout: 0.126 ns
+     3.074 ns net_90688 ($auto$alumacc.cc:470:replace_alu$334.C[10])
+        lc40_22_13_3 (LogicCell40) carryin -> carryout: 0.126 ns
+     3.200 ns net_90694 ($auto$alumacc.cc:470:replace_alu$334.C[11])
+        lc40_22_13_4 (LogicCell40) carryin -> carryout: 0.126 ns
+     3.326 ns net_90700 ($auto$alumacc.cc:470:replace_alu$334.C[12])
+        lc40_22_13_5 (LogicCell40) carryin -> carryout: 0.126 ns
+     3.452 ns net_90706 ($auto$alumacc.cc:470:replace_alu$334.C[13])
+        lc40_22_13_6 (LogicCell40) carryin -> carryout: 0.126 ns
+     3.579 ns net_90712 ($auto$alumacc.cc:470:replace_alu$334.C[14])
+        inmux_22_13_90712_90722 (InMux) I -> O: 0.260 ns
+     3.838 ns net_90722 ($auto$alumacc.cc:470:replace_alu$334.C[14])
+        lc40_22_13_7 (LogicCell40) in3 [setup]: 0.217 ns
+     4.056 ns net_86533 (partials[7][14])
+
+Resolvable net names on path:
+     0.640 ns ..  1.601 ns areg[7][7]
+     2.001 ns ..  2.590 ns $abc$3330$n106
+     2.821 ns ..  2.821 ns $auto$alumacc.cc:470:replace_alu$334.C[8]
+     2.947 ns ..  2.947 ns $auto$alumacc.cc:470:replace_alu$334.C[9]
+     3.074 ns ..  3.074 ns $auto$alumacc.cc:470:replace_alu$334.C[10]
+     3.200 ns ..  3.200 ns $auto$alumacc.cc:470:replace_alu$334.C[11]
+     3.326 ns ..  3.326 ns $auto$alumacc.cc:470:replace_alu$334.C[12]
+     3.452 ns ..  3.452 ns $auto$alumacc.cc:470:replace_alu$334.C[13]
+     3.579 ns ..  3.838 ns $auto$alumacc.cc:470:replace_alu$334.C[14]
+               carryout -> $auto$alumacc.cc:470:replace_alu$334.C[15]
+                  lcout -> partials[7][14]
+
+Total number of logic levels: 9
+Total path delay: 4.06 ns (246.57 MHz)
+

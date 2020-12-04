@@ -1,0 +1,40 @@
+begin:
+    proc
+    opt
+    hierarchy -check -auto-top
+
+coarse:
+    proc
+    flatten    
+    opt_expr
+    opt_clean
+    check
+    opt
+    wreduce
+    alumacc
+    share
+    opt
+    fsm
+    opt -fast
+    memory -nomap
+    opt_clean
+
+fine:
+    opt -fast -full
+    memory_map
+    opt -full
+    techmap
+    opt -fast
+abc:
+    dfflibmap -liberty /home/jantsch/developments/Verilog-Projects/AIMS-Book-Examples/Liberty/gscl45nm.lib
+    write_blif multiplier.blif
+    abc -D 500 -liberty /home/jantsch/developments/Verilog-Projects/AIMS-Book-Examples/Liberty/gscl45nm.lib -constr /home/jantsch/developments/Verilog-Projects/AIMS-Book-Examples/ETC/abc-constraints.txt -script /home/jantsch/developments/Verilog-Projects/AIMS-Book-Examples/Scripts/synthscript.abc
+    #    read_liberty gscl45nm.lib
+    opt -fast
+
+check:
+    # hierarchy -check -top multiplier
+    stat
+    check
+    write_verilog synthesized.v
+    

@@ -1,0 +1,80 @@
+# Benchmark "netlist" written by ABC on Fri Jun 26 11:34:32 2020
+.model netlist
+.inputs n0 n1 n3 n4 n11 n12 n13 n14 n16 n17 n19 n21 n23 n25 n30 n35 n71 n73 \
+ n74 n75
+.outputs n10 n31 n40 n44 n46 n48 n51 n76 n77 n82 n84 n86 n97
+.gate XNOR2X1  A=n11 B=n12 Y=n34
+.gate XOR2X1   A=n3 B=n4 Y=n35_1
+.gate XNOR2X1  A=n34 B=n35_1 Y=n36
+.gate XNOR2X1  A=n0 B=n1 Y=n37
+.gate XNOR2X1  A=n13 B=n14 Y=n38
+.gate XNOR2X1  A=n37 B=n38 Y=n39
+.gate XNOR2X1  A=n36 B=n39 Y=n10
+.gate INVX1    A=n16 Y=n41
+.gate INVX1    A=n30 Y=n42
+.gate NOR2X1   A=n41 B=n42 Y=n31
+.gate NAND2X1  A=n19 B=n30 Y=n44_1
+.gate NAND2X1  A=n16 B=n35 Y=n45
+.gate XOR2X1   A=n44_1 B=n45 Y=n40
+.gate AND2X1   A=n19 B=n35 Y=n47
+.gate NAND2X1  A=n21 B=n30 Y=n48_1
+.gate XOR2X1   A=n47 B=n48_1 Y=n49
+.gate NAND2X1  A=n47 B=n31 Y=n50
+.gate XOR2X1   A=n49 B=n50 Y=n44
+.gate NAND2X1  A=n21 B=n35 Y=n52
+.gate NAND2X1  A=n23 B=n30 Y=n53
+.gate XNOR2X1  A=n52 B=n53 Y=n54
+.gate INVX1    A=n48_1 Y=n55
+.gate OAI21X1  A=n55 B=n31 C=n47 Y=n56
+.gate XOR2X1   A=n54 B=n56 Y=n46
+.gate NAND2X1  A=n23 B=n35 Y=n58
+.gate OR2X1    A=n54 B=n56 Y=n59
+.gate NAND2X1  A=n58 B=n59 Y=n60
+.gate AND2X1   A=n59 B=n48_1 Y=n61
+.gate OR2X1    A=n58 B=n61 Y=n62
+.gate AND2X1   A=n60 B=n62 Y=n48
+.gate INVX1    A=n62 Y=n51
+.gate NAND3X1  A=n16 B=n17 C=n71 Y=n65
+.gate INVX1    A=n65 Y=n66
+.gate AOI21X1  A=n16 B=n17 C=n71 Y=n67
+.gate NOR2X1   A=n66 B=n67 Y=n76
+.gate NAND2X1  A=n17 B=n19 Y=n69
+.gate AND2X2   A=n16 B=n25 Y=n70
+.gate XNOR2X1  A=n73 B=n70 Y=n71_1
+.gate XOR2X1   A=n69 B=n71_1 Y=n72
+.gate XNOR2X1  A=n65 B=n72 Y=n77
+.gate AND2X1   A=n72 B=n66 Y=n74_1
+.gate AND2X1   A=n17 B=n21 Y=n75_1
+.gate AND2X2   A=n19 B=n25 Y=n76_1
+.gate XOR2X1   A=n74 B=n76_1 Y=n77_1
+.gate XOR2X1   A=n75_1 B=n77_1 Y=n78
+.gate OR2X2    A=n69 B=n71_1 Y=n79
+.gate NAND3X1  A=n16 B=n25 C=n73 Y=n80
+.gate AND2X2   A=n79 B=n80 Y=n81
+.gate XNOR2X1  A=n78 B=n81 Y=n82_1
+.gate XOR2X1   A=n74_1 B=n82_1 Y=n82
+.gate AND2X1   A=n76_1 B=n74 Y=n84_1
+.gate AOI21X1  A=n75_1 B=n77_1 C=n84_1 Y=n85
+.gate NAND2X1  A=n17 B=n23 Y=n86_1
+.gate NAND2X1  A=n21 B=n25 Y=n87
+.gate XNOR2X1  A=n75 B=n87 Y=n88
+.gate XOR2X1   A=n86_1 B=n88 Y=n89
+.gate XOR2X1   A=n85 B=n89 Y=n90
+.gate NAND2X1  A=n80 B=n79 Y=n91
+.gate AND2X2   A=n91 B=n78 Y=n92
+.gate AND2X1   A=n82_1 B=n74_1 Y=n93
+.gate OR2X2    A=n92 B=n93 Y=n94
+.gate XOR2X1   A=n90 B=n94 Y=n84
+.gate NAND2X1  A=n23 B=n25 Y=n96
+.gate NAND3X1  A=n88 B=n17 C=n23 Y=n97_1
+.gate NAND3X1  A=n21 B=n25 C=n75 Y=n98
+.gate AND2X1   A=n97_1 B=n98 Y=n99
+.gate XOR2X1   A=n96 B=n99 Y=n100
+.gate NOR2X1   A=n89 B=n85 Y=n101
+.gate AND2X2   A=n94 B=n90 Y=n102
+.gate OR2X2    A=n101 B=n102 Y=n103
+.gate XOR2X1   A=n100 B=n103 Y=n86
+.gate AOI21X1  A=n98 B=n97_1 C=n96 Y=n105
+.gate AND2X2   A=n103 B=n100 Y=n106
+.gate OR2X2    A=n105 B=n106 Y=n97
+.end

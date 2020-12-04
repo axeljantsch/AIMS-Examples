@@ -1,0 +1,35 @@
+ 
+% You have to include these packages and definitions:
+% \PassOptionsToPackage{table}{xcolor} 
+% \usepackage{graphics} 
+% \usepackage{tcolorbox} 
+% \usepackage{multicol} 
+% \usepackage{multirow} 
+% \definecolor{Blue}{rgb}{0,0,1} 
+ 
+\renewcommand{\arraystretch}{1.5}
+\rowcolors{2}{white}{blue!10} \newcommand{\ct}{\color{white}\bf}
+\begin{tabular}{cc*{7}{r}}
+\rowcolor{Blue!50}
+\ct Device & \ct Pin & \ct Pre IO & \ct Connect & \ct Logic & \ct Connect & \ct IO Cell & \ct Pre IO & \ct Sum \\
+\rowcolor{white}
+  & close & 0.307 & 0.486 & 1.044 & 0.486 & 0.382 & 0.103 & 2.808\\
+\rowcolor{white}
+ \multirow{-2}{*}{lp384} & opposite & 0.307 & 1.406 & 0.971 & 1.034 & 0.382 & 0.103 & 4.203\\
+\rowcolor{blue!10}
+  & close & 0.307 & 0.486 & 1.044 & 0.486 & 0.382 & 0.103 & 2.808\\
+\rowcolor{blue!10}
+ \multirow{-2}{*}{lp1k} & opposite & 0.307 & 1.478 & 1.044 & 1.034 & 0.382 & 0.103 & 4.348\\
+\rowcolor{white}
+  & close & 0.307 & 0.486 & 0.94 & 0.486 & 0.382 & 0.103 & 2.704\\
+\rowcolor{white}
+ \multirow{-2}{*}{lp8k} & opposite & 0.307 & 2.398 & 1.044 & 2.367 & 0.382 & 0.103 & 6.601\\
+\rowcolor{blue!10}
+  & close & 0.240 & 0.33 & 0.709 & 0.33 & 0.260 & 0.070 & 1.939\\
+\rowcolor{blue!10}
+ \multirow{-2}{*}{hx1k} & opposite & 0.240 & 1.003 & 0.709 & 0.702 & 0.260 & 0.070 & 2.984\\
+\rowcolor{white}
+  & close & 0.240 & 0.33 & 0.639 & 0.33 & 0.260 & 0.070 & 1.869\\
+\rowcolor{white}
+ \multirow{-2}{*}{hx8k} & opposite & 0.240 & 2.308 & 0.66 & 1.018 & 0.260 & 0.070 & 4.556\\
+\end{tabular}

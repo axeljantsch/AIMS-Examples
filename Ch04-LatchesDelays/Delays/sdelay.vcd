@@ -1,0 +1,81 @@
+$date
+	Thu Sep 24 10:50:09 2020
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	100ps
+$end
+$scope module sdelay_tb $end
+$var wire 1 ! ynbrhs $end
+$var wire 1 " ynblhs $end
+$var wire 1 # ycbl $end
+$var wire 1 $ ybrhs $end
+$var wire 1 % yblhs $end
+$var reg 1 & a $end
+$scope module uu1 $end
+$var wire 1 & a $end
+$var wire 1 # ycbl $end
+$var reg 1 % yblhs $end
+$var reg 1 $ ybrhs $end
+$var reg 1 " ynblhs $end
+$var reg 1 ! ynbrhs $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0&
+x%
+x$
+x#
+x"
+x!
+$end
+#40
+1"
+1!
+1#
+1$
+1%
+#50
+1&
+#90
+0"
+0!
+0#
+0%
+0$
+#200
+0&
+#230
+1&
+#240
+1!
+0&
+1$
+#250
+1&
+#260
+0&
+#270
+0!
+#280
+1"
+1!
+1%
+#290
+0!
+#300
+1!
+1#
+#330
+1&
+#370
+0"
+0!
+0#
+0$
+0%
+#430

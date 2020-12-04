@@ -1,0 +1,53 @@
+
+icetime topological timing analysis report
+==========================================
+
+Report for critical path:
+-------------------------
+
+        lc40_16_19_4 (LogicCell40) [clk] -> lcout: 0.640 ns
+     0.640 ns net_62808 (areg[1])
+        t239 (LocalMux) I -> O: 0.330 ns
+        inmux_16_19_66933_66960 (InMux) I -> O: 0.260 ns
+        lc40_16_19_1 (LogicCell40) in0 -> lcout: 0.449 ns
+     1.678 ns net_62805 ($abc$1198$n99)
+        odrv_16_19_62805_66660 (Odrv4) I -> O: 0.372 ns
+        t258 (LocalMux) I -> O: 0.330 ns
+        inmux_17_19_71009_71055 (InMux) I -> O: 0.260 ns
+        lc40_17_19_4 (LogicCell40) in0 -> lcout: 0.449 ns
+     3.088 ns net_66884 ($abc$1198$n110)
+        t328 (LocalMux) I -> O: 0.330 ns
+        inmux_18_19_75078_75131 (InMux) I -> O: 0.260 ns
+        lc40_18_19_4 (LogicCell40) in0 -> lcout: 0.449 ns
+     4.126 ns net_70961 ($abc$1198$n133)
+        t420 (LocalMux) I -> O: 0.330 ns
+        inmux_18_20_75201_75242 (InMux) I -> O: 0.260 ns
+        lc40_18_20_2 (LogicCell40) in0 -> lcout: 0.449 ns
+     5.164 ns net_71082 ($abc$1198$n151_1)
+        t427 (LocalMux) I -> O: 0.330 ns
+        inmux_18_20_75223_75248 (InMux) I -> O: 0.260 ns
+        lc40_18_20_3 (LogicCell40) in0 -> lcout: 0.449 ns
+     6.202 ns net_71083 ($abc$1198$n142_1)
+        t429 (LocalMux) I -> O: 0.330 ns
+        inmux_19_20_79277_79344 (InMux) I -> O: 0.260 ns
+        lc40_19_20_6 (LogicCell40) in1 -> lcout: 0.400 ns
+     7.191 ns net_75162 ($abc$1198$n140)
+        t490 (LocalMux) I -> O: 0.330 ns
+        inmux_19_19_79165_79202 (InMux) I -> O: 0.260 ns
+     7.780 ns net_79202 ($abc$1198$n140)
+        lc40_19_19_3 (LogicCell40) in0 [setup]: 0.400 ns
+     8.179 ns net_75036 (partialsco[7][2])
+
+Resolvable net names on path:
+     0.640 ns ..  1.229 ns areg[1]
+     1.678 ns ..  2.639 ns $abc$1198$n99
+     3.088 ns ..  3.677 ns $abc$1198$n110
+     4.126 ns ..  4.715 ns $abc$1198$n133
+     5.164 ns ..  5.753 ns $abc$1198$n151_1
+     6.202 ns ..  6.791 ns $abc$1198$n142_1
+     7.191 ns ..  7.780 ns $abc$1198$n140
+                  lcout -> partialsco[7][2]
+
+Total number of logic levels: 7
+Total path delay: 8.18 ns (122.26 MHz)
+

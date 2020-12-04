@@ -1,0 +1,46 @@
+
+icetime topological timing analysis report
+==========================================
+
+Report for critical path:
+-------------------------
+
+        lc40_6_14_7 (LogicCell40) [clk] -> lcout: 0.896 ns
+     0.896 ns net_22099 (areg[3])
+        t52 (LocalMux) I -> O: 0.486 ns
+        inmux_7_15_30441_30455 (InMux) I -> O: 0.382 ns
+        lc40_7_15_2 (LogicCell40) in0 -> lcout: 0.662 ns
+     2.426 ns net_26294 ($abc$345$n56_1)
+        t88 (LocalMux) I -> O: 0.486 ns
+        inmux_7_16_30535_30566 (InMux) I -> O: 0.382 ns
+        lc40_7_16_0 (LogicCell40) in0 -> lcout: 0.662 ns
+     3.956 ns net_26415 ($abc$345$n41)
+        t96 (LocalMux) I -> O: 0.486 ns
+        inmux_6_16_26472_26491 (InMux) I -> O: 0.382 ns
+        t11 (CascadeMux) I -> O: 0.000 ns
+        lc40_6_16_0 (LogicCell40) in2 -> carryout: 0.341 ns
+     5.165 ns net_26488 ($auto$maccmap.cc:240:synth$137.C[4])
+        lc40_6_16_1 (LogicCell40) carryin -> carryout: 0.186 ns
+     5.351 ns net_26494 ($auto$maccmap.cc:240:synth$137.C[5])
+        lc40_6_16_2 (LogicCell40) carryin -> carryout: 0.186 ns
+     5.537 ns net_26500 ($auto$maccmap.cc:240:synth$137.C[6])
+        lc40_6_16_3 (LogicCell40) carryin -> carryout: 0.186 ns
+     5.723 ns net_26506 ($auto$maccmap.cc:240:synth$137.C[7])
+        inmux_6_16_26506_26516 (InMux) I -> O: 0.382 ns
+     6.106 ns net_26516 ($auto$maccmap.cc:240:synth$137.C[7])
+        lc40_6_16_4 (LogicCell40) in3 [setup]: 0.320 ns
+     6.426 ns net_22342 (partials[3][7])
+
+Resolvable net names on path:
+     0.896 ns ..  1.764 ns areg[3]
+     2.426 ns ..  3.294 ns $abc$345$n56_1
+     3.956 ns ..  4.824 ns $abc$345$n41
+     5.165 ns ..  5.165 ns $auto$maccmap.cc:240:synth$137.C[4]
+     5.351 ns ..  5.351 ns $auto$maccmap.cc:240:synth$137.C[5]
+     5.537 ns ..  5.537 ns $auto$maccmap.cc:240:synth$137.C[6]
+     5.723 ns ..  6.106 ns $auto$maccmap.cc:240:synth$137.C[7]
+                  lcout -> partials[3][7]
+
+Total number of logic levels: 7
+Total path delay: 6.43 ns (155.61 MHz)
+

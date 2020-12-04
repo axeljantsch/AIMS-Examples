@@ -1,0 +1,11 @@
+wires: = 35
+public wire bits: = 81
+CARRY = 12
+processes: = 0
+memory bits: = 0
+memories: = 0
+public wires: = 16
+wire bits: = 142
+cells: = 94
+LUT4 = 31
+DFF = 51

@@ -1,0 +1,5 @@
+ 
+ Tech , Bit width ,  Pipelining ,  Nr of ,  Nr of , Nr of , Critical path ,  Critical path , Frequency ,  E2E Delay ,  E2E Delay , Throughput , Throughput ,  Power 
+      ,  (bit)    ,   , LUTS/Gates , DFFs , DFFs ,  (ns) , (ns) , (MHz) ,  (ns) , (ns) , (M ops/sec) , (M ops/sec) , (mW) 
+      ,      ,   ,  , (Synth) , (Model) ,  (Synth) , (Model) ,  ,  (Synth) , (Model) , (Synth) , (Model) ,  
+ osu018 , 64 , No , 38905 , 256 , 256, 38.1106 , 15.687054 , 26.2 , 38.1106 , 38.1106 , 26.24 , 63.75 , 0 

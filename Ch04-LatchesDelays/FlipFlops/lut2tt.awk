@@ -1,0 +1,1 @@
+../../Scripts/lut2tt.awk

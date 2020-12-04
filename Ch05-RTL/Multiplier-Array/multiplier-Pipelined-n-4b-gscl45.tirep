@@ -1,0 +1,11 @@
+ABC: WireLoad = "none"  Gates =     75 ( 12.0 %)   Cap =  3.8 ff ( 12.0 %)   Area =      214.47 ( 76.0 %)   Delay =   352.47 ps  ( 33.3 %)               
+ABC: Path  0 --      12 : 0    5 pi     A =   0.00  Df =   0.0   -0.0 ps  S =   0.0 ps  Cin =  0.0 ff  Cout =  10.4 ff  Cmax =   0.0 ff  G =    0  
+ABC: Path  1 --      57 : 2    2 AND2X2 A =   2.82  Df =  40.5   -1.4 ps  S =  20.1 ps  Cin =  1.8 ff  Cout =   7.5 ff  Cmax = 505.1 ff  G =  394  
+ABC: Path  2 --      58 : 2    2 XOR2X1 A =   4.69  Df = 107.5  -26.9 ps  S =  68.4 ps  Cin =  5.3 ff  Cout =   7.5 ff  Cmax = 223.3 ff  G =  135  
+ABC: Path  3 --      64 : 2    1 AND2X2 A =   2.82  Df = 142.9  -20.7 ps  S =  12.8 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path  4 --      65 : 2    2 OR2X2  A =   2.82  Df = 194.5  -22.3 ps  S =  19.3 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path  5 --      73 : 2    1 AND2X2 A =   2.82  Df = 227.7  -22.1 ps  S =  11.8 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path  6 --      74 : 2    2 OR2X2  A =   2.82  Df = 279.2  -23.7 ps  S =  21.6 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 519.7 ff  G =  310  
+ABC: Path  7 --     120 : 2    1 AND2X2 A =   2.82  Df = 312.5  -23.6 ps  S =  10.4 ps  Cin =  1.8 ff  Cout =   2.3 ff  Cmax = 505.1 ff  G =  127  
+ABC: Path  8 --     121 : 2    1 OR2X2  A =   2.82  Df = 352.5  -21.5 ps  S =   1.2 ps  Cin =  2.3 ff  Cout =   0.0 ff  Cmax = 519.7 ff  G =    0  
+ABC: Start-point = pi11.  End-point = po16.

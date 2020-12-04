@@ -1,0 +1,7 @@
+# This places the pins close to each other on bank 3:
+
+set_io a E4
+set_io b B2
+set_io ci C2
+set_io sum B1
+set_io co F5

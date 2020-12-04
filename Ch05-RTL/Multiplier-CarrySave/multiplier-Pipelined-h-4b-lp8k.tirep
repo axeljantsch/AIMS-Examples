@@ -1,0 +1,32 @@
+
+icetime topological timing analysis report
+==========================================
+
+Report for critical path:
+-------------------------
+
+        lc40_24_20_1 (LogicCell40) [clk] -> lcout: 0.896 ns
+     0.896 ns net_95542 (areg[0])
+        t86 (LocalMux) I -> O: 0.486 ns
+        inmux_23_19_95484_95504 (InMux) I -> O: 0.382 ns
+        lc40_23_19_2 (LogicCell40) in0 -> lcout: 0.662 ns
+     2.426 ns net_91343 ($abc$379$n45_1)
+        t47 (LocalMux) I -> O: 0.486 ns
+        inmux_23_19_95461_95516 (InMux) I -> O: 0.382 ns
+        lc40_23_19_4 (LogicCell40) in0 -> lcout: 0.662 ns
+     3.956 ns net_91345 ($abc$379$n55)
+        t50 (LocalMux) I -> O: 0.486 ns
+        inmux_23_19_95487_95498 (InMux) I -> O: 0.382 ns
+     4.824 ns net_95498 ($abc$379$n55)
+        lc40_23_19_1 (LogicCell40) in0 [setup]: 0.589 ns
+     5.413 ns net_91342 (psreg[4])
+
+Resolvable net names on path:
+     0.896 ns ..  1.764 ns areg[0]
+     2.426 ns ..  3.294 ns $abc$379$n45_1
+     3.956 ns ..  4.824 ns $abc$379$n55
+                  lcout -> psreg[4]
+
+Total number of logic levels: 3
+Total path delay: 5.41 ns (184.73 MHz)
+

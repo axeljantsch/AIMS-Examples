@@ -1,0 +1,40 @@
+
+icetime topological timing analysis report
+==========================================
+
+Report for critical path:
+-------------------------
+
+        lc40_23_22_6 (LogicCell40) [clk] -> lcout: 0.640 ns
+     0.640 ns net_91716 (breg[3][0])
+        t99 (LocalMux) I -> O: 0.330 ns
+        inmux_23_23_95957_95984 (InMux) I -> O: 0.260 ns
+        lc40_23_23_0 (LogicCell40) in0 -> lcout: 0.449 ns
+     1.678 ns net_91833 ($abc$890$n22)
+        t100 (LocalMux) I -> O: 0.330 ns
+        inmux_22_23_91898_91908 (InMux) I -> O: 0.260 ns
+        lc40_22_23_0 (LogicCell40) in1 -> carryout: 0.260 ns
+     2.527 ns net_91906 ($auto$alumacc.cc:470:replace_alu$162.C[4])
+        lc40_22_23_1 (LogicCell40) carryin -> carryout: 0.126 ns
+     2.653 ns net_91912 ($auto$alumacc.cc:470:replace_alu$162.C[5])
+        lc40_22_23_2 (LogicCell40) carryin -> carryout: 0.126 ns
+     2.779 ns net_91918 ($auto$alumacc.cc:470:replace_alu$162.C[6])
+        lc40_22_23_3 (LogicCell40) carryin -> carryout: 0.126 ns
+     2.905 ns net_91924 ($auto$alumacc.cc:470:replace_alu$162.C[7])
+        inmux_22_23_91924_91934 (InMux) I -> O: 0.260 ns
+     3.165 ns net_91934 ($auto$alumacc.cc:470:replace_alu$162.C[7])
+        lc40_22_23_4 (LogicCell40) in3 [setup]: 0.217 ns
+     3.382 ns net_87760 (partials[3][7])
+
+Resolvable net names on path:
+     0.640 ns ..  1.229 ns breg[3][0]
+     1.678 ns ..  2.267 ns $abc$890$n22
+     2.527 ns ..  2.527 ns $auto$alumacc.cc:470:replace_alu$162.C[4]
+     2.653 ns ..  2.653 ns $auto$alumacc.cc:470:replace_alu$162.C[5]
+     2.779 ns ..  2.779 ns $auto$alumacc.cc:470:replace_alu$162.C[6]
+     2.905 ns ..  3.165 ns $auto$alumacc.cc:470:replace_alu$162.C[7]
+                  lcout -> partials[3][7]
+
+Total number of logic levels: 6
+Total path delay: 3.38 ns (295.66 MHz)
+
