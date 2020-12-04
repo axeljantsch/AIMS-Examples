@@ -84,6 +84,9 @@ copygit:               ## Sync this directory to the gihub repository with rsync
 clean:  ## Clean all generated and backup files
 	rm -f $(genFiles)  *~
 	rm -rf WorkingDirectory
+	for d in $(directories); \
+		do make -C $$d clean;\
+		done
 
 help:
 	@grep -E '^.+:=.*?## .*$$' $(MAKEFILE_LIST) \
