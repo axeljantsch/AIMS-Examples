@@ -177,7 +177,7 @@ then
 		
 		echo "=== Yosys:"
 		yosys -Q -T -q -p "read_verilog $vfile; 
-                        opt; show -prefix $dfile2 -format dot $entityname;
+                        proc; opt; show -prefix $dfile2 -format dot $entityname;
 	             	synth_ice40; show -prefix $dfile3 -format dot; 
 		        write_json $jsonfile;"
 	    fi

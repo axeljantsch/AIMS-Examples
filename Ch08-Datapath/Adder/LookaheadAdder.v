@@ -6,7 +6,10 @@ module acell (input a, b, cin, output g, p, s);
    assign p = a | b;
 endmodule 
 
-
+// Pseudo Carry Lokkahead Adder:
+// It is not a real CLA because the lookahead logic does not expand the carry functions.
+// As a consequence the implementation is more similar to a ripple carry adder.
+// In the file LookaheadAdder-RealCLA.v a real CLA is modeled.
 module LookaheadAdder (a, b, cin, s, cout);
    parameter N = 8;
 

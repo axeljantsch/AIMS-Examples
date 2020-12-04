@@ -9,7 +9,7 @@ module BusUser (en, clk, dbus);
    inout [width-1:0] dbus;  // Bus lines
 
    reg [width-1:0]   indata, outdata; // Connection to bus
-   reg [width-1:0]   private = 4'b0000;
+   reg [width-1:0]   private = {width{1'b0}};
    
    always @(posedge clk) begin
       if (en) 
