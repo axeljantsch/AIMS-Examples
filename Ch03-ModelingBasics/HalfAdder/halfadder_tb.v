@@ -8,7 +8,7 @@ module halfadder_tb;
    halfadder uut (.a(a), .b(b), .sum(sum), .carry(carry));
 
    initial begin
-      $dumpfile("ha.vcd");
+      $dumpfile("halfadder_tb.vcd");
       $dumpvars(0,halfadder_tb);
       
       #10 a=1'b0; b=1'b0;

@@ -9,7 +9,7 @@ module nand_tb();
    nand_gate dut_df (.y(y), .a(a), .b(b));
 
    initial begin
-      $dumpfile("nand.vcd"); // File with simulation results
+      $dumpfile("nand_tb.vcd"); // File with simulation results
       $dumpvars(0,nand_tb);
 
       // Stimuli generator:

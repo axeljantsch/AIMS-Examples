@@ -9,7 +9,7 @@ module multiplexer_tbtv();
    reg clk, reset;         // clock and reset are internal
 
    reg[31:0] vectornum, errors;   // bookkeeping variables
-   reg[3:0]  testvectors[10000:0];// array of testvectors
+   reg[3:0]  testvectors[7:0];// array of testvectors
    
    // Instantiate designs under test:
    mux21_bh dut_bh (.Y(y), .D0(d0), .D1(d1), .S(sel));
@@ -25,7 +25,7 @@ module multiplexer_tbtv();
 
    initial           
      begin
-	$dumpfile("multiplexer.vcd"); // File with simulation results
+	$dumpfile("multiplexer_tbtv.vcd"); // File with simulation results
 	$dumpvars(0,multiplexer_tbtv); // which variables are written to file
 	$readmemb("multiplexer.tv", testvectors); // Read vectors
 	vectornum= 0; errors = 0;                 // Initialize

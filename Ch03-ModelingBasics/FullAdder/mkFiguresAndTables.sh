@@ -48,33 +48,37 @@ doReport=No
 doCopy=No
 doClean=No
 beVerbose=No
+doShowResultFiles=No
 
-USAGE="`basename $0` -[ytrh] \n\
+USAGE="`basename $0` -[cChrStvy] \n\
      \t -h help  \n\
      \t -y do the synthesis with Yosys.  \n\
      \t -t do PnR with nextpnr and the timing report with icetime.  \n\
      \t -r do the report table in latex format. \n\
+     \t -S Show all result file names. \n\
      \t -c copy the relevant generated files to the target directory .\n\
      \t -C Clean this and children directories. \n\
      \t -v Verbose."
 
-while getopts hcytrCv c
+while getopts cChrStvy c
  do
     case $c in
-        y)  doYosys=Yes;;
-        t)  doIcetime=Yes;;
-        r)  doReport=Yes;;
         c)  doCopy=Yes;;
         C)  doClean=Yes;;
-        v)  beVerbose=Yes;;
         h)  echo  $USAGE; exit 2;;
+        r)  doReport=Yes;;
+        S)  doShowResultFiles=Yes;;
+        t)  doIcetime=Yes;;
+        v)  beVerbose=Yes;;
+        y)  doYosys=Yes;;
         \?)  echo  $USAGE; exit 2;;
     esac
     done
 
 shift `expr $OPTIND - 1`
 
-if [ $doYosys = "No" -a  $doIcetime = "No" -a $doReport = "No" -a $doCopy = "No" -a $doClean = "No" ]
+if [ $doYosys = "No" -a  $doIcetime = "No" -a $doReport = "No" -a $doCopy = "No" \
+	      -a $doClean = "No" -a $doShowResultFiles = "No" ]
 then 
     echo $USAGE
     exit
@@ -148,7 +152,8 @@ then
     # no difference beteen the three synthesized designs.
     jfile=$bname.json
 
-    cp Behavior/fulladder.json $jfile
+    make -C Behavior synth
+    cp Behavior/fulladderB.json $jfile
     
     if [ \! -r $jfile ]
     then
@@ -156,7 +161,7 @@ then
 	exit -1;
     fi
 
-    rm $resTirep
+    rm -f $resTirep
     
     for tech in lp384 lp1k lp8k hx1k hx8k # lp384 
     do
@@ -286,6 +291,18 @@ then
     cp $vFiles $latexTargetDir
 
     set +x
+fi
+
+
+#######################################################
+# Printing the names of the result files to stdout:
+
+if [ $doShowResultFiles = "Yes" ]
+then
+    echo " "
+    echo "Yosys result files: $resYosys"
+    echo "Latex table file: $textable"
+    echo "Verilog source files: $vFiles"
 fi
 
 

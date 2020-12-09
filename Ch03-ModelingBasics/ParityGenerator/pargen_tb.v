@@ -9,7 +9,7 @@ module pargen_tb();
    pargen dut (.a(a), .b(b), .c(c), .pout(y));
    
    initial begin
-      $dumpfile("pargen.vcd"); // File with simulation results
+      $dumpfile("pargen_tb.vcd"); // File with simulation results
       $dumpvars(0,pargen_tb);
 
       // Stimuli generator:

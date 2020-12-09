@@ -5,7 +5,7 @@ module fulladder_tb;
    reg a, b, ci;
    wire sum, carry;
 
-   fulladderTT uut (.a(a), .b(b), .ci(ci), .sum(sum), .co(carry));
+   fulladderB uut (.a(a), .b(b), .ci(ci), .sum(sum), .co(carry));
 
    initial begin
       $dumpfile("fulladder_tb.vcd");

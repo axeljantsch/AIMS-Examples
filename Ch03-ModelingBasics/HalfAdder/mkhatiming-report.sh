@@ -16,8 +16,6 @@ jfile=$bname.json
 # Timing table in Latex format:
 textable=hatimingtable.tex
 
-# Latex target directory:
-latexTargetDir=$HOME/Education/Courses/DigitaleIntegrierteSchaltungen/AIMS-BasedCourse/AIMS-Book/Ch04-Modeling-I/Figures
 # Timing report files that should be copied to the Latex target directory:
 tirepFiles="halfadder-hx1k-opposite.tirep"
 
@@ -33,22 +31,19 @@ fi
 doYosys=No
 doIcetime=No
 doReport=No
-doCopy=No
 
 USAGE="`basename $0` -[ytrh] \n\
      \t -h help  \n\
      \t -y do the synthesis with Yosys.  \n\
      \t -t do PnR with nextpnr and the timing report with icetime.  \n\
-     \t -r do the report table in latex format. \n\
-     \t -c copy the relevant generated files to the target directory ."
+     \t -r do the report table in latex format."
 
-while getopts hcytr c
+while getopts hytr c
  do
     case $c in
         y)  doYosys=Yes;;
         t)  doIcetime=Yes;;
         r)  doReport=Yes;;
-        c)  doCopy=Yes;;
         h)  echo  $USAGE; exit 2;;
         \?)  echo  $USAGE; exit 2;;
     esac
@@ -56,7 +51,7 @@ while getopts hcytr c
 
 shift `expr $OPTIND - 1`
 
-if [ $doYosys = "No" -a  $doIcetime = "No" -a $doReport = "No" -a $doCopy = "No" ]
+if [ $doYosys = "No" -a  $doIcetime = "No" -a $doReport = "No" ]
 then 
     echo $USAGE
     exit
@@ -110,7 +105,7 @@ then
 fi
 
 #######################################################
-# Makijng a summary table in latex format:
+# Making a summary table in latex format:
 
 if [ $doReport = "Yes" ]
 then
@@ -131,7 +126,7 @@ then
     echo "\\\\begin{tabular}{cc*{7}{r}}" >> $textable
     echo "\\\\rowcolor{Blue!50}" >> $textable
 
-    echo "\\\\ct Device & \\\\ct Pin & \\\\ct Pre IO & \\\\ct Connect & \\\\ct Logic & \\\\ct Connect & \\\\ct IO Cell & \\\\ct Pre IO & \\\\ct Sum \\\\\\\\" \
+    echo "\\\\ct Device & \\\\ct Pin & \\\\ct\\\\parbox[t]{8ex}{\\\\centering Pre IO [ns]} & \\\\ct\\\\parbox[t]{7ex}{\\\\centering Connect [ns]}& \\\\ct\\\\parbox[t]{9ex}{\\\\centering  Logic [ns]} & \\\\ct\\\\parbox[t]{7ex}{\\\\centering  Connect [ns]} & \\\\ct\\\\parbox[t]{9ex}{\\\\centering  IO Cell [ns]}& \\\\ct\\\\parbox[t]{8ex}{\\\\centering  Pre IO [ns]} & \\\\ct\\\\parbox[t]{3.75ex}{\\\\centering  Sum [ns]} \\\\\\\\" \
 	 >> $textable
     # echo "\hline " >> $textable
 
@@ -181,20 +176,6 @@ then
     echo " "
     echo "Generated Latex table is in file $textable."
 
-fi
-
-
-#######################################################
-# Copying relevant files to Latex target directory:
-
-if [ $doCopy = "Yes" ]
-then
-    echo " "
-    echo "Copying file to target Latex directory:"
-    set -x
-    cp $textable $tirepFiles $latexTargetDir
-
-    set +x
 fi
 
 

@@ -1,6 +1,6 @@
 
-// Model of a 2 inout NAND
-//    
+// Model of a 2 input NAND
+//
 module nand_gate(y, a, b);
    output y;
    input  a, b;
