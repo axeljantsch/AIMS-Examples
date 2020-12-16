@@ -32,7 +32,7 @@ resTirep="fulladder-hx1k-close.tirep     fulladder-lp1k-opposite.tirep fulladder
 textable=fatimingtable.tex
 
 # Verilog files that should also be copied to the Latex target directory:
-vFiles="Behavior/fulladderB.v Structure/fulladderS.v TruthTable/fulladderTT.v"
+vFiles="Behavior/fulladderB.v Structure/fulladderS.v Structure/halfadder.v TruthTable/fulladderTT.v"
 
 # Latex target directory:
 latexTargetDir=$HOME/Education/Courses/DigitaleIntegrierteSchaltungen/AIMS-BasedCourse/AIMS-Book/Ch04-Modeling-I/Figures

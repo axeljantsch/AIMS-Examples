@@ -39,7 +39,7 @@ genSimFiles = $(vcdFiles) $(tbFiles:.v=)
 # Script to make synthesis and the timing reports:
 reportScript := mkFiguresAndTables.sh
 
-scriptFiles := $(reportScript)
+scriptFiles := $(reportScript) $(directories:=/Makefile)
 
 # Pin Constraint files (pcf files):
 pcfFiles := fulladder-hx1k-close.pcf     fulladder-lp1k-close.pcf      fulladder-lp8k-close.pcf \
@@ -74,7 +74,7 @@ workDir := WorkingDir
 resultFiles := $(yosysFiles) $(vFiles) $(texFiles)
 
 # Files to copy to the Github repository:
-src4gitFiles := $(vFiles) $(tbFiles) $(scriptFiles)
+src4gitFiles := $(vFiles) $(tbFiles) $(scriptFiles) $(pcfFiles)
 
 # -----------------------------------------------------------------------------------------
 # End of interface variables.
@@ -136,8 +136,16 @@ helpc:
 	| sed  's/^Makefile[a-zA-Z_-]*://' \
 	| column -t  -s '#'; \
 	echo " "; echo "Managed sub-directories: $(directories)"; \
-	echo " "; echo "Managed source files: $(srcFiles)"; \
-	echo " "; echo "Used scripts are:     $(scriptFiles)"; \
+	echo " "; echo "Managed source files:"; \
+	echo $(srcFiles) \
+	| awk '{ j=1; while (j<=NF) { for (i=1; i<=3; i++) {printf (" %s", $$j); j++;}; \
+                                      printf " \n "; }}' \
+	| column -t | awk '{print "      " $$0;}'; \
+	echo " "; echo "Used scripts are:"; \
+	echo $(scriptFiles) \
+	| awk '{ j=1; while (j<=NF) { for (i=1; i<=3; i++) {printf (" %s", $$j); j++;}; \
+                                      printf " \n "; }}' \
+	| column -t | awk '{print "      " $$0;}'; \
 	echo " "; echo "pcf Files are:"; \
 	echo $(pcfFiles) \
 	| awk '{ j=1; while (j<=NF) { for (i=1; i<=3; i++) {printf (" %s", $$j); j++;}; \
