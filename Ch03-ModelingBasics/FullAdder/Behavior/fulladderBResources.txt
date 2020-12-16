@@ -1,9 +1,0 @@
-wires: = 5
-public wire bits: = 5
-processes: = 0
-memory bits: = 0
-memories: = 0
-public wires: = 5
-wire bits: = 5
-cells: = 2
-LUT4 = 2
