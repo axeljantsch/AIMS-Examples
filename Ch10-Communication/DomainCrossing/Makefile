@@ -2,8 +2,7 @@
 .DEFAULT_GOAL := help
 .PHONY: help
 
-texdir1 := $$HOME/Education/Courses/DigitaleIntegrierteSchaltungen/AIMS-BasedCourse/Book/Ch10-Communication/Figures
-texdir2 := $$HOME/Education/Courses/DigitaleIntegrierteSchaltungen/AIMS-BasedCourse/Slides/GitICT/Lectures/10-Communication/Figures
+texdir := $$HOME/Education/Courses/DigitaleIntegrierteSchaltungen/AIMS-BasedCourse/Figures/Ch10-Communication
 
 
 # This copy command replacement script adds two comment line at the beginning of the file
@@ -22,7 +21,7 @@ vcdFiles :=   $(tbFiles:.v=.vcd)
 
 pngFiles := StretcherSync-sim.png
 
-genSimFiles = $(tbFiles:.v=.vcd) $(tbFiles:.v=)
+genSimFiles = $(srcSimFiles:.v=.vcd) $(srcSimFiles:.v=)
 
 resultSimFiles := $(srcSimFiles)  $(pngFiles)
 
@@ -69,7 +68,7 @@ scriptFiles =
 # We assume the file name convention:
 #    FILE.v    ... source Verilog file
 #    FILE_tb.v ... testbench file
-#    FILE      ... simulatbale file
+#    FILE      ... simulatale file
 #    FILE.vcd ... value change dump file as a result of the simulation   
 %.vcd: %.v %_tb.v    ## Compile and simulate
 	iverilog -o $* $^
@@ -125,16 +124,9 @@ $(dotFiles) $(texFiles): $(srcSynFiles)   ## Synthesise GWA FSMs with one-hot an
 	yosys $(QFLAG) -p "read_verilog $<; opt; synth_ice40; write_json $@;"
 
 # Copy all result files to target directory, where they are needed:
-copy1: $(resultFiles)  ## Copy result files to book chapter
+copy: $(resultFiles)  ## Copy result files to book chapter and slides
 	$(cpcmnd)  $(resultFiles) \
-		   $(texdir1)
-
-copy2: $(resultFiles)  ## Copy result files to lecture slides
-	$(cpcmnd)  \
-		$(resultFiles)  \
-		$(texdir2)
-
-copy: copy1 copy2
+		   $(texdir)
 
 # Remove up all result files:
 clean:  ## Clean all generated files
@@ -155,10 +147,8 @@ help:
 	| column -t | awk '{print "      " $$0;}'; \
 	echo " "; echo "Target directories:"; \
 	grep 'texdir' $(MAKEFILE_LIST) \
-	| awk '/Book/ { gsub("^.*Book/", ""); \
-                             print "AIMS Book:|", $$0; }\
-               /Slides/ { gsub("^.*Slides/GitICT/", ""); \
-                             print "AIMS Slides:|", $$0; }'\
+	| awk '/AIMS-BasedCourse/ { gsub("^.*AIMS", "AIMS"); \
+                             print "AIMS Book and Slides:|", $$0; }'\
 	| column -t -s "|"; 
 
 

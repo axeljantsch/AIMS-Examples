@@ -11,10 +11,32 @@ module stretcher_tb ();
    always #50 clk = ~clk;  
 
    initial begin
-      $dumpfile("stretcher_tb.vcd");
+      $dumpfile("stretcher.vcd");
       $dumpvars(0,stretcher_tb);
 
       #1 inp = 1;
+      #6 inp= 0;
+      #60 inp = 1;
+      #6 inp= 0;
+
+      #6 inp=1;
+      #6 inp=0;
+      #6 inp=1;
+      #6 inp=0;
+      #6 inp=1;
+      #6 inp=0;
+      #6 inp=1;
+      #6 inp=0;
+            
+      #12 inp = 1;
+      #6 inp= 0;
+
+
+      #60 inp = 1;
+      #6 inp= 0;
+      #60 inp = 1;
+      #6 inp= 0;
+      #60 inp = 1;
       #6 inp= 0;
       #60 inp = 1;
       #6 inp= 0;

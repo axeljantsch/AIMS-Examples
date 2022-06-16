@@ -1,18 +1,18 @@
 
-module shortener (inp, clk, inp_s);
-   input inp, clk;
-   output inp_s;
+module shortener (s, clk, q);
+   input s, clk;
+   output q;
 
-   reg 	      inp_1, inp_2;
+   reg 	      s1, s2;
    
    always @(posedge clk) begin
       if (clk == 1) begin
-	 inp_1 <= inp;
-	 inp_2 <= inp_1;
+	 s1 <= s;
+	 s2 <= s1;
       end
    end 
 
-   assign inp_s = inp_1 & (~ inp_2);
+   assign q = s1 & (~ s2);
    
 endmodule
 
