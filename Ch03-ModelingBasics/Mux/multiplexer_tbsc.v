@@ -24,11 +24,9 @@ module multiplexer_tbsc();
    end 
 
    // Response checker:
-   // Evaluate upn signal changes:
-   always @(y_bh or y_st or y_df)
+   always @(y_bh or y_st or y_df) // Evaluate upon signal changes
      begin
-	// Check response:
-	if (y_bh !== y_st || y_bh !== y_df)
-	  $display($time, ": Mux models not equal");
+        if (y_bh !== y_st || y_bh !== y_df)
+          $display($time, ": Mux models not equal");
      end
 endmodule

@@ -1,3 +1,4 @@
+# -*- mode: makefile -*-
 
 .DEFAULT_GOAL := helpc
 .PHONY: helpc wave
@@ -14,9 +15,9 @@ SHELL = /bin/sh
 # ----------------------------------
 # Verilog simulation:
 # ----------------------------------
-srcSimFile :=   nand.v
+srcSimFiles :=   nand.v
 
-tbFile := $(srcSimFile:.v=_tb.v)
+tbFile := $(srcSimFiles:.v=_tb.v)
 
 vcdFiles :=   $(tbFile:.v=.vcd)
 # traceFiles := $(tbFile:.v=-trace.pdf)
@@ -24,7 +25,7 @@ vcdFiles :=   $(tbFile:.v=.vcd)
 simResultFiles = $(vcdFiles)
 
 # Source files:
-srcFiles := $(srcSimFile) $(tbFile)
+srcFiles := $(srcSimFiles) $(tbFile)
 
 # Can be cleaned up:
 genSimFiles = $(tbFile:.v=.vcd) $(tbFile:.v=)
@@ -81,7 +82,7 @@ helpc:
 	| sed  's/^Makefile[a-zA-Z_-]*://' \
 	| column -t  -s '#'; \
 	echo " "; \
-	echo "Managed source files: $(srcFile) $(tbFiles)"; \
+	echo "Managed source files: $(srcFiles) $(tbFiles)"; \
 	echo " "; echo "Used scripts are:         $(scriptFiles)"; \
 	echo " ";
 

@@ -1,3 +1,4 @@
+# -*- mode: makefile -*-
 
 .DEFAULT_GOAL := helpc
 .PHONY: helpc wave
@@ -49,7 +50,7 @@ genFiles := $(genSimFiles)
 resultFiles := $(srcSimFiles)
 
 # Files to copy to the Github repository:
-src4gitFiles := $(srcFiles)
+src4GitFiles := $(srcFiles)
 
 # -----------------------------------------------------------------------------------------
 # End of interface variables.

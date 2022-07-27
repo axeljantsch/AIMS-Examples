@@ -1,3 +1,4 @@
+# -*- mode: makefile; -*-
 
 .DEFAULT_GOAL := helpc
 .PHONY: helpc wave
@@ -67,7 +68,7 @@ genDirs :=  $(workDir)
 resultFiles := $(srcSimFiles) $(tbFiles) $(texFiles)
 
 # Files to copy to the Github repository:
-src4gitFiles := $(srcFiles) $(scriptFiles)
+src4GitFiles := $(srcFiles) $(scriptFiles)
 
 # -----------------------------------------------------------------------------------------
 # End of interface variables.
@@ -81,6 +82,8 @@ sim: $(vcdFiles)     ## Simulate
 
 wave: sim            ## View simulation waveforms
 	@for f in $(vcdFiles); do gtkwave $$f & done
+
+$(texFiles): report
 
 report:              ## Make the timing reports in working directory
 	@rm -rf $(workDir)

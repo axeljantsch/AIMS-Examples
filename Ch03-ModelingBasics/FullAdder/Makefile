@@ -1,3 +1,4 @@
+# -*- mode: makefile; -*-
 
 .DEFAULT_GOAL := helpc
 .PHONY: helpc wave
@@ -74,7 +75,7 @@ workDir := WorkingDir
 resultFiles := $(yosysFiles) $(vFiles) $(texFiles)
 
 # Files to copy to the Github repository:
-src4gitFiles := $(vFiles) $(tbFiles) $(scriptFiles) $(pcfFiles)
+src4GitFiles := $(vFiles) $(tbFiles) $(scriptFiles) $(pcfFiles)
 
 # -----------------------------------------------------------------------------------------
 # End of interface variables.
@@ -87,7 +88,7 @@ srcFiles := $(vFiles) $(tbFiles)
 # ---------------------------------
 # Files to clean:
 # ---------------------------------
-genFiles := $(yosysFiles) $(texFiles) $(genSimFiles) $(srcSimFiles)
+genFiles := $(yosysFiles) $(texFiles) $(genSimFiles) 
 genDirs :=  $(workDir)
 
 
@@ -107,6 +108,8 @@ sim: $(vcdFiles)     ## Simulate
 
 wave: sim            ## View simulation waveforms
 	@for f in $(vcdFiles); do gtkwave $$f & done
+
+$(yosysFiles) $(texFiles): report
 
 report:              ## Make the timing reports in working directory
 	@rm -rf $(workDir)
