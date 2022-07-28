@@ -36,7 +36,7 @@ module adder_tb ();
    adder_t4b  uu15 (.co(sco4b), .sum(ssum4b), .a(sa), .b(sb), .ci(sci));
 
    initial begin
-      $dumpfile("adder.vcd");
+      $dumpfile("adder_tb.vcd");
       $dumpvars(0,adder_tb); 
 
       sa = 4'b000;

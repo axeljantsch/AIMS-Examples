@@ -14,7 +14,7 @@ module dffvariants_tb ();
    always #10 clk = ~clk;
       
    initial begin
-      $dumpfile("dff-variants.vcd");
+      $dumpfile("dff-variants_tb.vcd");
       $dumpvars(0,dffvariants_tb);
 
       #1  sd = 1'b0; srst = 1'b1; sen = 1'b0;

@@ -11,7 +11,7 @@ module dff_tb ();
    always #10 clk = ~clk;
       
    initial begin
-      $dumpfile("dff.vcd");
+      $dumpfile("dff_tb.vcd");
       $dumpvars(0,dff_tb);
 
       #2  s1 = 1'b0;

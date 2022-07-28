@@ -8,7 +8,7 @@ module sdelay_tb ();
    sdelay  uu1 (.a(a), .yblhs(yblhs), .ybrhs(ybrhs), .ynblhs(ynblhs), .ynbrhs(ynbrhs), .ycbl(ycbl));
    
    initial begin
-      $dumpfile("sdelay.vcd");
+      $dumpfile("sdelay_tb.vcd");
       $dumpvars(0,sdelay_tb);
 
       a = 1'b0;

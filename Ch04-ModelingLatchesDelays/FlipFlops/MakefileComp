@@ -1,0 +1,154 @@
+# -*- mode: makefile -*-
+
+.DEFAULT_GOAL := helpc
+.PHONY: helpc wave
+
+# This makefile generates a report table with the help of a script and
+# copies the resulting Latex file to the target directory.
+
+
+# ----------------------------------
+# Setup of variables:
+# ----------------------------------
+
+SHELL = /bin/sh
+
+# ----------------------------------
+# Verilog simulation:
+# ----------------------------------
+SimSrc := dff.v dff-variants.v
+
+# Testbenches:
+SimTbn := $(SimSrc:.v=_tb.v)
+
+vcdFiles :=   $(SimTbn:.v=.vcd)
+SimWaves := $(SimSrc:.v=-sim.png)
+
+SimMan := $(SimWaves)
+SimGen := $(vcdFiles) $(SimTbn:.v=)
+SimRes = $(SimSrc) $(SimWaves) 
+
+# Can be cleaned up:
+SimCln = $(SimGen)
+
+# ---------------------------------
+# Yosys synthesis:
+# ---------------------------------
+
+SynSrc := dff-variants.v dff-variants-design.v dff-esr2.v dff-esr1.v dlatcher.v
+
+dotFiles := dff-variants-design.dot dff-esr2.dot dff-esr1.dot dlatcher.dot
+synthFiles :=  dlatcher-synth.v 
+
+SynRep := dlatcher-lut.tex
+SynGen := $(dotFiles) $(synthFiles) $(SynRep)
+SynRes := $(dotFiles) $(SynSrc) $(SynRep)
+SynCln := $(SynGen)
+
+
+# Source files:
+AllSrc := $(SimSrc) $(SimTbn) $(SynSrc)
+
+# ---------------------------------
+# Scripts and other files:
+# ---------------------------------
+
+# ---------------------------------
+# Files to clean:
+# ---------------------------------
+AllCln := $(SimCln) $(SynCln)
+
+# -----------------------------------------------------------------------------------------
+#
+# Interface variables to the main Makefile.
+# The following variables are used by the main Makefile.
+#
+# -----------------------------------------------------------------------------------------
+
+# Files to copy to the Latex production directories:
+AllRes := $(SimRes) $(SynRes)
+
+# Files to copy to the Github repository:
+src4GitFiles := $(AllSrc) Makefile MakefileComp
+
+# -----------------------------------------------------------------------------------------
+# End of interface variables.
+# -----------------------------------------------------------------------------------------
+
+# ---------------------------------
+# Specific rules:
+# ---------------------------------
+
+simResult: $(vcdFiles)     ### Simulate
+
+wave: simResult            ### View simulation waveforms
+	@for f in $(vcdFiles); do gtkwave -S $(viewsigsTcl) $$f & done
+
+# ---------------------------------
+# Yosys synthesis:
+# ---------------------------------
+
+synResult: $(dotFiles)       ### Optimize and generate dot files
+
+repResult: $(SynRep)         ### Generate the LUT as tex file
+
+dff-variants-design.dot: dff-variants-design.v dff-variants.v
+	stem=`basename $@ .dot`; \
+	yosys -q -p "read_verilog dff-variants.v; read_verilog $<; \
+                  synth_ice40; opt -purge; \
+                  show -notitle -format dot -prefix $${stem};"
+
+showDot: $(dotFiles)    ### Display the graphs from Yosys synthesis
+	@for f in $(dotFiles); do xdot $$f & done
+
+%.dot: %.v              ### Synthesize and generate .dot file
+	stem=`basename $@ .dot`; \
+	yosys -q -p "read_verilog $<; \
+                  synth_ice40; opt -purge; \
+                  show -notitle -format dot -prefix $${stem};"
+
+%-synth.v: %.v          ### Synthesize and generate synthesized Verilog file
+	yosys -q -p "read_verilog $<; \
+		synth_ice40; opt -purge; \
+		write_verilog $@;"
+
+%-lut.tex: %-synth.v    ### Generate lut tabel in tex format
+	awk -v latex=1 -f $(lut2tt) < $< > $@
+
+%.json: %.v
+	yosys $(QFLAG) -p "read_verilog $<; opt; synth_ice40; write_json $@;"
+
+helpc:
+
+
+# =================================
+# Generic rules:
+# =================================
+
+# ---------------------------------
+# Verilog simulation:
+# ---------------------------------
+# We have two cases, one with separate testbench file and one without.
+#
+# Case 1: Separate testbench:
+# We assume the file name convention:
+#    FILE.v      ... source Verilog file
+#    FILE_tb.v   ... testbench file
+#    FILE_tb     ... simulatable file
+#    FILE_tb.vcd ... value change dump file as a result of the simulation   
+%_tb.vcd: %.v %_tb.v
+	iverilog -o $*_tb $^
+	vvp $*_tb
+
+# Case 2: No separate testbench, just one verilog source file:
+# We assume the file name convention:
+#    FILE.v    ... source Verilog file
+#    FILE      ... simulatable file
+#    FILE.vcd  ... value change dump file as a result of the simulation   
+%.vcd: %.v
+	iverilog -o $* $^ $(SimSrc)
+	vvp $*
+
+%.json: %.v
+	yosys $(QFLAG) -p "read_verilog $<; opt; synth_ice40; write_json $@;"
+
