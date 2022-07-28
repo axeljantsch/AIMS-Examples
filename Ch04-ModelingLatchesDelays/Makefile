@@ -8,7 +8,7 @@
 # -----------------------
 
 # Common setups for all Makefiles like variables for target directories:
-include ../ETC/setup.make
+include ../ETC/setup.mk
 
 # Setting directories:
 githubdir := $(githubdirBase)/`pwd | sed 's-/.*/--'`
@@ -18,7 +18,7 @@ githubdir := $(githubdirBase)/`pwd | sed 's-/.*/--'`
 # Subdirectoriesto be managed:
 # ----------------------------------
 
-directories := AlwaysBlock  AlwaysBlock-backup  Delays  FlipFlops  Latches
+directories := AlwaysBlock Delays  FlipFlops  Latches
 
 # ---------------------------------
 # We expect at least the following targets in the Makefiles of the subdirectories:
@@ -30,13 +30,14 @@ directories := AlwaysBlock  AlwaysBlock-backup  Delays  FlipFlops  Latches
 # ---------------------------------
 
 clean:        ## make clean in all sub-directories
-	@for d in $(directories); do make -C $$d clean; done
+	rm -f *~
+	for d in $(directories); do make -C $$d clean; done
 
 copy:        ## make copy in all sub-directories
-	@for d in $(directories); do make -C $$d copy; done
+	for d in $(directories); do make -C $$d copy; done
 
 copygit:      ## make copygit in all sub-directories
-	cp Makefile Makefile-template $(githubdir);
+	cp Makefile $(githubdir);
 	for d in $(directories); do make -C $$d copygit; done
 
 

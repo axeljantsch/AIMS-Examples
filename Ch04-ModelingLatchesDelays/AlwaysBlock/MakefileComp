@@ -80,7 +80,7 @@ src4GitFiles := $(AllSrc) Makefile MakefileComp
 simResult: $(vcdFiles)     ### Simulate
 
 wave: simResult            ### View simulation waveforms
-	@for f in $(vcdFiles); do gtkwave $$f & done
+	@for f in $(vcdFiles); do gtkwave -S $(viewsigsTcl) $$f & done
 
 # ---------------------------------
 # Yosys synthesis:
@@ -96,6 +96,9 @@ $(dotFiles): always.v
 		select $${stem}; \
                   proc; opt -purge; \
                   show -notitle -format dot -prefix $${stem};"
+
+showDot: $(dotFiles)    ### Display the graphs from Yosys synthesis
+	@for f in $(dotFiles); do xdot $$f & done
 
 %.dot: %.v   
 	stem=`basename $@ .dot`; \
