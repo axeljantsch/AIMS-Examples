@@ -8,7 +8,7 @@ module rslatch_tb;
    
    initial begin
       $dumpfile(
-	"rslatch-nand-clocked.vcd");
+	"rslatch-nand-clocked_tb.vcd");
       $dumpvars(0,rslatch_tb);
 
       #1 rst = 1'b0; set = 1'b0;

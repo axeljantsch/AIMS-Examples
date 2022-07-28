@@ -6,7 +6,7 @@ module rslatch_tb ();
    rslatch uut (.s(set), .r(rst), .q(q), .nq(nq));
 
    initial begin
-      $dumpfile("rslatch-nand.vcd");
+      $dumpfile("rslatch-nand_tb.vcd");
       $dumpvars(0,rslatch_tb);
 
       #10 set = 1'b0; rst = 1'b0;

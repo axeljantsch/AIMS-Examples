@@ -10,7 +10,7 @@ module dlatch_tb ();
    always #10 clk = ~clk;
       
    initial begin
-      $dumpfile("dlatch.vcd");
+      $dumpfile("dlatch_tb.vcd");
       $dumpvars(0,dlatch_tb);
       #1  d = 1'b0; #3  d = 1'b1;
       #3  d = 1'b0; #3  d = 1'b1;
