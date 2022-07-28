@@ -1,42 +1,121 @@
+# -*- mode: makefile -*-
 
-.DEFAULT_GOAL := help
-.PHONY: help
+.DEFAULT_GOAL := helpc
+.PHONY: helpc wave
 
-texdir1 := $$HOME/Education/Courses/DigitaleIntegrierteSchaltungen/AIMS-BasedCourse/AIMS-Book/Ch05-Latches/Figures
-texdir2 := $$HOME/Education/Courses/DigitaleIntegrierteSchaltungen/AIMS-BasedCourse/AIMS-Slides/GitICT/Lectures/03b-ModellingII/Figures
+# This makefile generates a report table with the help of a script and
+# copies the resulting Latex file to the target directory.
 
 
+# ----------------------------------
+# Setup of variables:
+# ----------------------------------
+
+SHELL = /bin/sh
 
 # ----------------------------------
 # Verilog simulation:
 # ----------------------------------
-srcsimnames := always.v
+SimSrc := always.v
 
-tbnames := $(srcsimnames:.v=_tb.v)
+# We have one testbench:
+SimTbn := $(SimSrc:.v=_tb.v)
 
-simnames := $(srcsimnames:.v=-sim.png)
+vcdFiles :=   $(SimTbn:.v=.vcd)
+waveFiles :=  $(SimSrc:.v=-sim.png)
 
-srcsimresfiles = $(srcnames) $(tbnames) $(simnames)
-gensimfiles = $(srcnames:.v=.vcd) $(srcnames:.v=)
+SimMan := $(waveFiles)
+SimGen := $(vcdFiles)
+SimRes = $(SimSrc) $(waveFiles)
 
-ressimfiles := $(srcsimnames) $(simnames)
+# Can be cleaned up:
+SimCln = $(vcdFiles) $(SimTbn:.v=)
 
 # ---------------------------------
 # Yosys synthesis:
 # ---------------------------------
 
-srcsynnames := always.v
+SynSrc := always.v
 
-dotnames := alwcomb.dot alwseq.dot alwcont.dot
+dotFiles := alwcomb.dot alwseq.dot alwcont.dot
 
-gensynfiles := $(dotnames)
+SynGen := $(dotFiles)
+SynRes := $(SynGen)
+SynCln := $(SynGen) $(SynRes)
 
-ressynfiles := $(gensynfiles)
+
+# Source files:
+AllSrc := $(SimSrc) $(SimTbn)
 
 # ---------------------------------
-# Files to copy and clean:
+# Scripts and other files:
 # ---------------------------------
-resfiles = $(ressimfiles) $(ressynfiles)
+
+# ---------------------------------
+# Files to clean:
+# ---------------------------------
+AllCln := $(SimCln) $(SynCln)
+
+# -----------------------------------------------------------------------------------------
+#
+# Interface variables to the main Makefile.
+# The following variables are used by the main Makefile.
+#
+# -----------------------------------------------------------------------------------------
+
+# Files to copy to the Latex production directories:
+AllRes := $(SimRes) $(SynRes)
+
+# Files to copy to the Github repository:
+src4GitFiles := $(AllSrc)
+
+# -----------------------------------------------------------------------------------------
+# End of interface variables.
+# -----------------------------------------------------------------------------------------
+
+# ---------------------------------
+# Specific rules:
+# ---------------------------------
+
+simResult: $(vcdFiles)     ### Simulate
+
+wave: simResult            ### View simulation waveforms
+	@for f in $(vcdFiles); do gtkwave $$f & done
+
+# ---------------------------------
+# Yosys synthesis:
+# ---------------------------------
+
+synResult: $(dotFiles) ### Optimize and generate dot files
+
+repResult:             ### Do nothing
+
+$(dotFiles): always.v 
+	stem=`basename $@ .dot`; \
+	yosys -q -p "read_verilog $<; \
+		select $${stem}; \
+                  proc; opt -purge; \
+                  show -notitle -format dot -prefix $${stem};"
+
+%.dot: %.v   
+	stem=`basename $@ .dot`; \
+	yosys -q -p "read_verilog $<; \
+                  synth_ice40; opt -purge; \
+                  show -notitle -format dot -prefix $${stem};"
+
+%-synth.v: %.v  
+	yosys -q -p "read_verilog $<; \
+		synth_ice40; opt -purge; \
+		write_verilog $@;"
+
+%-lut.tex: %-synth.v  
+	awk -v latex=1 -f lut2tt.awk < $< > $@
+
+%.json: %.v
+	yosys $(QFLAG) -p "read_verilog $<; opt; synth_ice40; write_json $@;"
+
+helpc:
+
 
 # =================================
 # Generic rules:
@@ -45,75 +124,27 @@ resfiles = $(ressimfiles) $(ressynfiles)
 # ---------------------------------
 # Verilog simulation:
 # ---------------------------------
+# We have two cases, one with separate testbench file and one without.
+#
+# Case 1: Separate testbench:
+# We assume the file name convention:
+#    FILE.v      ... source Verilog file
+#    FILE_tb.v   ... testbench file
+#    FILE_tb     ... simulatable file
+#    FILE_tb.vcd ... value change dump file as a result of the simulation   
+%_tb.vcd: %.v %_tb.v
+	iverilog -o $*_tb $^
+	vvp $*_tb
+
+# Case 2: No separate testbench, just one verilog source file:
 # We assume the file name convention:
 #    FILE.v    ... source Verilog file
-#    FILE_tb.v ... testbench file
-#    FILE      ... simulatbale file
-#    FILE.vcd ... value change dump file as a result of the simulation   
-%.vcd: %.v %_tb.v    ## Compile and simulate
-	iverilog -o $* $^
+#    FILE      ... simulatable file
+#    FILE.vcd  ... value change dump file as a result of the simulation   
+%.vcd: %.v
+	iverilog -o $* $^ $(SimSrc)
 	vvp $*
-
-%-sim.png: %.vcd  ## Simulation output
-	@echo "Run \"gtkwave $<\" and make a dump with shutter."
-
-
-# ---------------------------------
-# Yosys synthesis:
-# ---------------------------------
-
-alwcomb.dot alwseq.dot alwcont.dot: always.v ## Optimize and generate dot files
-	stem=`basename $@ .dot`; \
-	yosys -q -p "read_verilog $<; \
-		select $${stem}; \
-                  proc; opt -purge; \
-                  show -notitle -format dot -prefix $${stem};"
-
-%.dot: %.v   ## Synthesize and generate .dot file
-	stem=`basename $@ .dot`; \
-	yosys -q -p "read_verilog $<; \
-                  synth_ice40; opt -purge; \
-                  show -notitle -format dot -prefix $${stem};"
-
-%-synth.v: %.v  ## Synthesize and generate synthesized Verilog file
-	yosys -q -p "read_verilog $<; \
-		synth_ice40; opt -purge; \
-		write_verilog $@;"
-
-%-lut.tex: %-synth.v  ## Generate lut tabel in tex format
-	awk -v latex=1 -f lut2tt.awk < $< > $@
 
 %.json: %.v
 	yosys $(QFLAG) -p "read_verilog $<; opt; synth_ice40; write_json $@;"
-
-# Copy all result files to target directory, where they are needed:
-copy1: $(resfiles)  ## Copy result files to book chapter
-	cp  $(resfiles) \
-		$(texdir1)
-
-copy2: $(resfiles)  ## Copy result files to lecture slides
-	cp  $(resfiles)  \
-		$(texdir2)
-
-copy: copy1 copy2
-
-# Remove up all result files:
-clean:  ## Clean all generated files
-	rm -f $(genfiles)
-
-help:
-	@grep -E '^[a-zA-Z0-9%_. -]+:.*?## .*$$' $(MAKEFILE_LIST) \
-	| sed -n 's/^\(.*\): \(.*\)##\(.*\)/\1#\3/p' \
-	| column -t  -s '#'; \
-	echo " "; echo Managed simulation files are: $(srcsimnames); \
-	echo Managed synthesis files are: $(srcsynnames); \
-	echo " "; echo Result files are: $(resfiles); \
-	echo " "; echo "Target directories:"; \
-	grep 'texdir' $(MAKEFILE_LIST) \
-	| awk '/AIMS-Book/ { gsub("^.*AIMS-Book/", ""); \
-                             print "AIMS Book:|", $$0; }\
-               /AIMS-Slides/ { gsub("^.*AIMS-Slides/GitICT/", ""); \
-                             print "AIMS Slides:|", $$0; }'\
-	| column -t -s "|"
-
 
