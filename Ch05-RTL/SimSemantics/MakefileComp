@@ -1,0 +1,169 @@
+# -*- mode: makefile -*-
+
+.DEFAULT_GOAL := helpc
+.PHONY: helpc wave
+
+# This makefile generates a report table with the help of a script and
+# copies the resulting Latex file to the target directory.
+
+
+# ----------------------------------
+# Setup of variables:
+# ----------------------------------
+
+SHELL = /bin/sh
+
+# ----------------------------------
+# Verilog simulation:
+# ----------------------------------
+SimSrc := simSemanticsBC.v simSemanticsCB.v
+
+# We have one testbench:
+SimTbn := $(SimSrc:.v=_tb.v)
+
+SimSpt := $(SimTbn:.v=.nlt)
+
+vcdFiles :=   $(SimTbn:.v=.vcd)
+nltrFiles :=  $(SimTbn:.v=-trace.tex)
+
+SimMan := 
+SimGen := $(vcdFiles) $(nltrFiles)
+SimRes = $(SimSrc)  $(SimSpt) $(nltrFiles)
+
+# Can be cleaned up:
+SimCln = $(vcdFiles) $(SimTbn:.v=)
+
+# ---------------------------------
+# Yosys synthesis:
+# ---------------------------------
+
+SynSrc := 
+
+dotFiles := 
+
+SynGen := $(dotFiles)
+SynRes := $(SynGen)
+SynCln := $(SynGen) $(SynRes)
+
+
+# Source files:
+AllSrc := $(SimRes) $(SimTbn) $(SynSrc)
+
+# ---------------------------------
+# Scripts and other files:
+# ---------------------------------
+
+# ---------------------------------
+# Files to clean:
+# ---------------------------------
+AllCln := $(SimCln) $(SynCln)
+
+# -----------------------------------------------------------------------------------------
+#
+# Interface variables to the main Makefile.
+# The following variables are used by the main Makefile.
+#
+# -----------------------------------------------------------------------------------------
+
+# Files to copy to the Latex production directories:
+AllRes := $(SimRes) $(SynRes)
+
+# Files to copy to the Github repository:
+src4GitFiles := $(AllSrc) Makefile MakefileComp
+
+# -----------------------------------------------------------------------------------------
+# End of interface variables.
+# -----------------------------------------------------------------------------------------
+
+# ---------------------------------
+# Specific rules:
+# ---------------------------------
+
+simResult: $(vcdFiles) $(nltrFiles)    ### Simulate and make nl traces
+
+wave: simResult            ### View simulation waveforms
+	@for f in $(vcdFiles); do gtkwave -S $(viewsigsTcl) $$f & done
+
+sim: $(vcdFiles)                       ### Simulate
+
+trace: $(vcdFiles) $(nltrFiles)
+
+# ---------------------------------
+# Yosys synthesis:
+# ---------------------------------
+
+synResult: $(dotFiles) ### Do nothing
+
+repResult:             ### Do nothing
+
+$(dotFiles): always.v 
+	stem=`basename $@ .dot`; \
+	yosys -q -p "read_verilog $<; \
+		select $${stem}; \
+                  proc; opt -purge; \
+                  show -notitle -format dot -prefix $${stem};"
+
+showDot: $(dotFiles)    ### Display the graphs from Yosys synthesis
+	@for f in $(dotFiles); do xdot $$f & done
+
+%.dot: %.v   
+	stem=`basename $@ .dot`; \
+	yosys -q -p "read_verilog $<; \
+                  synth_ice40; opt -purge; \
+                  show -notitle -format dot -prefix $${stem};"
+
+%-synth.v: %.v  
+	yosys -q -p "read_verilog $<; \
+		synth_ice40; opt -purge; \
+		write_verilog $@;"
+
+%-lut.tex: %-synth.v  
+	awk -v latex=1 -f lut2tt.awk < $< > $@
+
+%.json: %.v
+	yosys $(QFLAG) -p "read_verilog $<; opt; synth_ice40; write_json $@;"
+
+helpc:
+
+
+# =================================
+# Generic rules:
+# =================================
+
+# ---------------------------------
+# Verilog simulation:
+# ---------------------------------
+# We have two cases, one with separate testbench file and one without.
+#
+# Case 1: Separate testbench:
+# We assume the file name convention:
+#    FILE.v      ... source Verilog file
+#    FILE_tb.v   ... testbench file
+#    FILE_tb     ... simulatable file
+#    FILE_tb.vcd ... value change dump file as a result of the simulation   
+%_tb.vcd: %.v %_tb.v
+	iverilog -o $*_tb $^
+	vvp $*_tb
+
+# Case 2: No separate testbench, just one verilog source file:
+# We assume the file name convention:
+#    FILE.v    ... source Verilog file
+#    FILE      ... simulatable file
+#    FILE.vcd  ... value change dump file as a result of the simulation   
+%.vcd: %.v
+	iverilog -o $* $^ $(SimSrc)
+	vvp $*
+
+%-trace.tex: %.vcd %.nlt
+	nltrace -s $*.nlt >/dev/null
+	sed -e 's/simSemantics\\_tb.uut.//' \
+	    -e 's/\[3:0\]//g' \
+	    -e '/href.*banner/d' \
+	    -e '/vertlines.*help lines/d' \
+	    -e '/horlines.*help lines/d' \
+	    $@ > tmp.tex
+	mv tmp.tex $@
+
+%.json: %.v
+	yosys $(QFLAG) -p "read_verilog $<; opt; synth_ice40; write_json $@;"
+

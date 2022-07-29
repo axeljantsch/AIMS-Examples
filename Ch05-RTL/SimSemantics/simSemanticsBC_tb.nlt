@@ -1,0 +1,12 @@
+read_vcd simSemanticsBC_tb.vcd
+cd simSemanticsBC_tb.vcd
+add D0
+cd D0
+select uut.i
+select -a sb sc sd 
+select -a uut.y
+select -d sd1 sd2
+set scale 0.3
+set step 25
+write_tex simSemanticsBC_tb-trace.tex
+exit
