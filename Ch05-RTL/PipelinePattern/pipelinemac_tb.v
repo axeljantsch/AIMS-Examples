@@ -1,9 +1,10 @@
 module pipelinemac_tb;
-   
+    
    reg reset, clk;
 
    reg [3:0] in1, in2;
    wire [8:0]  out;
+   wire [8:0]  outVar;
 
    pipelinemac uut (
 		 .reset(reset),
@@ -12,7 +13,14 @@ module pipelinemac_tb;
 		 .in2(in2),
 		 .out(out)
 		 ); 
-
+   pipelinemacVar uutVar (
+		 .reset(reset),
+		 .clock(clk),
+		 .in1(in1),
+		 .in2(in2),
+		 .out(outVar)
+		 ); 
+   
    always #5 clk = ~clk;
 
    always #13 in1 = in1 + 1;
