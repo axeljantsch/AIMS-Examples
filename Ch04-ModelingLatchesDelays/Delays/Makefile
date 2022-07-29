@@ -3,6 +3,9 @@
 # Common setups for all Makefiles like variables for target directories:
 include ../../ETC/setup.mk
 
+# Set chapter:
+chapter := 04-ModelingLatchesDelays
+
 # Specific, local Makefile:
 include MakefileComp
 
