@@ -1,0 +1,127 @@
+# -*- mode: makefile; -*-
+
+.DEFAULT_GOAL := help
+.PHONY: helpc wave
+
+# This makefile generates a report table with the help of a script and
+# copies the resulting Latex file to the target directory.
+
+# ----------------------------------
+# Setup of variables:
+# ----------------------------------
+
+SHELL = /bin/sh
+
+# ----------------------------------
+# Verilog simulation:
+# ----------------------------------
+
+SimSrc :=  RegisterFile.v
+
+tbFiles :=  $(SimSrc:.v=_tb.v)
+vcdFiles := $(tbFiles:.v=.vcd)
+
+SimRes = 
+
+# Can be cleaned up:
+SimCln = 
+
+# ----------------------------------
+# Synthesis and reports:
+# ----------------------------------
+
+SynSrc := $(SimSrc)
+
+dotFiles := $(SynSrc:.v=-opt.dot) $(SynSrc:.v=-synth.dot)
+
+syntFiles := $(SynSrc:.v=-wBRAM-synth.v)   $(SynSrc:.v=-noBRAM-synth.v) 
+jsonFiles := $(SynSrc:.v=-wBRAM.json)   $(SynSrc:.v=-noBRAM.json) 
+
+SynRes := $(dotFiles)
+SynGen := $(syntFiles) $(jsonFiles)
+
+
+# To be cleaned:
+SynCln := $(SynRes) $(SynGen)
+
+wDir := WorkingDir
+
+
+# ---------------------------------
+# P&R and report files:
+# ---------------------------------
+
+ascFiles  := $(SynSrc:.v=-wBRAM-lp1k.asc)   $(SynSrc:.v=-noBRAM-lp1k.asc) 
+tirfiles := $(SynSrc:.v=-wBRAM-lp1k.tir)   $(SynSrc:.v=-noBRAM-lp1k.tir) 
+rerfiles := $(SynSrc:.v=-wBRAM-pnrlog.rer) $(SynSrc:.v=-noBRAM-pnrlog.rer)
+texfiles := $(SynSrc:.v=-wBRAM-summarytable.tex) $(SynSrc:.v=-noBRAM-summarytable.tex)
+
+
+
+PnRRes := $(texfiles)
+PnRCln := $(tirfiles) $(rerfiles) $(ascFiles)
+
+# ---------------------------------
+# Scripts and other files:
+# ---------------------------------
+
+# Script to make synthesis and the timing reports:
+
+PnRSpt := mkPnR.sh
+RepSpt := mkSummary.sh
+SynSpt := $(PnRSpt) $(RepSpt)
+
+AllSpt := $(SynSpt)
+
+# Source files:
+AllSrc := $(SimSrc) $(SimTbn)
+
+
+# ---------------------------------
+# Files to clean:
+# ---------------------------------
+AllCln := $(SimCln) $(SynCln) $(PnRCln)
+AllDCln :=  $(wDir)
+
+# -----------------------------------------------------------------------------------------
+#
+# Interface variables to the main Makefile.
+# The following variables are used by the main Makefile.
+#
+# -----------------------------------------------------------------------------------------
+
+# Files to copy to the Latex production directories:
+AllRes := $(SimRes) $(SynRes) $(PnRRes)
+
+# Files to copy to the Github repository:
+src4GitFiles := $(AllSrc) $(AllSpt) $(AllRes)  Makefile MakefileComp
+
+# -----------------------------------------------------------------------------------------
+# End of interface variables.
+# -----------------------------------------------------------------------------------------
+
+# ---------------------------------
+# Specific rules:
+# ---------------------------------
+
+# Simulation:
+simResult: 
+
+report: 
+
+# Synthesis:
+
+synResult: $(SynRes)
+
+$(tirfiles) $(rerfiles): $(srcsynnames)
+	./$(PnRSpt)
+
+repResult: $(texfiles)             ### Given .rer and .tir files, generate summary tables in latex and plain text.
+
+$(texfiles): $(tirfiles) $(rerfiles)
+	./$(RepSpt)
+
+helpc:
+
+
+

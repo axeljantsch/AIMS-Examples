@@ -1,5 +1,4 @@
 digraph "RegisterFile" {
-label="RegisterFile";
 rankdir="LR";
 remincross=true;
 n3 [ shape=octagon, label="clk", color="black", fontcolor="black" ];
