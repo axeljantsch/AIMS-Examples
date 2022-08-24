@@ -38,9 +38,9 @@ genSimFiles = $(vcdFiles) $(tbFiles:.v=)
 # ---------------------------------
 
 # Script to make synthesis and the timing reports:
-reportScript := mkFiguresAndTables.sh
+RepSpt := mkFiguresAndTables.sh
 
-scriptFiles := $(reportScript) $(directories:=/Makefile)
+AllSpt := $(RepSpt) $(directories:=/Makefile)
 
 # Pin Constraint files (pcf files):
 pcfFiles := fulladder-hx1k-close.pcf     fulladder-lp1k-close.pcf      fulladder-lp8k-close.pcf \
@@ -53,13 +53,13 @@ pcfFiles := fulladder-hx1k-close.pcf     fulladder-lp1k-close.pcf      fulladder
 # ----------------------------------
 
 # Result table in Latex format:
-texFiles != ./$(reportScript) -S | grep 'Latex table file:' | sed -e 's/^.*file://' 
+texFiles != ./$(RepSpt) -S | grep 'Latex table file:' | sed -e 's/^.*file://' 
 
 # Result files from yosys synthesis:
-yosysFiles != ./$(reportScript) -S | grep 'Yosys result files:' | sed 's/^.*files://' 
+yosysFiles != ./$(RepSpt) -S | grep 'Yosys result files:' | sed 's/^.*files://' 
 
 # The Verilog source files:
-vFiles != ./$(reportScript) -S | grep 'Verilog source files:' | sed 's/^.*files://' 
+vFiles != ./$(RepSpt) -S | grep 'Verilog source files:' | sed 's/^.*files://' 
 
 # Working directory, where the report is produced:
 workDir := WorkingDir
@@ -75,7 +75,7 @@ workDir := WorkingDir
 resultFiles := $(yosysFiles) $(vFiles) $(texFiles)
 
 # Files to copy to the Github repository:
-src4GitFiles := $(vFiles) $(tbFiles) $(scriptFiles) $(pcfFiles)
+src4GitFiles := $(vFiles) $(tbFiles) $(AllSpt) $(pcfFiles)
 
 # -----------------------------------------------------------------------------------------
 # End of interface variables.
@@ -116,14 +116,14 @@ report:              ## Make the timing reports in working directory
 	mkdir $(workDir)
 	cp -r $(directories) $(workDir)
 	cp $(pcfFiles) $(workDir)
-	cp $(reportScript) $(workDir)
-	cd $(workDir); ./$(reportScript) -ytr; cp $(resultFiles) ..
+	cp $(RepSpt) $(workDir)
+	cd $(workDir); ./$(RepSpt) -ytr; cp $(resultFiles) ..
 
 # Remove all result files:
 clean:                 ## Clean all generated and backup files
 	rm -f $(genFiles)  *~  a.out
 	rm -rf $(genDirs)
-	./$(reportScript) -C
+	./$(RepSpt) -C
 	rm -f `echo $(resultFiles) | sed 's-[^ /]*/--g'`
 
 help: helpc      ## Show list of targets and managed files
@@ -145,7 +145,7 @@ helpc:
                                       printf " \n "; }}' \
 	| column -t | awk '{print "      " $$0;}'; \
 	echo " "; echo "Used scripts are:"; \
-	echo $(scriptFiles) \
+	echo $(AllSpt) \
 	| awk '{ j=1; while (j<=NF) { for (i=1; i<=3; i++) {printf (" %s", $$j); j++;}; \
                                       printf " \n "; }}' \
 	| column -t | awk '{print "      " $$0;}'; \
