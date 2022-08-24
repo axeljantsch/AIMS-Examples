@@ -67,7 +67,7 @@ AllCln := $(SimCln) $(SynCln)
 AllRes := $(SimRes) $(SynRes)
 
 # Files to copy to the Github repository:
-src4GitFiles := $(AllSrc) Makefile MakefileComp
+src4GitFiles := $(AllRes) Makefile MakefileComp
 
 # -----------------------------------------------------------------------------------------
 # End of interface variables.
