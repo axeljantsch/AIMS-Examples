@@ -1,0 +1,283 @@
+$date
+	Wed Aug 24 16:27:21 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	10ps
+$end
+$scope module asyncCounter_tb $end
+$var wire 4 ! q [3:0] $end
+$var reg 1 " clk $end
+$var reg 1 # rst $end
+$scope module uut $end
+$var wire 1 " clk $end
+$var wire 1 # rst $end
+$var wire 4 $ qn [3:0] $end
+$var wire 4 % q [3:0] $end
+$scope module a1 $end
+$var wire 1 " clk $end
+$var wire 1 & d $end
+$var wire 1 ' qn $end
+$var wire 1 # rst $end
+$var reg 1 ( q $end
+$upscope $end
+$scope module a2 $end
+$var wire 1 ) clk $end
+$var wire 1 * d $end
+$var wire 1 + qn $end
+$var wire 1 # rst $end
+$var reg 1 , q $end
+$upscope $end
+$scope module a3 $end
+$var wire 1 - clk $end
+$var wire 1 . d $end
+$var wire 1 / qn $end
+$var wire 1 # rst $end
+$var reg 1 0 q $end
+$upscope $end
+$scope module a4 $end
+$var wire 1 1 clk $end
+$var wire 1 2 d $end
+$var wire 1 3 qn $end
+$var wire 1 # rst $end
+$var reg 1 4 q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+x4
+x3
+x2
+x1
+x0
+x/
+x.
+x-
+x,
+x+
+x*
+x)
+x(
+x'
+x&
+bx %
+bx $
+0#
+0"
+bx !
+$end
+#500
+1#
+#510
+1)
+1&
+1-
+1*
+11
+1.
+12
+1'
+1+
+1/
+b1111 $
+13
+0(
+0,
+00
+b0 !
+b0 %
+04
+#1000
+1"
+#2000
+0"
+#2500
+0#
+#3000
+1"
+#3010
+0)
+0&
+b1110 $
+0'
+b1 !
+b1 %
+1(
+#4000
+0"
+#5000
+1"
+#5010
+1)
+1&
+b1111 $
+1'
+b0 !
+b0 %
+0(
+#5020
+0-
+0*
+b1101 $
+0+
+b10 !
+b10 %
+1,
+#6000
+0"
+#7000
+1"
+#7010
+0)
+0&
+b1100 $
+0'
+b11 !
+b11 %
+1(
+#8000
+0"
+#9000
+1"
+#9010
+1)
+1&
+b1101 $
+1'
+b10 !
+b10 %
+0(
+#9020
+1-
+1*
+b1111 $
+1+
+b0 !
+b0 %
+0,
+#9030
+01
+0.
+b1011 $
+0/
+b100 !
+b100 %
+10
+#10000
+0"
+#11000
+1"
+#11010
+0)
+0&
+b1010 $
+0'
+b101 !
+b101 %
+1(
+#12000
+0"
+#13000
+1"
+#13010
+1)
+1&
+b1011 $
+1'
+b100 !
+b100 %
+0(
+#13020
+0-
+0*
+b1001 $
+0+
+b110 !
+b110 %
+1,
+#14000
+0"
+#15000
+1"
+#15010
+0)
+0&
+b1000 $
+0'
+b111 !
+b111 %
+1(
+#16000
+0"
+#17000
+1"
+#17010
+1)
+1&
+b1001 $
+1'
+b110 !
+b110 %
+0(
+#17020
+1-
+1*
+b1011 $
+1+
+b100 !
+b100 %
+0,
+#17030
+11
+1.
+b1111 $
+1/
+b0 !
+b0 %
+00
+#17040
+02
+b111 $
+03
+b1000 !
+b1000 %
+14
+#18000
+0"
+#19000
+1"
+#19010
+0)
+0&
+b110 $
+0'
+b1001 !
+b1001 %
+1(
+#20000
+0"
+#21000
+1"
+#21010
+1)
+1&
+b111 $
+1'
+b1000 !
+b1000 %
+0(
+#21020
+0-
+0*
+b101 $
+0+
+b1010 !
+b1010 %
+1,
+#22000
+0"
+#22500
