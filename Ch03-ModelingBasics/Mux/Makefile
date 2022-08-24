@@ -24,6 +24,10 @@ srcSimFiles := multiplexer.v
 tbFiles := multiplexer_tbsi.v multiplexer_tbsc.v multiplexer_tbtv.v
 # tbFiles := $(srcSimFiles:.v=_tb.v)
 
+# Testvector file:
+tvFile := multiplexer.tv
+
+
 vcdFiles :=   $(tbFiles:.v=.vcd)
 
 simResultFiles = $(vcdFiles)
@@ -37,9 +41,6 @@ srcFiles := $(srcSimFiles) $(tbFiles) $(tvFile)
 # ---------------------------------
 # Scripts and other files:
 # ---------------------------------
-
-# Testvector file:
-tvFile := multiplexer.tv
 
 # ---------------------------------
 # Files to clean:
@@ -90,7 +91,7 @@ helpc:
 	| column -t  -s '#'; \
 	echo " "; \
 	echo "Managed source files: $(srcFiles) $(tbFiles)"; \
-	echo " "; echo "Used scripts are:         $(scriptFiles)"; \
+	echo " "; echo "Used scripts are:         $(AllSpt)"; \
 	echo " ";
 
 
