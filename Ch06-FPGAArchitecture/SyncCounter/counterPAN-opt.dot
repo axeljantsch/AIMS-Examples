@@ -1,0 +1,16 @@
+digraph "counterPAN" {
+rankdir="LR";
+remincross=true;
+n3 [ shape=octagon, label="clk", color="black", fontcolor="black" ];
+n4 [ shape=octagon, label="count", color="black", fontcolor="black" ];
+n5 [ shape=octagon, label="rst", color="black", fontcolor="black" ];
+v0 [ label="4'0001" ];
+c9 [ shape=record, label="{{<p6> A|<p7> B}|$2\n$add|{<p8> Y}}" ];
+c14 [ shape=record, label="{{<p10> ARST|<p11> CLK|<p12> D}|$3\n$adff|{<p13> Q}}" ];
+c9:p8:e -> c14:p12:w [color="black", style="setlinewidth(3)", label=""];
+n3:e -> c14:p11:w [color="black", label=""];
+c14:p13:e -> n4:w [color="black", style="setlinewidth(3)", label=""];
+n4:e -> c9:p6:w [color="black", style="setlinewidth(3)", label=""];
+n5:e -> c14:p10:w [color="black", label=""];
+v0:e -> c9:p7:w [color="black", style="setlinewidth(3)", label=""];
+}

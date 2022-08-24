@@ -1,4 +1,4 @@
-digraph "counter" {
+digraph "counterPSE" {
 rankdir="LR";
 remincross=true;
 n7 [ shape=octagon, label="clk", color="black", fontcolor="black" ];
@@ -60,20 +60,20 @@ x29 [ shape=record, style=rounded, label="<s0> 3:3 - 0:0 " ];
 x29:e -> c25:p14:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", label=""];
 x30 [ shape=record, style=rounded, label="<s0> 0:0 - 3:3 " ];
 c25:p15:e -> x30:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", label=""];
-c31 [ shape=record, label="{{<p26> C|<p27> D|<p28> E|<p29> R}|$74\nSB_DFFESR|{<p30> Q}}" ];
+c31 [ shape=record, label="{{<p26> C|<p27> D|<p28> E|<p29> R}|$71\nSB_DFFESR|{<p30> Q}}" ];
 x31 [ shape=record, style=rounded, label="<s0> 0:0 - 0:0 " ];
 x31:e -> c31:p27:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", label=""];
 x32 [ shape=record, style=rounded, label="<s0> 0:0 - 0:0 " ];
 c31:p30:e -> x32:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", label=""];
-c32 [ shape=record, label="{{<p26> C|<p27> D|<p28> E|<p29> R}|$75\nSB_DFFESR|{<p30> Q}}" ];
+c32 [ shape=record, label="{{<p26> C|<p27> D|<p28> E|<p29> R}|$72\nSB_DFFESR|{<p30> Q}}" ];
 x33 [ shape=record, style=rounded, label="<s0> 0:0 - 1:1 " ];
 c32:p30:e -> x33:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", label=""];
-c33 [ shape=record, label="{{<p26> C|<p27> D|<p28> E|<p29> R}|$76\nSB_DFFESR|{<p30> Q}}" ];
+c33 [ shape=record, label="{{<p26> C|<p27> D|<p28> E|<p29> R}|$73\nSB_DFFESR|{<p30> Q}}" ];
 x34 [ shape=record, style=rounded, label="<s0> 2:2 - 0:0 " ];
 x34:e -> c33:p27:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", label=""];
 x35 [ shape=record, style=rounded, label="<s0> 0:0 - 2:2 " ];
 c33:p30:e -> x35:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", label=""];
-c34 [ shape=record, label="{{<p26> C|<p27> D|<p28> E|<p29> R}|$77\nSB_DFFESR|{<p30> Q}}" ];
+c34 [ shape=record, label="{{<p26> C|<p27> D|<p28> E|<p29> R}|$74\nSB_DFFESR|{<p30> Q}}" ];
 x36 [ shape=record, style=rounded, label="<s0> 3:3 - 0:0 " ];
 x36:e -> c34:p27:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", label=""];
 x37 [ shape=record, style=rounded, label="<s0> 0:0 - 3:3 " ];

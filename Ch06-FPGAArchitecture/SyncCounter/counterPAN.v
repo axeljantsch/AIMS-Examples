@@ -1,7 +1,7 @@
 // PAN: Positive clocke edge
 //      Asynchronous Reset
 //      No Enable
-module counter (clk, rst, count);
+module counterPAN (clk, rst, count);
 
    input clk, rst;
    output reg [3:0] count;
@@ -17,4 +17,4 @@ module counter (clk, rst, count);
 	else 
           count <= #1 count + 4'd1;
      end
-endmodule // counter
+endmodule

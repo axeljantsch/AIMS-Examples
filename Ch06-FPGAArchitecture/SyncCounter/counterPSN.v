@@ -1,7 +1,7 @@
 // PSN: Positive clocke edge
 //      Synchronous Reset
 //      No Enable
-module counter (clk, rst, count);
+module counterPSN (clk, rst, count);
 
    input clk, rst;
    output reg [3:0] count;
@@ -18,4 +18,4 @@ module counter (clk, rst, count);
           count <= #1 count + 4'd1;
      end
    
-endmodule // counter
+endmodule

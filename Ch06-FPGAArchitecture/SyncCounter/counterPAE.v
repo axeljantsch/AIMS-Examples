@@ -1,7 +1,7 @@
 // PAE: Positive clocke edge
 //      Asynchronous Reset
 //      Enable
-module counter (clk, rst, en, count);
+module counterPAE (clk, rst, en, count);
 
    input clk, rst, en;
    output reg [3:0] count;
@@ -18,4 +18,4 @@ module counter (clk, rst, en, count);
           count <= #1 count + 4'd1;
      end
    
-endmodule // counter
+endmodule

@@ -1,0 +1,20 @@
+digraph "counterPSN" {
+rankdir="LR";
+remincross=true;
+n4 [ shape=octagon, label="clk", color="black", fontcolor="black" ];
+n5 [ shape=octagon, label="count", color="black", fontcolor="black" ];
+n6 [ shape=octagon, label="rst", color="black", fontcolor="black" ];
+v0 [ label="4'0001" ];
+c10 [ shape=record, label="{{<p7> A|<p8> B}|$2\n$add|{<p9> Y}}" ];
+c14 [ shape=record, label="{{<p11> CLK|<p12> D}|$6\n$dff|{<p13> Q}}" ];
+v1 [ label="4'0000" ];
+c16 [ shape=record, label="{{<p7> A|<p8> B|<p15> S}|$4\n$mux|{<p9> Y}}" ];
+c16:p9:e -> c14:p12:w [color="black", style="setlinewidth(3)", label=""];
+c10:p9:e -> c16:p7:w [color="black", style="setlinewidth(3)", label=""];
+n4:e -> c14:p11:w [color="black", label=""];
+c14:p13:e -> n5:w [color="black", style="setlinewidth(3)", label=""];
+n5:e -> c10:p7:w [color="black", style="setlinewidth(3)", label=""];
+n6:e -> c16:p15:w [color="black", label=""];
+v0:e -> c10:p8:w [color="black", style="setlinewidth(3)", label=""];
+v1:e -> c16:p8:w [color="black", style="setlinewidth(3)", label=""];
+}

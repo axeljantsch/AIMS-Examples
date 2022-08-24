@@ -1,0 +1,19 @@
+digraph "counterPAE" {
+rankdir="LR";
+remincross=true;
+n4 [ shape=octagon, label="count", color="black", fontcolor="black" ];
+n5 [ shape=octagon, label="en", color="black", fontcolor="black" ];
+n6 [ shape=octagon, label="rst", color="black", fontcolor="black" ];
+n7 [ shape=octagon, label="clk", color="black", fontcolor="black" ];
+v0 [ label="4'0001" ];
+c11 [ shape=record, label="{{<p8> A|<p9> B}|$2\n$add|{<p10> Y}}" ];
+p1 [shape=box, style=rounded, label="PROC $1\ncounterPAE.v:13"];
+c11:p10:e -> p1:w [color="black", style="setlinewidth(3)", label=""];
+p1:e -> n4:w [color="black", style="setlinewidth(3)", label=""];
+n4:e -> c11:p8:w [color="black", style="setlinewidth(3)", label=""];
+n4:e -> p1:w [color="black", style="setlinewidth(3)", label=""];
+n5:e -> p1:w [color="black", label=""];
+n6:e -> p1:w [color="black", label=""];
+n7:e -> p1:w [color="black", label=""];
+v0:e -> c11:p9:w [color="black", style="setlinewidth(3)", label=""];
+}

@@ -1,4 +1,4 @@
-digraph "counterPSE" {
+digraph "counterNSE" {
 rankdir="LR";
 remincross=true;
 n5 [ shape=octagon, label="clk", color="black", fontcolor="black" ];

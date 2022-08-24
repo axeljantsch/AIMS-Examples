@@ -1,0 +1,151 @@
+# -*- mode: makefile; -*-
+
+.DEFAULT_GOAL := help
+.PHONY: helpc wave
+
+# This makefile generates a report table with the help of a script and
+# copies the resulting Latex file to the target directory.
+
+# ----------------------------------
+# Setup of variables:
+# ----------------------------------
+
+SHELL = /bin/sh
+
+# ----------------------------------
+# Verilog simulation:
+# ----------------------------------
+
+SimSrc :=   counterNAE.v counterPAE.v counterPSE.v counterNSE.v counterPAN.v counterPSN.v
+
+tbFiles := counterPSE_tb.v counterALL_tb.v
+vcdFiles := $(tbFiles:.v=.vcd)
+
+pngFiles := counterPSE-1.png counterPSE-2.png
+
+SimRes =  $(vcdFiles) $(pngFiles)
+
+# Can be cleaned up:
+SimCln = $(vcdFiles) $(tbFiles:.v=)
+
+# ----------------------------------
+# Synthesis and reports:
+# ----------------------------------
+
+SynSrc := $(SimSrc)
+
+dotFiles := $(SynSrc:.v=-raw.dot) $(SynSrc:.v=-opt.dot) $(SynSrc:.v=-synt.dot)
+
+SynRes := $(dotFiles) 
+SynGen := $(dotFiles)
+
+
+# To be cleaned:
+SynCln := $(SynRes) $(SynGen)
+
+wDir := WorkingDir
+
+
+# ---------------------------------
+# P&R and report files:
+# ---------------------------------
+
+texFiles := table-lp384.tex table-lp1k.tex table-hx1k.tex
+tirFiles := counterPSE-lp384-no-fno-i.tir counterPSE-lp384-opposite-fno-i.tir
+
+pcfDir := PCFDir
+
+PnRRes := $(texfiles) $(tirFiles)
+PnRCln := $(tirFiles) 
+
+# ---------------------------------
+# Scripts and other files:
+# ---------------------------------
+
+# Script to make synthesis and the timing reports:
+
+PnRSpt := mkSynthesis.sh
+RepSpt := mkLatexTables.sh
+SynSpt := $(PnRSpt) $(RepSpt)
+
+# tcl scripts:
+pseTcl := setup-PSE.tcl
+allTcl := setup-ALL.tcl
+tclScripts := $(pseTcl) $(allTcl)
+
+AllSpt := $(SynSpt) $(tclScripts)
+
+# Source files:
+AllSrc := $(SimSrc) $(SimTbn) 
+
+
+# ---------------------------------
+# Files to clean:
+# ---------------------------------
+AllCln := $(SimCln) $(SynCln) $(PnRCln)
+AllDCln :=  $(wDir)
+
+# -----------------------------------------------------------------------------------------
+#
+# Interface variables to the main Makefile.
+# The following variables are used by the main Makefile.
+#
+# -----------------------------------------------------------------------------------------
+
+# Files to copy to the Latex production directories:
+AllRes := $(SimRes) $(SynRes) $(PnRRes)
+
+# Files to copy to the Github repository:
+src4GitFiles := $(AllSrc) $(AllSpt) $(AllRes)  Makefile MakefileComp
+
+# -----------------------------------------------------------------------------------------
+# End of interface variables.
+# -----------------------------------------------------------------------------------------
+
+# ---------------------------------
+# Specific rules:
+# ---------------------------------
+
+# Simulation:
+
+
+simPSE: counterPSE_tb.v counterPSE.v     ## Simulate the PSE counter
+	iverilog -o counterPSE_tb $^
+	vvp counterPSE_tb
+
+simAll: counterALL_tb.v $(SimSrc)   ## Simulate all counters 
+	iverilog -o counterALL_tb $^
+	vvp counterALL_tb
+
+wavePSE: simPSE            ## View simulation waveforms of the PSE counter simulation
+	gtkwave -S $(pseTcl) counterPSE_tb.vcd &
+
+waveAll: simAll            ## View simulation waveforms of simulations of all counters
+	gtkwave -S $(allTcl) counterALL_tb.vcd &
+
+pngfiles: wavePSE          ## Generate the png files for the simulation wave forms
+	@sleep 2; echo " "; echo "You have to take screenshots and store them in $(pngFiles)"
+
+
+simResult: simAll simPSE
+
+report: 
+
+# Synthesis:
+
+synResult:  					 ## Run synthesis script $(SynSpt)
+	@mkdir -p $(wDir); \
+	cp $(SynSrc) $(SynSpt) $(pcfDir)/* $(wDir); \
+	cd $(wDir); ./$(SynSpt); \
+	cp $(SynRes) ..
+
+
+repResult: 				## Run script $(RepSpt) to generate report table
+	@cp $(RepSpt) $(wDir); \
+	cd $(wDir); ./$(RepSpt); \
+	cp $(PnRRes) ..
+
+helpc:
+
+
+

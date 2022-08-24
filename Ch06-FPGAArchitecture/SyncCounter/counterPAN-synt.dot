@@ -1,4 +1,4 @@
-digraph "counter" {
+digraph "counterPAN" {
 rankdir="LR";
 remincross=true;
 n4 [ shape=octagon, label="clk", color="black", fontcolor="black" ];
@@ -54,24 +54,24 @@ x26 [ shape=record, style=rounded, label="<s0> 3:3 - 0:0 " ];
 x26:e -> c19:p10:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", label=""];
 x27 [ shape=record, style=rounded, label="<s0> 0:0 - 3:3 " ];
 c19:p11:e -> x27:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", label=""];
-c24 [ shape=record, label="{{<p20> C|<p21> D|<p22> R}|$60\nSB_DFFR|{<p23> Q}}" ];
+c24 [ shape=record, label="{{<p20> C|<p21> D|<p22> R}|$57\nSB_DFFR|{<p23> Q}}" ];
 x28 [ shape=record, style=rounded, label="<s0> 0:0 - 0:0 " ];
 x28:e -> c24:p21:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", label=""];
 x29 [ shape=record, style=rounded, label="<s0> 0:0 - 0:0 " ];
 c24:p23:e -> x29:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", label=""];
-c26 [ shape=record, label="{{<p20> C|<p21> D|<p25> E|<p22> R}|$61\nSB_DFFER|{<p23> Q}}" ];
+c26 [ shape=record, label="{{<p20> C|<p21> D|<p25> E|<p22> R}|$58\nSB_DFFER|{<p23> Q}}" ];
 x30 [ shape=record, style=rounded, label="<s0> 1:1 - 0:0 " ];
 x30:e -> c26:p21:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", label=""];
 x31 [ shape=record, style=rounded, label="<s0> 0:0 - 0:0 " ];
 x31:e -> c26:p25:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", label=""];
 x32 [ shape=record, style=rounded, label="<s0> 0:0 - 1:1 " ];
 c26:p23:e -> x32:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", label=""];
-c27 [ shape=record, label="{{<p20> C|<p21> D|<p22> R}|$62\nSB_DFFR|{<p23> Q}}" ];
+c27 [ shape=record, label="{{<p20> C|<p21> D|<p22> R}|$59\nSB_DFFR|{<p23> Q}}" ];
 x33 [ shape=record, style=rounded, label="<s0> 2:2 - 0:0 " ];
 x33:e -> c27:p21:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", label=""];
 x34 [ shape=record, style=rounded, label="<s0> 0:0 - 2:2 " ];
 c27:p23:e -> x34:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", label=""];
-c28 [ shape=record, label="{{<p20> C|<p21> D|<p22> R}|$63\nSB_DFFR|{<p23> Q}}" ];
+c28 [ shape=record, label="{{<p20> C|<p21> D|<p22> R}|$60\nSB_DFFR|{<p23> Q}}" ];
 x35 [ shape=record, style=rounded, label="<s0> 3:3 - 0:0 " ];
 x35:e -> c28:p21:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", label=""];
 x36 [ shape=record, style=rounded, label="<s0> 0:0 - 3:3 " ];
