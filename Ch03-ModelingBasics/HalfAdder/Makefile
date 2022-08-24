@@ -31,9 +31,9 @@ genSimFiles = $(vcdFiles) $(tbFiles:.v=)
 # ---------------------------------
 
 # Script to make synthesis and the timing reports:
-reportScript := mkhatiming-report.sh
+RepSpt := mkhatiming-report.sh
 
-scriptFiles := $(reportScript)
+AllSpt := $(RepSpt)
 
 # Pin constraint files:
 pcFiles := halfadder-hx1k-close.pcf     halfadder-lp1k-close.pcf      halfadder-lp8k-close.pcf\
@@ -68,7 +68,7 @@ genDirs :=  $(workDir)
 resultFiles := $(srcSimFiles) $(tbFiles) $(texFiles)
 
 # Files to copy to the Github repository:
-src4GitFiles := $(srcFiles) $(scriptFiles)
+src4GitFiles := $(srcFiles) $(AllSpt)
 
 # -----------------------------------------------------------------------------------------
 # End of interface variables.
@@ -89,8 +89,8 @@ report:              ## Make the timing reports in working directory
 	@rm -rf $(workDir)
 	mkdir $(workDir)
 	cp $(srcFiles) $(workDir)
-	cp $(reportScript) $(workDir)
-	cd $(workDir); ./$(reportScript) -ytr; cp $(texFiles) ..
+	cp $(RepSpt) $(workDir)
+	cd $(workDir); ./$(RepSpt) -ytr; cp $(texFiles) ..
 
 # Remove all result files:
 clean:                 ## Clean all generated and backup files
@@ -111,7 +111,7 @@ helpc:
 	| column -t  -s '#'; \
 	echo " "; \
 	echo "Managed source files: $(srcFiles) $(tbFiles)"; \
-	echo " "; echo "Used scripts are:     $(scriptFiles)"; \
+	echo " "; echo "Used scripts are:     $(AllSpt)"; \
 	echo " "; echo "Working directory is: $(workDir)"; \
 	echo " ";
 
