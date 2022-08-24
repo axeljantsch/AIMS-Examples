@@ -83,7 +83,7 @@ helpc:
 	| column -t  -s '#'; \
 	echo " "; \
 	echo "Managed source files: $(srcFiles) $(tbFiles)"; \
-	echo " "; echo "Used scripts are:         $(scriptFiles)"; \
+	echo " "; echo "Used scripts are:         $(AllSpt)"; \
 	echo " ";
 
 
