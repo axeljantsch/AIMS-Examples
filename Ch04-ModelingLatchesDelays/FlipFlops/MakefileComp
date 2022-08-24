@@ -79,6 +79,7 @@ src4GitFiles := $(AllSrc) Makefile MakefileComp
 # Specific rules:
 # ---------------------------------
 
+sim: $(vcdFiles)
 simResult: $(vcdFiles)     ### Simulate
 
 wave: simResult            ### View simulation waveforms
@@ -88,6 +89,7 @@ wave: simResult            ### View simulation waveforms
 # Yosys synthesis:
 # ---------------------------------
 
+syn: $(dotFiles)
 synResult: $(dotFiles)       ### Optimize and generate dot files
 
 repResult: $(SynRep)         ### Generate the LUT as tex file

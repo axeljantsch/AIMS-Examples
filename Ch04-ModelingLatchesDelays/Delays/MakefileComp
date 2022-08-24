@@ -78,13 +78,14 @@ src4GitFiles := $(AllSrc) Makefile MakefileComp
 # Specific rules:
 # ---------------------------------
 
-$(SimSrcDerived): adder.v  ### Extract specific modules from one source file adder.v
+$(SimSrcDerived): adder.v  # Extract specific modules from one source file adder.v
 	@stem=`basename $@ .v`; \
 	awk "/module $${stem}[ (]/ { inmodule = 1; } \
 	                           { if (inmodule) print; }\
 	    /endmodule/            { inmodule = 0; }" $< > $@
 
-simResult: $(vcdFiles)     ### Simulate
+simResult: $(SimSrcDerived) $(vcdFiles)     ### Simulate
+sim: $(vcdFiles)
 
 wave: simResult            ### View simulation waveforms
 	@for f in $(vcdFiles); do gtkwave -S $(viewsigsTcl) $$f & done
@@ -93,9 +94,10 @@ wave: simResult            ### View simulation waveforms
 # Yosys synthesis:
 # ---------------------------------
 
+syn: $(dotFiles) 
 synResult: $(dotFiles) ### Optimize and generate dot files
 
-repResult:             ### Do nothing
+repResult:       
 
 $(dotFiles): $(SynSrc)
 	stem=`basename $@ .dot`; \

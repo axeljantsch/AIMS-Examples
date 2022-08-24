@@ -76,6 +76,7 @@ src4GitFiles := $(AllSrc) Makefile MakefileComp
 # Specific rules:
 # ---------------------------------
 
+sim: $(vcdFiles) 
 simResult: $(vcdFiles)     ### Simulate
 
 wave: simResult            ### View simulation waveforms
@@ -85,9 +86,9 @@ wave: simResult            ### View simulation waveforms
 # Yosys synthesis:
 # ---------------------------------
 
-synResult:                   ### Do nothing
+synResult:       
 
-repResult:                  ### Do nothing
+repResult:       
 
 showDot: $(dotFiles)   
 	@for f in $(dotFiles); do xdot $$f & done
