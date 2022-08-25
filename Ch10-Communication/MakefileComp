@@ -1,0 +1,182 @@
+# -*- mode: makefile -*-
+
+.DEFAULT_GOAL := help
+.PHONY: helpc wave
+
+# This makefile generates a report table with the help of a script and
+# copies the resulting Latex file to the target directory.
+
+
+# ----------------------------------
+# Setup of variables:
+# ----------------------------------
+
+SHELL = /bin/sh
+
+# ----------------------------------
+# Even though this is handled like a leaf directory, it has sub-directories:
+# ----------------------------------
+directories := AsynchronousHandshake DomainCrossing SynchronousFIFO \
+	       SynchronousHandshake AsynchronousFIFO
+
+
+# Setting directories:
+#texdir    := $(texdirGBase)/`pwd | sed 's-/.*/--'`
+githubdir := $(githubdirBase)/`pwd | sed 's-/.*/--'`
+
+# ----------------------------------
+# Verilog simulation:
+# ----------------------------------
+SimSrc := ReportComm.v ScenarioGeneration.v
+
+# We have one testbench:
+SimTbn := 
+
+vcdFiles := 
+
+SimMan := 
+SimGen := 
+SimRes := 
+
+# Can be cleaned up:
+SimCln = 
+
+# ---------------------------------
+# Yosys synthesis and P&R:
+# ---------------------------------
+
+SynSrc := 
+
+SynGen := 
+SynRes := 
+SynCln := 
+SynDCln := 
+
+# ---------------------------------
+# Reporting:
+# ---------------------------------
+
+RepGen := 
+RepRes :=  CommunicationPerformanceTable-1.tex\
+	   CommunicationPerformanceTable-2.tex\
+	   CommunicationPerformanceTable-3.tex\
+	   CommunicationPerformanceTable-4.tex
+
+RepCln := $(RepGen)
+
+# Source files:
+AllSrc := $(SimSrc)
+
+# ---------------------------------
+# Scripts and other files:
+# ---------------------------------
+
+# Script to compile and display the Latex table:
+mkRep := mkReport.sh
+
+# Awk script for analysing vcd files
+anlVcd := analyseVcd.awk
+
+RepSpt := $(anlVcd) $(mkRep)
+
+RepDCln := WorkingDirectory
+
+SynSpt := 
+
+
+AllSpt := $(RepSpt)
+
+# ---------------------------------
+# Files to clean:
+# ---------------------------------
+AllCln := $(SimCln) $(SynCln) $(RepCln)
+AllDCln := $(RepDCln)
+
+# -----------------------------------------------------------------------------------------
+#
+# Interface variables to the main Makefile.
+# The following variables are used by the main Makefile.
+#
+# -----------------------------------------------------------------------------------------
+
+# Files to copy to the Latex production directories:
+AllRes := $(SimRes) $(SynRes) $(RepRes)
+
+# Files to copy to the Github repository:
+src4GitFiles := $(AllSrc) $(AllRes) $(AllSpt) Makefile MakefileComp
+
+# -----------------------------------------------------------------------------------------
+# End of interface variables.
+# -----------------------------------------------------------------------------------------
+
+# ---------------------------------
+# Specific rules:
+# ---------------------------------
+
+
+
+simResult: 
+
+# ---------------------------------
+# Table generation:
+# ---------------------------------
+
+
+repResult: $(RepRes)                         ### Generate all tables
+
+report1: CommunicationPerformanceTable-1.tex     ### Run script file for Sync Handshake, Async Handshake and Sync Fifo with -scenarios A,B,C,D,E
+
+CommunicationPerformanceTable-1.tex:
+	./$(mkRep) -r -S A,B,C,D,E -C 10 \
+	                    SynchronousHandshake \
+			    SynchronousFIFO
+	./$(mkRep) -a -r -S A,B,C,D,E -C 7,17 \
+	                    AsynchronousHandshake
+	mv CommunicationPerformanceTable.tex CommunicationPerformanceTable-1.tex
+
+report2: CommunicationPerformanceTable-2.tex     ### Run script file for Async Fifo with -scenarios A,B,C,D,E
+
+CommunicationPerformanceTable-2.tex:
+	./$(mkRep) -r -S A,B,C,D,E -C 10 -C 7,10,17\
+	                    AsynchronousFIFO
+	mv CommunicationPerformanceTable.tex $@
+
+report3: CommunicationPerformanceTable-3.tex     ### Run script file for all four architectures and scenario D
+
+CommunicationPerformanceTable-3.tex:
+	./$(mkRep) -r -S D -C 10 -C 7,10,17\
+	                    AsynchronousFIFO AsynchronousHandshake
+	./$(mkRep) -a -r -S D -C 10 -C 10\
+	                    SynchronousFIFO SynchronousHandshake
+	mv CommunicationPerformanceTable.tex $@
+
+report4: CommunicationPerformanceTable-4.tex     ### Run script file for all four architectures and all four scenarios
+
+CommunicationPerformanceTable-4.tex:
+	./$(mkRep) -r -S A,B,C,D,E -C 10 -C 10\
+	                    SynchronousFIFO SynchronousHandshake
+	./$(mkRep) -a -r -S A,B,C,D,E -C 10 -C 7,10,17\
+	                    AsynchronousFIFO AsynchronousHandshake
+	mv CommunicationPerformanceTable.tex $@
+
+# ---------------------------------
+# Yosys synthesis:
+# ---------------------------------
+
+synResult: 
+
+
+# ---------------------------------
+# General targets:
+# ---------------------------------
+cleanLoc:
+	for d in $(directories); \
+		do make -C $$d clean;\
+		done
+
+
+helpc:
+	@echo "Managed directories: ";      echo $(directories) | $(colfmt); echo " ";
+
+
+
