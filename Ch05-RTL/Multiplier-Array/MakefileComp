@@ -1,0 +1,213 @@
+# -*- mode: makefile -*-
+
+.DEFAULT_GOAL := helpc
+.PHONY: helpc wave
+
+# This makefile generates a report table with the help of a script and
+# copies the resulting Latex file to the target directory.
+
+
+# ----------------------------------
+# Setup of variables:
+# ----------------------------------
+
+SHELL = /bin/sh
+
+# ----------------------------------
+# Verilog simulation:
+# ----------------------------------
+SimSrc := multiplierArray-Pipelined-0.v multiplierArray-Pipelined-2.v multiplierArray-Pipelined-h.v multiplierArray-Pipelined-n.v
+
+# We have one testbench:
+SimTbn := $(SimSrc:.v=_tb.v)
+
+vcdFiles :=   *.vcd
+
+SimMan := 
+SimGen := $(vcdFiles)
+SimRes = $(SimSrc) 
+
+# Can be cleaned up:
+SimCln = $(vcdFiles) $(SimTbn:.v=)
+
+# ---------------------------------
+# Yosys synthesis and P&R:
+# ---------------------------------
+
+SynSrc := $(SimSrc)
+
+dotFiles := $(SimSrc:.v=.dot)
+tirepFiles := *.tirep
+synDirs := Pipelined-*
+
+SynGen := $(dotFiles)
+SynRes := 
+SynCln := $(SynGen) $(SynRes) $(dotfiles) $(tirepFiles)
+SynDCln := $(synDirs)
+
+# ---------------------------------
+# Reporting:
+# ---------------------------------
+
+tableModelcsv := multiplierArray-Model.csv
+tableModeltex := multiplierArray-Model.tex
+
+tableLP8Kcsv := multiplierArray-LP8K.csv
+tableLP8Ktex := multiplierArray-LP8K.tex
+
+tableOSU018csv := multiplierArray-OSU018.csv
+tableOSU018tex := multiplierArray-OSU018.tex
+
+RepRes := $(tableModelcsv) $(tableModeltex) \
+		$(tableLP8Kcsv) $(tableLP8Ktex) \
+		$(tableOSU018csv) $(tableOSU018tex)
+
+RepCln := *.txt 
+
+# Source files:
+AllSrc := $(SimSrc) $(SimTbn)
+
+# ---------------------------------
+# Scripts and other files:
+# ---------------------------------
+
+# Script to compile and display the Latex table:
+showLatexScript=showLatexFile.sh
+
+# Script for displaying the table in various formats:
+showTable=pptable.py 
+
+RepSpt := $(showTable) $(showLatexScript)
+
+synrepScript := mkFiguresAndTablesCh05.sh
+
+SynSpt := $(synrepScript)
+
+
+AllSpt := $(SynSpt) $(RepSpt)
+
+# ---------------------------------
+# Files to clean:
+# ---------------------------------
+AllCln := $(SimCln) $(SynCln) $(RepCln)
+AllDCln := $(SynDCln)
+
+# -----------------------------------------------------------------------------------------
+#
+# Interface variables to the main Makefile.
+# The following variables are used by the main Makefile.
+#
+# -----------------------------------------------------------------------------------------
+
+# Files to copy to the Latex production directories:
+AllRes := $(SimRes) $(SynRes) $(RepRes)
+
+# Files to copy to the Github repository:
+src4GitFiles := $(AllSrc) Makefile MakefileComp Makefile.template
+
+# -----------------------------------------------------------------------------------------
+# End of interface variables.
+# -----------------------------------------------------------------------------------------
+
+# ---------------------------------
+# Specific rules:
+# ---------------------------------
+
+simResult: 
+
+sim: $(vcdFiles)     ### Simulate
+
+wave: simResult            ### View simulation waveforms
+	@for f in $(vcdFiles); do gtkwave -S $(viewsigsTcl) $$f & done
+
+# ---------------------------------
+# Table generation:
+# ---------------------------------
+
+tableModel:                ### Make table 1 for the model of the book
+	for p in 0 h n; \
+	do rm -rf Pipelined-$$p; mkdir -p Pipelined-$$p; cp multiplierArray-Pipelined-$${p}.v Pipelined-$${p}; done; 
+	$(ScriptDir)/$(synrepScript) -N multiplierArray -b 32 -P 0,h,n -R -F 1-3,6,8,11,13;
+	mv multiplierArray-table.csv $(tableModelcsv);
+	mv multiplierArray-textable.tex $(tableModeltex);
+
+tableLP8K:                 ### Make table 2 for LP8K technology
+	for p in 0 h n; \
+	do rm -rf Pipelined-$$p; \
+	   mkdir -p Pipelined-$$p; \
+	   cp multiplierArray-Pipelined-$${p}.v Pipelined-$${p};\
+	   done; 
+	$(ScriptDir)/$(synrepScript) -N multiplierArray -yp -b 32 -T lp8k -P 0,h,n -R -F 1-5,7,9-10,12;
+	mv multiplierArray-table.csv $(tableLP8Kcsv);
+	mv multiplierArray-textable.tex $(tableLP8Ktex);
+
+tableOSU018:                 ### Make table 3 for the osu018 technology
+	for p in 0 h; \
+	do rm -rf Pipelined-$$p; \
+	   mkdir -p Pipelined-$$p; \
+	   cp multiplierArray-Pipelined-$${p}.v Pipelined-$${p}; \
+           done; \
+	$(ScriptDir)/$(synrepScript) -N multiplierArray -yp -b 4,8,16,32,64 -T osu018 -P 0,h -R -F 1-5,7-10;
+	mv multiplierArray-table.csv $(tableOSU018csv);
+	mv multiplierArray-textable.tex $(tableOSU018tex);
+
+repResult: tableModel tableLP8K tableOSU018   ### Generate all three tables for the Book
+
+
+# ---------------------------------
+# Yosys synthesis:
+# ---------------------------------
+
+synResult: 
+
+%.dot: %.v   
+	stem=`basename $@ .dot`; \
+	yosys -q -p "read_verilog $<; \
+                  synth_ice40; opt -purge; \
+                  show -notitle -format dot -prefix $${stem};"
+
+%-synth.v: %.v  
+	yosys -q -p "read_verilog $<; \
+		synth_ice40; opt -purge; \
+		write_verilog $@;"
+
+%-lut.tex: %-synth.v  
+	awk -v latex=1 -f lut2tt.awk < $< > $@
+
+%.json: %.v
+	yosys $(QFLAG) -p "read_verilog $<; opt; synth_ice40; write_json $@;"
+
+helpc:
+
+
+# =================================
+# Generic rules:
+# =================================
+
+# ---------------------------------
+# Verilog simulation:
+# ---------------------------------
+# We have two cases, one with separate testbench file and one without.
+#
+# Case 1: Separate testbench:
+# We assume the file name convention:
+#    FILE.v      ... source Verilog file
+#    FILE_tb.v   ... testbench file
+#    FILE_tb     ... simulatable file
+#    FILE_tb.vcd ... value change dump file as a result of the simulation   
+%_tb.vcd: %.v %_tb.v
+	iverilog -o $*_tb $^
+	vvp $*_tb
+
+# Case 2: No separate testbench, just one verilog source file:
+# We assume the file name convention:
+#    FILE.v    ... source Verilog file
+#    FILE      ... simulatable file
+#    FILE.vcd  ... value change dump file as a result of the simulation   
+%.vcd: %.v
+	iverilog -o $* $^ $(SimSrc)
+	vvp $*
+
+%.json: %.v
+	yosys $(QFLAG) -p "read_verilog $<; opt; synth_ice40; write_json $@;"
+

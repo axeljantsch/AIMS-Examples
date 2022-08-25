@@ -1,0 +1,229 @@
+# -*- mode: makefile -*-
+
+.DEFAULT_GOAL := helpc
+.PHONY: helpc wave
+
+# This makefile generates a report table with the help of a script and
+# copies the resulting Latex file to the target directory.
+
+
+# ----------------------------------
+# Setup of variables:
+# ----------------------------------
+
+SHELL = /bin/sh
+
+# ----------------------------------
+# Verilog simulation:
+# ----------------------------------
+SimSrc := multiplierCarry-Pipelined-0.v multiplierCarry-Pipelined-h.v
+
+# We have one testbench:
+SimTbn := $(SimSrc:.v=_tb.v)
+
+vcdFiles :=   $(SimTbn:.v=.vcd)
+
+SimMan := 
+SimGen := $(vcdFiles)
+SimRes = $(SimSrc) 
+
+# Can be cleaned up:
+SimCln = $(vcdFiles) $(SimTbn:.v=)
+
+# ---------------------------------
+# Yosys synthesis and P&R:
+# ---------------------------------
+
+SynSrc := $(SimSrc)
+
+dotFiles := *.dot
+tirepFiles := *.tirep
+synDirs := Pipelined-*
+
+SynGen := $(dotFiles)
+SynRes := $(SynGen)
+SynCln := $(SynGen) $(SynRes) $(dotfiles) $(tirepFiles)
+SynDCln := $(synDirs)
+
+# ---------------------------------
+# Reporting:
+# ---------------------------------
+
+tableLP8KP0csv := multiplierCarry-LP8KP0.csv
+tableLP8KP0tex := multiplierCarry-LP8KP0.tex
+tableLP8KPhcsv := multiplierCarry-LP8KPh.csv
+tableLP8KPhtex := multiplierCarry-LP8KP.tex
+
+tableOSU018P0csv := multiplierCarry-OSU018P0.csv
+tableOSU018P0tex := multiplierCarry-OSU018P0.tex
+tableOSU018Phcsv := multiplierCarry-OSU018Ph.csv
+tableOSU018Phtex := multiplierCarry-OSU018P.tex
+
+RepRes := $(tableLP8KP0csv) $(tableLP8KP0tex) $(tableLP8KPhcsv) $(tableLP8KPhtex)\
+	  $(tableOSU018P0csv) $(tableOSU018P0tex) $(tableOSU018Phcsv) $(tableOSU018Phtex)
+
+
+RepCln := *.txt 
+
+# Source files:
+AllSrc := $(SimSrc) $(SimTbn)
+
+# ---------------------------------
+# Scripts and other files:
+# ---------------------------------
+
+# Script to compile and display the Latex table:
+showLatexScript=showLatexFile.sh
+
+# Script for displaying the table in various formats:
+showTable=pptable.py 
+
+RepSpt := $(showTable) $(showLatexScript)
+
+synrepScript := mkFiguresAndTablesCh05.sh
+
+SynSpt := $(synrepScript)
+
+
+AllSpt := $(SynSpt) $(RepSpt)
+
+# ---------------------------------
+# Files to clean:
+# ---------------------------------
+AllCln := $(SimCln) $(SynCln) $(RepCln)
+AllDCln := $(SynDCln)
+
+# -----------------------------------------------------------------------------------------
+#
+# Interface variables to the main Makefile.
+# The following variables are used by the main Makefile.
+#
+# -----------------------------------------------------------------------------------------
+
+# Files to copy to the Latex production directories:
+AllRes := $(SimRes) $(SynRes) $(RepRes)
+
+# Files to copy to the Github repository:
+src4GitFiles := $(AllSrc) Makefile MakefileComp Makefile.template
+
+# -----------------------------------------------------------------------------------------
+# End of interface variables.
+# -----------------------------------------------------------------------------------------
+
+# ---------------------------------
+# Specific rules:
+# ---------------------------------
+
+simResult:
+
+sim: $(vcdFiles)     ### Simulate
+
+wave: simResult            ### View simulation waveforms
+	@for f in $(vcdFiles); do gtkwave -S $(viewsigsTcl) $$f & done
+
+# ---------------------------------
+# Table generation:
+# ---------------------------------
+
+tableLP8KP0:                 ### Make a table for LP8K technology without pipelining
+	for p in 0; \
+	do rm -rf Pipelined-$$p; \
+	   mkdir -p Pipelined-$$p; \
+	   cp multiplierCarry-Pipelined-$${p}.v Pipelined-$${p};\
+	   done; 
+	$(ScriptDir)/$(synrepScript) -N multiplierCarry -yp -b 4,8,16,32 -T lp8k -P 0 -R -F 1-8;
+	mv multiplierCarry-table.csv $(tableLP8KP0csv);
+	mv multiplierCarry-textable.tex $(tableLP8KP0tex);
+
+tableLP8KPh:                 ### Make a table for LP8K technology with one pipeline stage
+	for p in 0 h; \
+	do rm -rf Pipelined-$$p; \
+	   mkdir -p Pipelined-$$p; \
+	   cp multiplierCarry-Pipelined-$${p}.v Pipelined-$${p};\
+	   done; 
+	$(ScriptDir)/$(synrepScript) -N multiplierCarry -yp -b 4,8,16,32 -T lp8k -P h -R -F 1-8;
+	mv multiplierCarry-table.csv $(tableLP8KPhcsv);
+	mv multiplierCarry-textable.tex $(tableLP8KPhtex);
+
+tableOSU018P0:                 ### Make a table for OSU018 technology without pipelining
+	for p in 0; \
+	do rm -rf Pipelined-$$p; \
+	   mkdir -p Pipelined-$$p; \
+	   cp multiplierCarry-Pipelined-$${p}.v Pipelined-$${p};\
+	   done; 
+	$(ScriptDir)/$(synrepScript) -N multiplierCarry -yp -b 4,8,16,32 -T osu018 -P 0 -R -F 1-8;
+	mv multiplierCarry-table.csv $(tableOSU018P0csv);
+	mv multiplierCarry-textable.tex $(tableOSU018P0tex);
+
+tableOSU018Ph:                 ### Make a table for OSU018 technology with one pipeline stage
+	for p in 0 h; \
+	do rm -rf Pipelined-$$p; \
+	   mkdir -p Pipelined-$$p; \
+	   cp multiplierCarry-Pipelined-$${p}.v Pipelined-$${p};\
+	   done; 
+	$(ScriptDir)/$(synrepScript) -N multiplierCarry -yp -b 4,8,16,32 -T osu018 -P h -R -F 1-8;
+	mv multiplierCarry-table.csv $(tableOSU018Phcsv);
+	mv multiplierCarry-textable.tex $(tableOSU018Phtex);
+
+repResult: tableLP8KP0 tableLP8KPh tableOSU018P0 tableOSU018Ph   ### Generate all four tables for the Book
+
+
+# ---------------------------------
+# Yosys synthesis:
+# ---------------------------------
+
+synResult:
+
+syn: $(dotFiles) ### Optimize and generate dot files
+
+%.dot: %.v   
+	stem=`basename $@ .dot`; \
+	yosys -q -p "read_verilog $<; \
+                  synth_ice40; opt -purge; \
+                  show -notitle -format dot -prefix $${stem};"
+
+%-synth.v: %.v  
+	yosys -q -p "read_verilog $<; \
+		synth_ice40; opt -purge; \
+		write_verilog $@;"
+
+%-lut.tex: %-synth.v  
+	awk -v latex=1 -f lut2tt.awk < $< > $@
+
+%.json: %.v
+	yosys $(QFLAG) -p "read_verilog $<; opt; synth_ice40; write_json $@;"
+
+helpc:
+
+
+# =================================
+# Generic rules:
+# =================================
+
+# ---------------------------------
+# Verilog simulation:
+# ---------------------------------
+# We have two cases, one with separate testbench file and one without.
+#
+# Case 1: Separate testbench:
+# We assume the file name convention:
+#    FILE.v      ... source Verilog file
+#    FILE_tb.v   ... testbench file
+#    FILE_tb     ... simulatable file
+#    FILE_tb.vcd ... value change dump file as a result of the simulation   
+%_tb.vcd: %.v %_tb.v
+	iverilog -o $*_tb $^
+	vvp $*_tb
+
+# Case 2: No separate testbench, just one verilog source file:
+# We assume the file name convention:
+#    FILE.v    ... source Verilog file
+#    FILE      ... simulatable file
+#    FILE.vcd  ... value change dump file as a result of the simulation   
+%.vcd: %.v
+	iverilog -o $* $^ $(SimSrc)
+	vvp $*
+
+%.json: %.v
+	yosys $(QFLAG) -p "read_verilog $<; opt; synth_ice40; write_json $@;"
+
