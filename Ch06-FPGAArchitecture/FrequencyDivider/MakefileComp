@@ -26,7 +26,7 @@ waveFiles :=
 
 SimMan := $(waveFiles)
 SimGen := $(vcdFiles)
-SimRes = $(SimSrc) 
+SimRes = $(SimSrc) $(SimTbn)
 
 # Can be cleaned up:
 SimCln = $(vcdFiles) $(SimTbn:.v=)
