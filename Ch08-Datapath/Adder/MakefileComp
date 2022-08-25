@@ -1,0 +1,132 @@
+# -*- mode: makefile -*-
+
+.DEFAULT_GOAL := helpc
+.PHONY: helpc wave
+
+# This makefile generates a report table with the help of a script and
+# copies the resulting Latex file to the target directory.
+
+
+# ----------------------------------
+# Setup of variables:
+# ----------------------------------
+
+SHELL = /bin/sh
+
+# ----------------------------------
+# Verilog simulation:
+# ----------------------------------
+SimSrc := RippleAdder.v LookaheadAdder.v BehaviourAdder.v
+
+# We have one testbench:
+SimTbn :=  Adder_tb.v
+
+vcdFiles := $(SimTbn:.v=.vcd)
+
+SimMan := 
+SimGen := $(vcdFiles)
+SimRes = $(SimSrc) $(SimTbn)
+
+# Can be cleaned up:
+SimCln = $(vcdFiles) $(SimTbn:.v=)
+
+# ---------------------------------
+# Yosys synthesis and P&R:
+# ---------------------------------
+
+SynSrc := $(SimSrc)
+
+vGenFiles := $(SynSrc:.v=-4b.v) $(SynSrc:.v=-8b.v) $(SynSrc:.v=-16b.v) $(SynSrc:.v=-32b.v) $(SynSrc:.v=-64b.v) 
+dotFiles := *.dot
+tirFiles := *.tir
+ascFiles := *.asc
+rerFiles := *.rer
+jsonFiles := *.json
+
+SynGen := $(vGenFiles) $(dotFiles) $(tirFiles) $(ascFiles) $(rerFiles) $(jsonFiles)
+SynRes := 
+SynCln := $(SynGen) 
+SynDCln := 
+
+# ---------------------------------
+# Reporting:
+# ---------------------------------
+
+csvFiles := $(SynSrc:.v=-allb-summarytable.csv)
+RepGen := ReportSummary.txt ReportSummary.csv
+RepRes := $(csvFiles)
+RepCln := $(RepGen)
+
+# Source files:
+AllSrc := $(SimSrc) $(SimTbn)
+
+# ---------------------------------
+# Scripts and other files:
+# ---------------------------------
+
+# Script to compile and display the Latex table:
+mkRep := mkFiguresAndTablesCh08.sh
+
+# Script for displaying the table in various formats:
+showTable=pptable.py 
+
+RepSpt := $(showTable) $(mkRep)
+
+SynSpt := 
+
+
+AllSpt := $(RepSpt)
+
+# ---------------------------------
+# Files to clean:
+# ---------------------------------
+AllCln := $(SimCln) $(SynCln) $(RepCln)
+AllDCln := $(SynDCln)
+
+# -----------------------------------------------------------------------------------------
+#
+# Interface variables to the main Makefile.
+# The following variables are used by the main Makefile.
+#
+# -----------------------------------------------------------------------------------------
+
+# Files to copy to the Latex production directories:
+AllRes := $(SimRes) $(SynRes) $(RepRes)
+
+# Files to copy to the Github repository:
+src4GitFiles := $(AllSrc) Makefile MakefileComp
+
+# -----------------------------------------------------------------------------------------
+# End of interface variables.
+# -----------------------------------------------------------------------------------------
+
+# ---------------------------------
+# Specific rules:
+# ---------------------------------
+
+simResult: $(vcdFiles)     ### Simulate the adder
+
+$(vcdFiles): $(SimTbn) $(SimSrc) 
+	iverilog -o $@ $^  
+	vvp $@
+
+# ---------------------------------
+# Table generation:
+# ---------------------------------
+
+
+repResult: $(RepRes)                         ### Generate all tables for the adder
+
+%-allb-summarytable.csv: %.v                 ### Generate three csv filles for the three adders
+	$(ScriptDir)/$(mkRep) -b 4,8,16,32,64 -ypr $<; \
+	cp ReportSummary.csv $@
+
+# ---------------------------------
+# Yosys synthesis:
+# ---------------------------------
+
+synResult: 
+
+helpc:
+
+

@@ -17,14 +17,14 @@ module Adder_tb;
    
   initial begin
       $dumpfile("Adder_tb.vcd");
+     $dumpvars(0,Adder_tb);
       // for (idx=1; idx<=N; idx=idx+1) begin
       // 	 $dumpvars(0,Adder_tb.uutcla.parOr[idx]);
       // end
-     $dumpvars(0,Adder_tb.uutcla.parOr[1]);
-     $dumpvars(0,Adder_tb.uutcla.parOr[2]);
-     $dumpvars(0,Adder_tb.uutcla.parOr[3]);
-     $dumpvars(0,Adder_tb.uutcla.parOr[4]);
-     $dumpvars(0,Adder_tb);
+     // $dumpvars(0,Adder_tb.uutcla.parOr[1]);
+     // $dumpvars(0,Adder_tb.uutcla.parOr[2]);
+     // $dumpvars(0,Adder_tb.uutcla.parOr[3]);
+     // $dumpvars(0,Adder_tb.uutcla.parOr[4]);
       
       #1   a = 0;  b= 0;
       #10  a = 15; b= 13;
