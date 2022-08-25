@@ -1,0 +1,142 @@
+# -*- mode: makefile -*-
+
+.DEFAULT_GOAL := helpc
+.PHONY: helpc wave
+
+# This makefile generates a report table with the help of a script and
+# copies the resulting Latex file to the target directory.
+
+
+# ----------------------------------
+# Setup of variables:
+# ----------------------------------
+
+SHELL = /bin/sh
+
+# ----------------------------------
+# Verilog simulation:
+# ----------------------------------
+SimSrc :=  GWA_Mealy.v  GWA_Mealy_v2.v  GWA_Moore.v  GWA_Moore_v2.v
+
+# We have one testbench:
+SimTbn :=  GWA_tb.v
+
+vcdFiles := $(SimTbn:.v=.vcd)
+
+pngFiles := GWA_Mealy-sim.png GWA_Mealy_v2-sim.png GWA_Moore-sim.png GWA_Moore_v2-sim.png
+
+SimMan := 
+SimGen := $(vcdFiles) $(SimTbn:.v=)
+SimRes =  $(SimSrc) $(SimTbn) $(pngFiles)
+
+# Can be cleaned up:
+SimCln = $(vcdFiles) $(SimTbn:.v=)
+
+# ---------------------------------
+# Yosys synthesis and P&R:
+# ---------------------------------
+
+SynSrc := $(SimSrc)
+
+dotFiles := $(SynSrc:.v=-one-hot-fsm.dot) $(SynSrc:.v=-binary-fsm.dot) \
+		$(SynSrc:.v=-one-hot-fsmopt.dot)  $(SynSrc:.v=-binary-fsmopt.dot)  \
+		$(SynSrc:.v=-one-hot-fsmsynth.dot) $(SynSrc:.v=-binary-fsmsynth.dot) 
+
+
+SynGen := $(dotFiles)
+SynRes := $(SynGen)
+SynCln := $(SynGen) 
+SynDCln := ScriptResults-binary ScriptResults-one-hot
+
+# ---------------------------------
+# Reporting:
+# ---------------------------------
+texFiles := GWA-Synth-one-hot-ReportTable.tex GWA-PnR-one-hot-ReportTable.tex \
+		GWA-Synth-binary-ReportTable.tex GWA-PnR-binary-ReportTable.tex
+
+txtFiles := $(SynSrc:.v=-one-hot-fsm.txt) $(SynSrc:.v=-binary-fsm.txt)\
+		$(SynSrc:.v=-one-hot-synth.txt) $(SynSrc:.v=-binary-synth.txt)
+
+RepGen := $(texFiles) $(txtFiles)
+RepRes := $(texFiles)
+RepCln := $(txtFiles)
+
+# Source files:
+AllSrc := $(SimSrc) $(SimTbn)
+
+# ---------------------------------
+# Scripts and other files:
+# ---------------------------------
+
+# Script to compile and display the Latex table:
+mkRep := mkFiguresAndTablesCh09.sh
+
+
+# Script for displaying the table in various formats:
+showTable=pptable.py 
+
+RepSpt := $(mkRep) 
+
+SynSpt :=   synthCustom.yosys extractInfoPart.sh getfsmio.awk kiss2dot.py
+
+
+AllSpt := $(SynSpt)
+
+# ---------------------------------
+# Files to clean:
+# ---------------------------------
+AllCln := $(SimCln) $(SynCln) $(RepCln)
+AllDCln := $(SynDCln)
+
+# -----------------------------------------------------------------------------------------
+#
+# Interface variables to the main Makefile.
+# The following variables are used by the main Makefile.
+#
+# -----------------------------------------------------------------------------------------
+
+# Files to copy to the Latex production directories:
+AllRes := $(SimRes) $(SynRes) $(RepRes)
+
+# Files to copy to the Github repository:
+src4GitFiles := $(AllSrc) $(SynSpt) $(texFiles) Makefile MakefileComp
+
+# -----------------------------------------------------------------------------------------
+# End of interface variables.
+# -----------------------------------------------------------------------------------------
+
+# ---------------------------------
+# Specific rules:
+# ---------------------------------
+
+simResult: $(vcdFiles)     ### Simulate the GWA
+
+$(vcdFiles): $(SimTbn) $(SimSrc) 
+	iverilog -o $@ $^  
+	vvp $@
+
+# ---------------------------------
+# Table generation:
+# ---------------------------------
+
+
+repResult:
+
+# ---------------------------------
+# Yosys synthesis:
+# ---------------------------------
+
+synResult: $(SynRes)
+
+
+$(dotFiles) $(texFiles) $(txtFiles): $(srcSynFiles)   ### Synthesise GWA FSMs with one-hot and binary encodings using mkFiguresAndTables.sh
+	$(ScriptDir)/$(mkRep) -sr -E one-hot
+	mv GWA-Synth-ReportTable.tex GWA-Synth-one-hot-ReportTable.tex
+	mv GWA-PnR-ReportTable.tex GWA-PnR-one-hot-ReportTable.tex
+	$(ScriptDir)/$(mkRep) -sr -E binary
+	mv GWA-Synth-ReportTable.tex GWA-Synth-binary-ReportTable.tex
+	mv GWA-PnR-ReportTable.tex GWA-PnR-binary-ReportTable.tex
+
+helpc:
+
+

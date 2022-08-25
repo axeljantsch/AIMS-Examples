@@ -9,10 +9,10 @@ module GWA_tb ();
    reg integer cnt=0, cnte=0, cntm=0;
    reg integer wtseen=0;
       
-   // GWA_Mealy uutgwmealy1 (clk, rst, EU1, EU2, WT, C10_O, C20_O, EU1_O, EU2_O);
+   //GWA_Mealy uutgwmealy1 (clk, rst, EU1, EU2, WT, C10_O, C20_O, EU1_O, EU2_O);
    // GWA_Mealy_v2 uutgwmealy2 (clk, rst, EU1, EU2, WT, C10_O, C20_O, EU1_O, EU2_O);
    // GWA_Moore uutgwmoore1 (clk, rst, EU1, EU2, WT, C10_O, C20_O, EU1_O, EU2_O);
-   GWA_Moore_v2 uutgwmoore2 (clk, rst, EU1, EU2, WT, C10_O, C20_O, EU1_O, EU2_O);
+    GWA_Moore_v2 uutgwmoore2 (clk, rst, EU1, EU2, WT, C10_O, C20_O, EU1_O, EU2_O);
    always #50 clk = ~clk;  
 
    initial begin
@@ -94,9 +94,9 @@ module GWA_tb ();
    // Check balance: We check at falling edge of the WT key:
    always @(negedge WT) begin
       if (cnt != 0)
-	$display ("*** Error at %0t: Balance is not 0, but %3d.", $time, cnt);
+	$display ("*** Warning at %0t: Balance is not 0, but %3d.", $time, cnt);
       if (cnte != 0)
-	$display ("*** Error at %0t: Edge balance is not 0, but %3d.", $time, cnte);
+	$display ("*** Warning at %0t: Edge balance is not 0, but %3d.", $time, cnte);
    end
    
    // Check balance delayed: We check at falling edge of the WT key,
@@ -110,9 +110,9 @@ module GWA_tb ();
 	wtseen = 3;
       else if (wtseen == 3) begin
 	 if (cnt != 0)
-	   $display ("*** Error at %0t: Delayed balance is not 0, but %3d.", $time, cnt);
+	   $display ("*** Warning at %0t: Delayed balance is not 0, but %3d.", $time, cnt);
 	 if (cnte != 0)
-	   $display ("*** Error at %0t: Delayed edge balance is not 0, but %3d.", cnte);
+	   $display ("*** Warning at %0t: Delayed edge balance is not 0, but %3d.", cnte);
 	 wtseen = 0;
       end
    end // always @ (posedge clk)
