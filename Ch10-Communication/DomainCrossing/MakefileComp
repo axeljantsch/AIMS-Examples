@@ -1,0 +1,93 @@
+# -*- mode: makefile -*-
+
+.DEFAULT_GOAL := help
+.PHONY: helpc wave
+
+# This makefile generates a report table with the help of a script and
+# copies the resulting Latex file to the target directory.
+
+
+# ----------------------------------
+# Setup of variables:
+# ----------------------------------
+
+SHELL = /bin/sh
+
+# ----------------------------------
+# Verilog simulation:
+# ----------------------------------
+SimSrc :=  shortener.v  StretcherSync.v stretcher.v  sync.v
+
+# We have one testbench:
+SimTbn := $(SimSrc:.v=_tb.v)
+
+vcdFiles :=   $(SimTbn:.v=.vcd)
+waveFiles :=  
+
+pngFiles := StretcherSync-sim.png
+
+SimMan := $(waveFiles)
+SimGen := $(vcdFiles)
+SimRes = $(SimSrc) $(SimTbn) $(pngFiles)
+
+# Can be cleaned up:
+SimCln = $(vcdFiles) $(SimTbn:.v=)
+
+# ---------------------------------
+# Yosys synthesis:
+# ---------------------------------
+
+SynSrc := 
+
+dotFiles := 
+
+SynGen := 
+SynRes := 
+SynCln := 
+
+
+# Source files:
+AllSrc := $(SimSrc) $(SimTbn)
+
+# ---------------------------------
+# Scripts and other files:
+# ---------------------------------
+
+# ---------------------------------
+# Files to clean:
+# ---------------------------------
+AllCln := $(SimCln) $(SynCln)
+
+# -----------------------------------------------------------------------------------------
+#
+# Interface variables to the main Makefile.
+# The following variables are used by the main Makefile.
+#
+# -----------------------------------------------------------------------------------------
+
+# Files to copy to the Latex production directories:
+AllRes := $(SimRes) $(SynRes)
+
+# Files to copy to the Github repository:
+src4GitFiles := $(AllRes) Makefile MakefileComp
+
+# -----------------------------------------------------------------------------------------
+# End of interface variables.
+# -----------------------------------------------------------------------------------------
+
+# ---------------------------------
+# Specific rules:
+# ---------------------------------
+
+simResult: $(vcdFiles)     ### Simulate
+
+# ---------------------------------
+# Yosys synthesis:
+# ---------------------------------
+
+synResult: $(dotFiles) 
+
+repResult:       
+
+helpc:
+
