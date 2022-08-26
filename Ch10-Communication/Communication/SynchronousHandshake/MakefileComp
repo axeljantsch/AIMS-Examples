@@ -98,7 +98,10 @@ tst:
 
 sim: $(vcdFile)           ### Generate vcd files
 
-waves:  $(pngFiles)       ### Generate waveforms, which still requires a screen shot
+waves:  $(vcdFile) waves2 wavegen     ### Generate waveforms, which still requires a screen shot
+
+waves2:
+	$(eval vcdfile := $(vcdFile))
 
 genvcdfile:                   ### Print name of generated vcd file
 	@echo $(vcdFile)
