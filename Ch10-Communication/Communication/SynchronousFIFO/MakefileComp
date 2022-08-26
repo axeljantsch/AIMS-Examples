@@ -56,7 +56,7 @@ vGenFiles :=  ScenarioGeneration.v ReportComm.v
 
 SimTbn := $(tbFile)
 
-SimGen = $(vcdFile) $(tbFile:.v=) $(vGenFiles) $(txtFiles) $(pngFiles) 
+SimGen = $(vcdFile) $(tbFile:.v=) $(vGenFiles) $(txtFiles)
 
 SimSpt := $(tclFiles) 
 SimCln := $(SimGen) 
