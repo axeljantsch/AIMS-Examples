@@ -16,13 +16,9 @@ SHELL = /bin/sh
 # ----------------------------------
 # Even though this is handled like a leaf directory, it has sub-directories:
 # ----------------------------------
-directories := AsynchronousHandshake DomainCrossing SynchronousFIFO \
+directories := AsynchronousHandshake SynchronousFIFO \
 	       SynchronousHandshake AsynchronousFIFO
 
-
-# Setting directories:
-#texdir    := $(texdirGBase)/`pwd | sed 's-/.*/--'`
-githubdir := $(githubdirBase)/`pwd | sed 's-/.*/--'`
 
 # ----------------------------------
 # Verilog simulation:
@@ -174,6 +170,10 @@ cleanLoc:
 		do make -C $$d clean;\
 		done
 
+copygitLoc:
+	for d in $(directories); \
+		do make -C $$d copygit;\
+		done;
 
 helpc:
 	@echo "Managed directories: ";      echo $(directories) | $(colfmt); echo " ";

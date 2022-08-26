@@ -35,7 +35,7 @@ githubdir := $(githubdirBase)/Ch$(chapter)/Communication/`pwd | sed 's-/.*/--'`
 SimSrc :=  GrayCounter.v AsyncFIFO.v
 
 tbFile :=  AsyncFIFO_tb.v
-tbFiles2 :=  ScenarioGeneration.v ReportComm.v
+vGenFiles :=  ScenarioGeneration.v ReportComm.v
 tbFiles3 := GrayCounter_tb.v
 
 vcdFile :=   $(tbFile:.v=.vcd)
@@ -108,10 +108,11 @@ gencominfile:                   ### Print name of generated communication input 
 gencomoutfile:                  ### Print name of generated communication output file
 	@echo commOutputFile.txt
 
-$(tbFiles2): $(tbFiles2:%=../%)  ### Copy Verilog file for the testbench
+$(vGenFiles): $(vGenFiles:%=../%)  ### Copy Verilog file for the testbench
 	for f in $@; do cp ../$@ .; done
 
-$(vcdFile): $(tbFile) $(tbFiles2) $(SimSrc)    ### Compile and simulate one Scenario
+
+$(vcdFile): $(tbFile) $(vGenFiles) $(SimSrc)    ### Compile and simulate one Scenario
 	stem=`basename $< .v`; \
 	case $(scenario) in \
 		Z) scen=0;; \

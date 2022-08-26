@@ -1,7 +1,7 @@
 
 
 # Common setups for all Makefiles like variables for target directories:
-include ../ETC/setup.mk
+include ../../ETC/setup.mk
 
 # Set chapter:
 chapter := 10-Communication
