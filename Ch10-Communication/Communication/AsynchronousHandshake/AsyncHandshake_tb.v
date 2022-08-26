@@ -1,5 +1,3 @@
-// Source file: $HOME/developments/Verilog-Projects/AIMS-Book-Examples/Ch10-Communication/Communication/AsynchronousHandshake/AsyncHandshake_tb.v
-// Copied on Fri Aug 26 08:07:35 CEST 2022
 
 `timescale 1ns/100ps
 

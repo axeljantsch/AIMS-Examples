@@ -7,7 +7,7 @@ include ../../../ETC/setup.mk
 chapter := 10-Communication
 
 # Use the template for for leafe directories:
-# include $(MkBase)/LeafTemplate.mk
+include $(MkBase)/LeafTemplate.mk
 
 # Specific, local Makefile:
 include MakefileComp

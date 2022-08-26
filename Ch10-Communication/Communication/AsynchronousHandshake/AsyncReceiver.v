@@ -1,5 +1,3 @@
-// Source file: $HOME/developments/Verilog-Projects/AIMS-Book-Examples/Ch10-Communication/Communication/AsynchronousHandshake/AsyncReceiver.v
-// Copied on Fri Aug 26 08:07:35 CEST 2022
 
 module AsyncReceiver (clk, rst, rqst, en, BusData, ack, dout);
    parameter B = 4;
