@@ -1,0 +1,134 @@
+# -*- mode: makefile -*-
+
+.DEFAULT_GOAL := help
+.PHONY: help
+
+# This makefile handles one specific out of several possible scenarios.
+# The variables scenario and clkscenario define the scenario to be handled.
+# Setting this variable to different values from the command line when invoking make will target a
+#   corresponding scenario.
+# possible value for clkscenario is only 10; For asynchronous designs we may have other values also.
+# possible values for scenario:
+
+scenarios := A B C D E Z  ## Possible scenarios
+clkscenario := 10         ## Script parameter for receiver clock half-period to be set
+scenario := A             ## Script parameter to be set
+
+# In the above Make includes trailing spaces in the varialbles, we strip those spaces:
+scenarios   := $(strip $(scenarios))
+clkscenario := $(strip $(clkscenario))
+scenario    := $(strip $(scenario))
+
+# A setup is a combination of scenario and receiver clock:
+# Setup 1 = scenario=Z, clkr = 10
+# Setup 2 = scenario=Z, clkr = 17
+# Setup 3 = scenario=A, clkr = 17
+# Setup 4 = scenario=A, clkr =  4
+
+# Setting directories:
+texdir1 := $(texdirGBase)/$(chapter)
+githubdir := $(githubdirBase)/Ch$(chapter)/Communication/`pwd | sed 's-/.*/--'`
+
+# ----------------------------------
+# Verilog simulation:
+# ----------------------------------
+SimSrc :=  GrayCounter.v AsyncFIFO.v
+
+tbFile :=  AsyncFIFO_tb.v
+tbFiles2 :=  ScenarioGeneration.v ReportComm.v
+tbFiles3 := GrayCounter_tb.v
+
+vcdFile :=   $(tbFile:.v=.vcd)
+
+tclFiles0 :=  scenario-Gen.tcl
+tclFiles := $(tclFiles0)
+genTclFiles := 
+
+txtFiles := commInputFile.txt commOutputFile.txt
+
+pngFile1 := $(vcdFile:.vcd=-$(scenario).png)
+
+vGenFiles :=  ScenarioGeneration.v ReportComm.v
+
+SimTbn := $(tbFile) $(tbFiles3)
+
+SimGen = $(vcdFile) $(vcdFile:.vcd=) $(vGenFiles) $(txtFiles) $(pngFile1) 
+
+SimSpt := $(tclFiles) 
+SimCln := $(SimGen) $(tbFile:.v=)
+SimRes := $(SimSrc) $(SimTbn) 
+
+# ---------------------------------
+# Yosys synthesis:
+# ---------------------------------
+
+SynSrc := 
+
+dotFiles := 
+
+csvFiles := 
+
+texFiles := 
+
+genSynFiles := 
+
+resultSynFiles := $(genSynFiles)
+
+# ---------------------------------
+# Scripts and other files:
+# ---------------------------------
+AllSpt = $(SimSpt)
+
+# ---------------------------------
+# Files to copy and clean:
+# ---------------------------------
+AllRes = $(SimRes) $(resultSynFiles)
+# Files to copy to the Github repository:
+src4GitFiles := $(AllRes) $(AllSpt) Makefile MakefileComp
+
+AllCln := $(SimCln)
+
+# =================================
+# =================================
+# Verilog simulation:
+# =================================
+# =================================
+
+# ---------------------------------
+# Specific rules:
+# ---------------------------------
+sim: $(vcdFile)           ### Generate vcd files
+
+waves:  $(pngFile1)       ### Generate waveforms, which still requires a screen shot
+
+genvcdfile:                   ### Print name of generated vcd file
+	@echo $(vcdFile)
+gencominfile:                   ### Print name of generated communication input file
+	@echo commInputFile.txt
+gencomoutfile:                  ### Print name of generated communication output file
+	@echo commOutputFile.txt
+
+$(tbFiles2): $(tbFiles2:%=../%)  ### Copy Verilog file for the testbench
+	for f in $@; do cp ../$@ .; done
+
+$(vcdFile): $(tbFile) $(tbFiles2) $(SimSrc)    ### Compile and simulate one Scenario
+	stem=`basename $< .v`; \
+	case $(scenario) in \
+		Z) scen=0;; \
+		A) scen=1;; \
+		B) scen=2;; \
+		C) scen=3;; \
+		D) scen=4;; \
+		E) scen=5;; \
+		esac; \
+	iverilog -P$${stem}.scenario=$$scen \
+		 -P$${stem}.receiverclock=$(clkscenario)\
+		 -o $${stem}  $^ ;\
+	vvp $${stem}
+
+$(pngFile1): $(vcdFile) scenario-Gen.tcl    ### Generate waveforms, which still requires a screen shot
+	gtkwave -S scenario-Gen.tcl $<
+	echo "You have to make a screen snapshot and store it in file $@!"
+
+helpc:
+
