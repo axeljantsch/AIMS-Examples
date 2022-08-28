@@ -1,0 +1,75 @@
+# -*- mode: makefile -*-
+
+.DEFAULT_GOAL := help
+
+# This makefile generates a report table with the help of a script and
+# copies the resulting Latex file to the target directory.
+
+
+# ----------------------------------
+# Setup of variables:
+# ----------------------------------
+
+SHELL = /bin/sh
+
+# ----------------------------------
+# Verilog simulation:
+# ----------------------------------
+SimSrc :=
+
+# We have one testbench:
+SimTbn :=
+
+SimMan := 
+SimGen := 
+SimRes = 
+
+# Can be cleaned up:
+SimCln = 
+
+# ---------------------------------
+# Yosys synthesis:
+# ---------------------------------
+
+SynSrc := 
+
+dotFiles := 
+
+SynGen := 
+SynRes := 
+SynCln := 
+
+
+# Source files:
+AllSrc := 
+
+# ---------------------------------
+# Scripts and other files:
+# ---------------------------------
+
+AllSpt := colFmt.sh     mkFiguresAndTablesCh05.sh pptable.py showLatexFile.sh  viewall.tcl\
+	  cpanotate.sh  mkFiguresAndTablesCh08.sh synthgscl45script.yosys \
+	  lut2tt.awk    mkFiguresAndTablesCh09.sh synthscript.abc
+
+
+# ---------------------------------
+# Files to clean:
+# ---------------------------------
+AllCln := 
+
+# -----------------------------------------------------------------------------------------
+#
+# Interface variables to the main Makefile.
+# The following variables are used by the main Makefile.
+#
+# -----------------------------------------------------------------------------------------
+
+# Files to copy to the Latex production directories:
+AllRes := 
+
+# Files to copy to the Github repository:
+src4GitFiles := $(AllSpt) Makefile MakefileComp
+
+# -----------------------------------------------------------------------------------------
+# End of interface variables.
+# -----------------------------------------------------------------------------------------
