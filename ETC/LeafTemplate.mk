@@ -2,68 +2,6 @@
 
 .PHONY: help
 
-# ----------------------
-# There are 3 Makefile used wiht different purpose:
-#   setup.make in the ETC directory that sets variables common to all the Makefiles in
-#              the chapters.
-#   MakefileComp is responsible for simulation, compilation, synthesis and making the reports.
-#                It is copied as Makefile to the Github directory
-#   Makefile   (this file) incluces the other two Makefiles and in addition
-#              manages the copying of files to the Latex production directories (Book and Slides)
-#              and to the Github directory for publication.
-# -----------------------
-
-# ---------------------------------
-# Variable name conventions:
-# --------------------------------
-#
-# We have Activities, which are
-# - Simulation  (Sim)
-# - Synthesis   (Syn)
-# - PnR         (PnR)
-# - Reporting   (Rep)
-# - All         (All)  ... a meta activity which includes all other activities
-#
-# In Activity we have the following file categories:
-# - Source      (Src)
-# - Testbench   (Tbn)
-# - Scripts     (Spt)
-# - Generated   (Gen)
-# - Manual      (Man)
-# - Result      (Res)
-# - ToBeCleaned (Cln)
-#
-# Naming confentions of variables for files:
-# The variable name consists two parts: ActCat,
-# where each part is a 3 letter acronym shown above in brackets.
-# E.g. SimSrc  are the simulation source files.
-#
-# Then there are particular, temporary variable names that are used in each activity;
-# But the above variable names are standardized and used in the generic Makefiles.
-
-# ----------------------------------
-# Target name conventions:
-# ----------------------------------
-# There are a set of generic targets, provided in the template file,
-# that call specific targets from the MkefileComp files.
-# The generic targets are
-# 
-# copy    ... copying files to the book and slide directories
-# copygit ... copying files to the public git repository
-# cmp     ... checks the copy results.
-#             It compares the files from the target directory with the current result files
-#             and reports differences if any.
-# clean   ... removes all files in the AllCln variable
-# help    ... Displays a help text. It calls two sub-targets: helpc and helpd
-# helpd   ... The generic help text
-# results ... Calls the specific targets simResult, synResult, repResult
-#
-# The specific targets expected to exist in the specific MakefileComp files are:
-# helpc
-# simResult
-# synResult
-# repResult
-
 # ----------------------------------
 # Setup of variables:
 # ----------------------------------
@@ -73,7 +11,8 @@
 
 # Setting directories:
 texdir1 := $(texdirGBase)/$(chapter)
-githubdir := $(githubdirBase)/Ch$(chapter)/`pwd | sed 's-/.*/--'`
+chdir   := $(if $(chapter),Ch$(chapter)/)
+githubdir := $(githubdirBase)/$(chdir)`pwd | sed 's-/.*/--'`
 
 
 # -----------------------------------------------------------------------------------------#
@@ -111,11 +50,12 @@ githubdir := $(githubdirBase)/Ch$(chapter)/`pwd | sed 's-/.*/--'`
 result: simResult synResult repResult  ## Generate simulation, synthesis results and reports
 
 # Copy all result files to target directory, where they are needed:
-copy: $(AllRes)  ## Copy result files to book chapter
+copy: copyLoc $(AllRes)  ## Copy result files to book chapter
 	$(cpcmnd)  $(AllRes) \
 		   $(texdir1)
+copyLoc:
 
-copygit: $(src4GitFiles)      ## Copy result files to the github repository
+copygit: copygitLoc $(src4GitFiles)      ## Copy result files to the github repository
 	@isR=0; \
 	if [ "_$(src4GitFiles)" != "_" ]; \
 	then for f in $(src4GitFiles); \
@@ -131,6 +71,7 @@ copygit: $(src4GitFiles)      ## Copy result files to the github repository
 		cp  --parent --no-dereference $(src4GitFiles) $(githubdir); \
 	fi
 #	rsync -av --delete -i . $(githubdir)
+copygitLoc:
 
 # Test if source and target files are different:
 cmp:         ## Compare source and target files for book chapter with diff
@@ -146,10 +87,11 @@ cmp:         ## Compare source and target files for book chapter with diff
 	   done;\
 	true
 
-# Remove all result files:
-clean:                 ## Clean all generated files and emacs backup files (*~) and a.out
+# Remove temporary and result files:
+clean:  cleanLoc         ## Clean generated, temporary files and directories, emacs backup files (*~) and a.out
 	rm -f $(AllCln)  *~  a.out
-
+	rm -fr $(AllDCln)
+cleanLoc:
 
 help: helpc helpd        ## Show list of targets and managed files
 helpd:
@@ -162,13 +104,13 @@ helpd:
 	echo " "; \
 	echo "Specific Targets:"; \
 	grep -E '^.+:.*? ### .*$$' $(MAKEFILE_LIST) \
-	| sed -n 's/^\(.*\): \(.*\)###\(.*\)/\1#\2#\3/p' \
+	| sed -n 's/^\(.*\): \(.*\)###\(.*\)/\1#\3/p' \
 	| sed  's/^Makefile[a-zA-Z_-]*://' \
 	| sed -e 's/^/#   /' \
 	| column -t  -s '#'; \
 	echo " "; \
 	echo "Managed source files: "; echo $(AllSrc) | $(colfmt); echo " "; \
-	echo "Used scripts are: "; echo $(scriptFiles) | $(colfmt); echo " ";\
+	echo "Used scripts are: "; echo $(AllSpt) | $(colfmt); echo " ";\
 	echo "Result files: ";	echo $(AllRes) | $(colfmt); echo " "; \
 	echo "Files for Git repository: "; echo $(src4GitFiles) | $(colfmt); echo " "; \
 	echo "Target directories:"; echo "$(texdir1)\n$(githubdir)" \
@@ -177,3 +119,79 @@ helpd:
 	       /Github/ { gsub("^.*Github/", ""); \
                           print "  Github:|", $$0; }' \
 	| column -t -s "|";
+
+helpc:
+
+# =================================
+# Generic rules:
+# =================================
+
+# ---------------------------------
+# Verilog simulation:
+# ---------------------------------
+# We have two cases, one with separate testbench file and one without.
+#
+# Case 1: Separate testbench:
+# We assume the file name convention:
+#    FILE.v      ... source Verilog file
+#    FILE_tb.v   ... testbench file
+#    FILE_tb     ... simulatable file
+#    FILE_tb.vcd ... value change dump file as a result of the simulation   
+%_tb.vcd: %.v %_tb.v
+	iverilog -o $*_tb $^
+	vvp $*_tb
+
+# Case 2: No separate testbench, just one verilog source file:
+# We assume the file name convention:
+#    FILE.v    ... source Verilog file
+#    FILE      ... simulatable file
+#    FILE.vcd  ... value change dump file as a result of the simulation   
+%.vcd: %.v
+	iverilog -o $* $^ $(SimSrc)
+	vvp $*
+
+wavegen:             ## View simulation waveforms
+	@for f in $(vcdfile); do gtkwave -S $(viewsigsTcl) $$f & done
+
+waveall:             ## View simulation waveforms
+	@for f in *vcd; \
+	do if [ "$$f" \!= "*vcd" ];\
+	   then gtkwave -S $(viewsigsTcl) $$f;\
+	   fi;\
+	done
+
+
+# ---------------------------------
+# Yosys synthesis:
+# ---------------------------------
+
+%-opt.dot: %.v   ## Generate .dot file
+	stem=`basename $@ .dot`; \
+	yosys -q -p "read_verilog $<; \
+                  proc; opt; \
+                  show -notitle -format dot -prefix $${stem};"
+
+%-synth.dot: %.v   ## Synthesize and generate .dot file
+	stem=`basename $@ .dot`; \
+	yosys -q -p "read_verilog $<; \
+                  synth_ice40;  \
+                  show -notitle -format dot -prefix $${stem};"
+
+showDot:    ## Display the graphs from Yosys synthesis
+	@for f in *.dot; \
+	do if [ "_$$f" \!= "_*.dot" ];\
+	   then xdot $$f & \
+	   fi;\
+	done
+
+%-synth.v: %.v  ## Synthesize and generate synthesized Verilog file
+	yosys -q -p "read_verilog $<; \
+		synth_ice40; opt -purge; \
+		write_verilog $@;"
+
+%-lut.tex: %-synth.v  ## Generate lut tabel in tex format
+	awk -v latex=1 -f lut2tt.awk < $< > $@
+
+%.json: %.v
+	yosys $(QFLAG) -p "read_verilog $<; opt; synth_ice40; write_json $@;"
+
