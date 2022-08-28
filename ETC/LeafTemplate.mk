@@ -190,7 +190,7 @@ showDot:    ## Display the graphs from Yosys synthesis
 		write_verilog $@;"
 
 %-lut.tex: %-synth.v  ## Generate lut tabel in tex format
-	awk -v latex=1 -f lut2tt.awk < $< > $@
+	awk -v latex=1 -f $(lut2tt) < $< > $@
 
 %.json: %.v
 	yosys $(QFLAG) -p "read_verilog $<; opt; synth_ice40; write_json $@;"
