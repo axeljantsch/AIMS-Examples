@@ -27,7 +27,7 @@ vcdFiles :=   $(SimTbn:.v=.vcd)
 nltrFiles :=  $(SimTbn:.v=-trace.tex)
 
 SimMan := 
-SimGen := $(vcdFiles) $(nltrFiles)
+SimGen := $(vcdFiles) 
 SimRes = $(SimSrc)  $(SimSpt) $(nltrFiles)
 
 # Can be cleaned up:
@@ -79,14 +79,14 @@ src4GitFiles := $(AllSrc) Makefile MakefileComp
 # Specific rules:
 # ---------------------------------
 
-simResult: $(vcdFiles) $(nltrFiles)    ### Simulate and make nl traces
+simResult: $(vcdFiles)    ### Simulate 
 
 wave: simResult            ### View simulation waveforms
 	@for f in $(vcdFiles); do gtkwave -S $(viewsigsTcl) $$f & done
 
 sim: $(vcdFiles)                       ### Simulate
 
-trace: $(vcdFiles) $(nltrFiles)
+trace: $(vcdFiles) 
 
 # ---------------------------------
 # Yosys synthesis:
@@ -153,16 +153,6 @@ helpc:
 %.vcd: %.v
 	iverilog -o $* $^ $(SimSrc)
 	vvp $*
-
-%-trace.tex: %.vcd %.nlt
-	nltrace -s $*.nlt >/dev/null
-	sed -e 's/simSemantics\\_tb.uut.//' \
-	    -e 's/\[3:0\]//g' \
-	    -e '/href.*banner/d' \
-	    -e '/vertlines.*help lines/d' \
-	    -e '/horlines.*help lines/d' \
-	    $@ > tmp.tex
-	mv tmp.tex $@
 
 %.json: %.v
 	yosys $(QFLAG) -p "read_verilog $<; opt; synth_ice40; write_json $@;"
