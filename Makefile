@@ -1,12 +1,9 @@
 
 
 # Common setups for all Makefiles like variables for target directories:
-include ../ETC/setup.mk
+include ETC/setup.mk
 
-# Set chapter:
-chapter := 05-RTL
-
-# Use the template for for leafe directories:
+# Use the template for for directory with sub directories:
 include $(MkBase)/IntermediateTemplate.mk
 
 # Specific, local Makefile:

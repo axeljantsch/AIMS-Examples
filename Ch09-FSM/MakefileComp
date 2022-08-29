@@ -1,0 +1,12 @@
+# -*- mode: makefile -*-
+
+.DEFAULT_GOAL := help
+.PHONY: help
+
+# This makefile generates a report table with the help of a script and
+# copies the resulting Latex file to the target directory.
+
+directories :=  GW-Automat
+
+
+helpc:

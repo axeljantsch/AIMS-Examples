@@ -151,11 +151,9 @@ tableOSU018P0:                 ### Make a table for OSU018 technology without pi
 	   mkdir -p Pipelined-$$p; \
 	   cp multiplierCarry-Pipelined-$${p}.v Pipelined-$${p};\
 	   done; 
-	$(ScriptDir)/$(synrepScript) -N multiplierCarry -yp -b 4,8 -T osu018 -P 0 -R -F 1-8;
+	$(ScriptDir)/$(synrepScript) -N multiplierCarry -yp -b 4,8,16,32 -T osu018 -P 0 -R -F 1-8;
 	mv multiplierCarry-table.csv $(tableOSU018P0csv);
 	mv multiplierCarry-textable.tex $(tableOSU018P0tex);
-
-# $(ScriptDir)/$(synrepScript) -N multiplierCarry -yp -b 4,8,16,32 -T osu018 -P 0 -R -F 1-8;
 
 tableOSU018Ph:                 ### Make a table for OSU018 technology with one pipeline stage
 	for p in 0 h; \

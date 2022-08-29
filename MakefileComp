@@ -1,0 +1,39 @@
+# -*- mode: makefile -*-
+
+.DEFAULT_GOAL := help
+.PHONY: help
+
+# This makefile generates a report table with the help of a script and
+# copies the resulting Latex file to the target directory.
+
+directories :=  ETC\
+		Scipts\
+		Ch03-ModelingBasics\
+		Ch04-ModelingLatchesDelays\
+		Ch05-RTL\
+		Ch06-FPGAArchitecture\
+		Ch08-Datapath\
+		Ch09-FSM\
+		Ch10-Communication
+
+Local4GitFiles := Readme.md LICENSE.txt
+
+serveReadme: Readme.md    ### start an html server and open a browser tab for the Readme.md file
+	grip -b $<
+
+showReadme:  Readme.md  ### show the readme file in the browser
+	pandoc -t html  -o Readme.html $<; firefox Readme.html
+
+helpc:
+	@echo "For a detailed explanation of the organization  of this directory,";\
+	echo " see the Readme.md file.";
+
+Readme.md: Readme-raw.md
+	tree -L 2  --noreport -d -I 'Old*' -o tmptree.txt;
+	awk ' {  if (NF == 1 && $$1 == "<INSERTDIRTREE>") {\
+		    while ((getline line < "tmptree.txt") > 0) { \
+	             	  printf "      "; print line;\
+			}\
+		    close("tmptree.txt"); \
+		    } else { print }\
+		}' $< > $@

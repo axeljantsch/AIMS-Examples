@@ -4,7 +4,7 @@
 include ../ETC/setup.mk
 
 # Set chapter:
-chapter := 05-RTL
+chapter := 10-Communication
 
 # Use the template for for leafe directories:
 include $(MkBase)/IntermediateTemplate.mk

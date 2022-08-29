@@ -147,11 +147,9 @@ tableOSU018:                 ### Make table 3 for the osu018 technology
 	   mkdir -p Pipelined-$$p; \
 	   cp multiplierArray-Pipelined-$${p}.v Pipelined-$${p}; \
            done; \
-	$(ScriptDir)/$(synrepScript) -N multiplierArray -yp -b 4,8 -T osu018 -P 0,h -R -F 1-5,7-10;
+	$(ScriptDir)/$(synrepScript) -N multiplierArray -yp -b 4,8,16,32,64 -T osu018 -P 0,h -R -F 1-5,7-10;
 	mv multiplierArray-table.csv $(tableOSU018csv);
 	mv multiplierArray-textable.tex $(tableOSU018tex);
-
-#	$(ScriptDir)/$(synrepScript) -N multiplierArray -yp -b 4,8,16,32,64 -T osu018 -P 0,h -R -F 1-5,7-10;
 
 repResult: tableModel tableLP8K tableOSU018   ### Generate all three tables for the Book
 

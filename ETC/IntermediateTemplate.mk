@@ -36,7 +36,9 @@ copygit: copygitSet recTarget           ## Copy results files to the gihub repos
 	@if [ "_$(Local4GitFiles)" \!= "_" ];\
 	then 	echo "Copying local files";\
 		cp $(Local4GitFiles) $(githubdir); \
-	fi
+	fi;\
+	cp Makefile MakefileComp $(githubdir)
+
 copygitSet:
 	$(eval target="copygit")
 
