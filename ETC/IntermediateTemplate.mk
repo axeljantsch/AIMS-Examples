@@ -16,11 +16,14 @@ logF2 := tmplog2.txt
 
 # Setting directories:
 texdir    := $(texdirGBase)/`pwd | sed 's-/.*/--'`
-githubdir := $(githubdirBase)/`pwd | sed 's-/.*/--'`
+githubdir := $(githubdirBase)/`pwd | sed 's|/.*AIMS-Book-Examples||'`
 
 # Subdirectories to be managed should be in variable
 # directories :=  
 
+tst:
+	echo $(texdir)
+	echo $(githubdir)
 
 copy: copySet recTarget              ## Copy result files to the Latex target directorygihub
 	@echo "Copying local files"; \
@@ -32,7 +35,7 @@ copySet:
 copygit: copygitSet recTarget           ## Copy results files to the gihub repository
 	@if [ "_$(Local4GitFiles)" \!= "_" ];\
 	then 	echo "Copying local files";\
-		cp $(Local4GitFiles) $(guthubdir); \
+		cp $(Local4GitFiles) $(githubdir); \
 	fi
 copygitSet:
 	$(eval target="copygit")
