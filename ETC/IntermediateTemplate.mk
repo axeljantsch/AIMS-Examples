@@ -12,6 +12,7 @@
 
 # Variables:
 logF := tmplog.txt
+logF2 := tmplog2.txt
 
 # Setting directories:
 texdir    := $(texdirGBase)/`pwd | sed 's-/.*/--'`
@@ -53,9 +54,14 @@ recTarget:           # Recrusive targe in sub directories with error logging
 	   make -C $$d $(target) 2>&1 | tee -a $(logF) | awk '{printf ".";}' ;\
 	   echo "";\
 	   done;\
-	if grep -qsi error $(logF); \
+	# Filter out error messages that are expected: \
+	sed -e 's/0 errors/Expected message removed/g' $(logF) \
+	    | awk '/ERROR: Max frequency for clock/ {getline; getline; print "Expected message removed";} \
+			{ print}' > $(logF2); \
+	if grep -qsi error $(logF2); \
 	then echo "Error ocurred; check logfile $(logF)"; \
 	     fi; \
+	rm -f $(logF2)
 
 help:   helpc           ## Help 
 	@echo "Generic Targets:"; \
